@@ -52,15 +52,15 @@ public class EnemyMover : Mover
 
     IEnumerator PatrolRoutine()
     {
-        Vector3 startPosition = new Vector3(currentNode.Coordinate.x, 0f, currentNode.Coordinate.y);
+        Vector3 startPosition = new Vector3(m_currentNode.Coordinate.x, 0f, m_currentNode.Coordinate.y);
         
         // where the enemy will move on. The startPosition on the board + the 2-unit direction
-        Vector3 destinationPosition = transform.TransformVector(directionToMove) + startPosition;
+        Vector3 newDestination = startPosition + transform.TransformVector(directionToMove);
         
         // two space moving on
-        Vector3 nextDestination = startPosition + transform.TransformVector(directionToMove*2);
+        Vector3 nextDestination = startPosition + transform.TransformVector(directionToMove * 2f);
         
-        Move(destinationPosition, 0f);
+        Move(newDestination, 0f);
         
         while (isMoving)
         {
@@ -69,10 +69,10 @@ public class EnemyMover : Mover
 
         if(m_board != null)
         {
-            Node destinationNode = m_board.FindNodeAt(destinationPosition);
+            Node newDestNode = m_board.FindNodeAt(newDestination);
             Node nextDestinationNode = m_board.FindNodeAt(nextDestination);
             
-            if(nextDestinationNode == null || !destinationNode.LinkedNodes.Contains(nextDestinationNode))
+            if(nextDestinationNode == null || !newDestNode.LinkedNodes.Contains(nextDestinationNode))
             {
                 destination = startPosition;
                 FaceDestination();

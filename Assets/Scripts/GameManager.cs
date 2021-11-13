@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     bool hasLevelFinish= false;
     public float delay = 1f;
     public GameObject[] goalComplete;
-    public GameObject passwordCanvas;
+    public GameObject[] passwordCanvas;
 
     List<EnemyManager> enemies;
     Turn currentTurn = Turn.Player;
@@ -282,7 +282,10 @@ public class GameManager : MonoBehaviour
 
     public void CloseCanvas()
     {
-        passwordCanvas.SetActive(false);
+        for(int i=0; i<=passwordCanvas.Length; i++)
+        {
+            passwordCanvas[i].SetActive(false);
+        }
     }
 
 }

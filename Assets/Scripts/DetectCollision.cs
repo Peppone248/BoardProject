@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class DetectCollision : MonoBehaviour
 {
+    public GameObject pswClue1;
+    public GameObject[] padlocks;
+    //public bool isDiscover1=false;
 
     public void Awake()
     {
-        passwordTxt.SetActive(false);
+        pswClue1.SetActive(false);
+
     }
-    public GameObject passwordTxt;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name=="Hitman")
-        {
-            Destroy(gameObject);
-            passwordTxt.SetActive(true);
+        if(other.gameObject.name == "Hitman")
+            {
+                Destroy(gameObject);
+                pswClue1.SetActive(true);
+                //isDiscover1 = true;
+            } 
         }
-    }
 
 }
