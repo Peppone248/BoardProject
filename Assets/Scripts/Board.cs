@@ -22,10 +22,12 @@ public class Board : MonoBehaviour
     public Node PlayerNode { get { return m_playerNode; } }
     Node m_goalNode;
     Node doorNode;
+    Node computerNode;
     public Node GoalNode { get { return m_goalNode; } }
 
     public GameObject goalPrefab;
     public GameObject doorPrefab;
+    public GameObject computerPrefab;
     public float drawGoalTime = 1.2f;
     public float drawGoalDelay = 1.2f;
     public iTween.EaseType drawGoalEaseType = iTween.EaseType.easeOutExpo;
@@ -50,6 +52,7 @@ public class Board : MonoBehaviour
 
         m_goalNode = FindGoalNode();
         doorNode = FindDoorNode();
+        computerNode = FindComputerNode();
     }
 
     public void GetNodeList()
@@ -72,6 +75,11 @@ public class Board : MonoBehaviour
     private Node FindDoorNode()
     {
         return m_allNodes.Find(n => n.isDoorNode);
+    }
+
+    private Node FindComputerNode()
+    {
+        return m_allNodes.Find(n => n.isComputerNode);
     }
 
     public Node FindPlayerNode()
@@ -102,7 +110,6 @@ public class Board : MonoBehaviour
     public void UpdatePlayerNode()
     {
         m_playerNode = FindPlayerNode();
-       //StopPlayerOnDoor();
     }
 
     private void OnDrawGizmos()
@@ -123,18 +130,35 @@ public class Board : MonoBehaviour
     public void DrawGoal()
     {
         Vector3 centerDoor = new Vector3(-0.5f, 0f, 0f);
+        Vector3 computerPosition = new Vector3(0f, 0.7f, 0f);
+        
+        if(doorPrefab != null && doorNode != null)
+        {
+            GameObject doorInstance = Instantiate(doorPrefab, doorNode.transform.position + centerDoor, Quaternion.identity);
+            
+            iTween.ScaleFrom(doorInstance, iTween.Hash(
+               "scale", Vector3.zero,
+               "delay", drawGoalDelay,
+               "time", drawGoalTime));
+        }
+        
         if(goalPrefab != null && m_goalNode != null)
         {
             GameObject goalInstance = Instantiate(goalPrefab, m_goalNode.transform.position, Quaternion.identity);
-            GameObject doorInstance = Instantiate(doorPrefab, doorNode.transform.position + centerDoor, Quaternion.identity);
-            
+          
             iTween.ScaleFrom(goalInstance, iTween.Hash(
                 "scale", Vector3.zero,
                 "delay", drawGoalDelay,
                 "time", drawGoalTime,
                 "easetype", drawGoalEaseType));
+           
+        }
 
-            iTween.ScaleFrom(doorInstance, iTween.Hash(
+        if(computerPrefab != null && computerNode != null)
+        {
+            GameObject computerInstance = Instantiate(computerPrefab, computerNode.transform.position + computerPosition, Quaternion.Euler(0f,-90f, 0f));
+
+            iTween.ScaleFrom(computerInstance, iTween.Hash(
                "scale", Vector3.zero,
                "delay", drawGoalDelay,
                "time", drawGoalTime));
@@ -152,28 +176,74 @@ public class Board : MonoBehaviour
 
     public bool StopPlayerOnDoor()
     {
-        Vector3 spacingZ = new Vector3(0f,0f,2f);
+        Vector3 spacingZ = new Vector3(0f, 0f, 2f);
         Vector3 spacingX = new Vector3(2f, 0f, 0f);
-        if (FindNodeAt(m_player.transform.position + spacingZ).isDoorNode || FindNodeAt(m_player.transform.position + spacingX).isDoorNode)
+        
+        try
         {
-            insertPsw.gameObject.SetActive(true);
-            Debug.Log("HAI DAVANTI UNA PORTA!");
-            pswFromField = passwordTyped.text;
-            if (pswFromField.Equals(password))
+            if (FindNodeAt(m_player.transform.position + spacingZ).isDoorNode || FindNodeAt(m_player.transform.position + spacingX).isDoorNode)
             {
-                Debug.Log("psw correct");
-                insertPsw.gameObject.SetActive(false);
-                return true;
-                //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
+                insertPsw.gameObject.SetActive(true);
+                Debug.Log("HAI DAVANTI UNA PORTA!");
+                pswFromField = passwordTyped.text;
+                if (pswFromField.Equals(password))
+                {
+                    Debug.Log("psw correct");
+                    insertPsw.gameObject.SetActive(false);
+                    return true;
+                    //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
+                }
+                else
+                    return false;
             }
             else
+            {
+                insertPsw.gameObject.SetActive(false);
+                Debug.Log("VIA LIBERA");
                 return false;
+            }
         }
-        else
+        catch
         {
-            insertPsw.gameObject.SetActive(false);
-            Debug.Log("VIA LIBERA");
+            Debug.Log("No porte in questo livello.");
             return false;
         }
+    }
+
+    public bool StopPlayerOnPC()
+    {
+        Vector3 spacingZ = new Vector3(0f, 0f, 2f);
+        Vector3 spacingX = new Vector3(2f, 0f, 0f);
+
+        try
+        {
+            if (FindNodeAt(m_player.transform.position + spacingZ).isComputerNode || FindNodeAt(m_player.transform.position + spacingX).isComputerNode)
+            {
+                insertPsw.gameObject.SetActive(true);
+                Debug.Log("HAI DAVANTI UNA PORTA!");
+                pswFromField = passwordTyped.text;
+                if (pswFromField.Equals(password))
+                {
+                    Debug.Log("psw correct");
+                    insertPsw.gameObject.SetActive(false);
+                    return true;
+                    //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
+                }
+                else
+                    return false;
+            }
+            else
+            {
+                insertPsw.gameObject.SetActive(false);
+                Debug.Log("VIA LIBERA");
+                return false;
+            }
+        }
+        catch
+        {
+            Debug.Log("No porte in questo livello.");
+            return false;
+        }
+
     }
 }

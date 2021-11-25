@@ -167,14 +167,14 @@ public class Mover : MonoBehaviour
         Vector3 relativePosition = destination - transform.position;
 
         // vector direction converted to a Quaternion rotation
-        Quaternion newRotation = Quaternion.LookRotation(relativePosition, Vector3.up); 
+        Quaternion newRotation = Quaternion.LookRotation(relativePosition, Vector3.left); 
 
         // euler angle y component 
         float newY = newRotation.eulerAngles.y;
 
         // iTween rotate
         iTween.RotateTo(gameObject, iTween.Hash(
-            "y", newY,
+            "y", newRotation.eulerAngles.y,
             "delay", 0f,
             "easetype", easeType,
             "time", rotateTime

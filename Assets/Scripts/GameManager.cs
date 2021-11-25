@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
 
             StopPlayer();
             // check for GameOVER CONDITIONS
-            //win reach the end of the level
+            // win reach the end of the level
 
             // lose - player dies
             yield return null;
@@ -177,6 +177,7 @@ public class GameManager : MonoBehaviour
     {
         if(m_board.PlayerNode != null && m_board.PlayerNode == m_board.GoalNode)
         {
+            Debug.Log("Hai vinto!");
             return true;
         }
         else

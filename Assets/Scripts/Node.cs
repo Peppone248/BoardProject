@@ -39,6 +39,7 @@ public class Node : MonoBehaviour
 
     public bool isLevelGoal = false;
     public bool isDoorNode = false;
+    public bool isComputerNode = false;
 
     void Awake()
     {
