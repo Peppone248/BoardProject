@@ -23,15 +23,18 @@ public class Board : MonoBehaviour
     Node m_goalNode;
     Node doorNode;
     Node computerNode;
+    Color g = Color.green;
     public Node GoalNode { get { return m_goalNode; } }
 
     public GameObject goalPrefab;
     public GameObject doorPrefab;
     public GameObject computerPrefab;
+    public Light[] spotLight;
     public float drawGoalTime = 1.2f;
     public float drawGoalDelay = 1.2f;
     public iTween.EaseType drawGoalEaseType = iTween.EaseType.easeOutExpo;
     PlayerMover m_player;
+    PlayerManager play;
 
     public List<Transform> capturePosition;
     public int currentCapturedPosition = 0;
@@ -48,6 +51,7 @@ public class Board : MonoBehaviour
     void Awake()
     {
         m_player = Object.FindObjectOfType<PlayerMover>().GetComponent<PlayerMover>();
+        play = Object.FindObjectOfType<PlayerManager>().GetComponent<PlayerManager>();
         GetNodeList();
 
         m_goalNode = FindGoalNode();
@@ -110,6 +114,7 @@ public class Board : MonoBehaviour
     public void UpdatePlayerNode()
     {
         m_playerNode = FindPlayerNode();
+        DiscoveredByCam();
     }
 
     private void OnDrawGizmos()
@@ -214,10 +219,11 @@ public class Board : MonoBehaviour
     {
         Vector3 spacingZ = new Vector3(0f, 0f, 2f);
         Vector3 spacingX = new Vector3(2f, 0f, 0f);
+        Vector3 oneSpaceX = new Vector3(1f, 0f, 0f);
 
         try
         {
-            if (FindNodeAt(m_player.transform.position + spacingZ).isComputerNode || FindNodeAt(m_player.transform.position + spacingX).isComputerNode)
+            if (FindNodeAt(m_player.transform.position + spacingZ).isComputerNode || FindNodeAt(m_player.transform.position + oneSpaceX).isComputerNode)
             {
                 insertPsw.gameObject.SetActive(true);
                 Debug.Log("HAI DAVANTI UNA PORTA!");
@@ -226,6 +232,9 @@ public class Board : MonoBehaviour
                 {
                     Debug.Log("psw correct");
                     insertPsw.gameObject.SetActive(false);
+                    spotLight[0].color = g;
+                    spotLight[1].color = g;
+
                     return true;
                     //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
                 }
@@ -244,6 +253,14 @@ public class Board : MonoBehaviour
             Debug.Log("No porte in questo livello.");
             return false;
         }
+    }
 
+    public void DiscoveredByCam()
+    {
+       /* if(m_playerNode == securityCamNode && spotLight.color!=g)
+        {
+            play.Die();
+            LoseLevel();
+        } */
     }
 }

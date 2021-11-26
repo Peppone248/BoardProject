@@ -288,5 +288,4 @@ public class GameManager : MonoBehaviour
             passwordCanvas[i].SetActive(false);
         }
     }
-
 }
