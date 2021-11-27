@@ -44,6 +44,7 @@ public class Board : MonoBehaviour
     public Color capturePosIconColor = Color.red;
     //public Canvas pressAKey;
     public Canvas insertPsw;
+    public Canvas scanScreen;
     public InputField passwordTyped;
     public string pswFromField;
     public string password = "1234";
@@ -114,7 +115,6 @@ public class Board : MonoBehaviour
     public void UpdatePlayerNode()
     {
         m_playerNode = FindPlayerNode();
-        DiscoveredByCam();
     }
 
     private void OnDrawGizmos()
@@ -210,7 +210,7 @@ public class Board : MonoBehaviour
         }
         catch
         {
-            Debug.Log("No porte in questo livello.");
+            //Debug.Log("No porte in questo livello.");
             return false;
         }
     }
@@ -232,9 +232,9 @@ public class Board : MonoBehaviour
                 {
                     Debug.Log("psw correct");
                     insertPsw.gameObject.SetActive(false);
+                    scanScreen.gameObject.SetActive(true);
                     spotLight[0].color = g;
                     spotLight[1].color = g;
-
                     return true;
                     //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
                 }
@@ -250,17 +250,8 @@ public class Board : MonoBehaviour
         }
         catch
         {
-            Debug.Log("No porte in questo livello.");
+            //Debug.Log("No porte in questo livello.");
             return false;
         }
-    }
-
-    public void DiscoveredByCam()
-    {
-       /* if(m_playerNode == securityCamNode && spotLight.color!=g)
-        {
-            play.Die();
-            LoseLevel();
-        } */
     }
 }

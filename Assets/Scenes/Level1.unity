@@ -2810,6 +2810,8 @@ MonoBehaviour:
     type: 3}
   doorPrefab: {fileID: 4543902309502262397, guid: 7f5dfc76f6b58b3428c1e04e9852ec86,
     type: 3}
+  computerPrefab: {fileID: 0}
+  spotLight: []
   drawGoalTime: 1.7
   drawGoalDelay: 2
   drawGoalEaseType: 16
@@ -2822,6 +2824,7 @@ MonoBehaviour:
   capturePosIconSize: 0.4
   capturePosIconColor: {r: 1, g: 0, b: 0, a: 1}
   insertPsw: {fileID: 0}
+  scanScreen: {fileID: 0}
   passwordTyped: {fileID: 0}
   pswFromField: 
   password: 1234

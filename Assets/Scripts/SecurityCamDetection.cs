@@ -7,7 +7,7 @@ public class SecurityCamDetection : MonoBehaviour
 
     GameManager game;
     PlayerManager player;
-    Light spotlight;
+    public Light spotlight;
     Color g = Color.green;
 
     private void Awake()
@@ -20,7 +20,7 @@ public class SecurityCamDetection : MonoBehaviour
     {
         if(other.gameObject.name == "Hitman")
         {
-            if(spotlight.color != g)
+            if(spotlight.color != Color.green)
             {
                 Debug.Log("Sei Morto");
                 player.Die();
