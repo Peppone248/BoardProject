@@ -3154,6 +3154,7 @@ MonoBehaviour:
   - {fileID: 889991078}
   - {fileID: 29514234}
   passwordCanvas: []
+  pswCluesLvl2: []
   setupEvent:
     m_PersistentCalls:
       m_Calls:

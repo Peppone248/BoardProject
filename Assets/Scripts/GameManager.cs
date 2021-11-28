@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public float delay = 1f;
     public GameObject[] goalComplete;
     public GameObject[] passwordCanvas;
+    public GameObject[] pswCluesLvl2;
 
     List<EnemyManager> enemies;
     Turn currentTurn = Turn.Player;
@@ -283,20 +284,20 @@ public class GameManager : MonoBehaviour
 
     public void GoalCompletedLvl2()
     {
-        if (AreEnemiesAllDead())
+        if (pswCluesLvl2[0] == null && pswCluesLvl2[1] == null)
+        {
+            goalComplete[0].SetActive(false);
+        }
+        else
+            goalComplete[0].SetActive(true);
+
+        if (player.countTurn <= 15)
         {
             goalComplete[1].SetActive(true);
+
         }
         else
             goalComplete[1].SetActive(false);
-
-        if (player.countTurn <= 8)
-        {
-            goalComplete[0].SetActive(true);
-
-        }
-        else
-            goalComplete[0].SetActive(false);
     }
 
     public void CloseCanvas()

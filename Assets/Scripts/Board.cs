@@ -48,6 +48,7 @@ public class Board : MonoBehaviour
     public InputField passwordTyped;
     public string pswFromField;
     public string password = "1234";
+    public string pswSecurityCam = "camera";
 
     void Awake()
     {
@@ -217,24 +218,25 @@ public class Board : MonoBehaviour
 
     public bool StopPlayerOnPC()
     {
-        Vector3 spacingZ = new Vector3(0f, 0f, 2f);
-        Vector3 spacingX = new Vector3(2f, 0f, 0f);
+       /* Vector3 spacingZ = new Vector3(0f, 0f, 2f);
+        Vector3 spacingX = new Vector3(2f, 0f, 0f); */
         Vector3 oneSpaceX = new Vector3(1f, 0f, 0f);
 
         try
         {
-            if (FindNodeAt(m_player.transform.position + spacingZ).isComputerNode || FindNodeAt(m_player.transform.position + oneSpaceX).isComputerNode)
+            if (FindNodeAt(m_player.transform.position + oneSpaceX).isComputerNode && m_player.isMoving==false)
             {
                 insertPsw.gameObject.SetActive(true);
                 Debug.Log("HAI DAVANTI UNA PORTA!");
                 pswFromField = passwordTyped.text;
-                if (pswFromField.Equals(password))
+                if (pswFromField.Equals(pswSecurityCam))
                 {
                     Debug.Log("psw correct");
                     insertPsw.gameObject.SetActive(false);
                     scanScreen.gameObject.SetActive(true);
                     spotLight[0].color = g;
                     spotLight[1].color = g;
+                    spotLight[2].color = g;
                     return true;
                     //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
                 }
