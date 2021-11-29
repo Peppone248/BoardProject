@@ -174,7 +174,7 @@ public class Mover : MonoBehaviour
 
         // iTween rotate
         iTween.RotateTo(gameObject, iTween.Hash(
-            "y", newRotation.eulerAngles.y,
+            "y", newY,
             "delay", 0f,
             "easetype", easeType,
             "time", rotateTime

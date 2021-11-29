@@ -47,7 +47,7 @@ public class Board : MonoBehaviour
     public Canvas scanScreen;
     public InputField passwordTyped;
     public string pswFromField;
-    public string password = "1234";
+    public string[] password = {"1234", "3142", "2413", "1243", "3214", "4321", "4132", "1432", "1324"};
     public string pswSecurityCam = "camera";
 
     void Awake()
@@ -189,10 +189,11 @@ public class Board : MonoBehaviour
         {
             if (FindNodeAt(m_player.transform.position + spacingZ).isDoorNode || FindNodeAt(m_player.transform.position + spacingX).isDoorNode)
             {
+                int n = Random.Range(0, 9);
                 insertPsw.gameObject.SetActive(true);
                 Debug.Log("HAI DAVANTI UNA PORTA!");
                 pswFromField = passwordTyped.text;
-                if (pswFromField.Equals(password))
+                if (pswFromField==password[5])
                 {
                     Debug.Log("psw correct");
                     insertPsw.gameObject.SetActive(false);
