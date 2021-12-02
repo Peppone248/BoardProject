@@ -29,7 +29,6 @@ public class Board : MonoBehaviour
     public GameObject goalPrefab;
     public GameObject doorPrefab;
     public GameObject computerPrefab;
-    public Light[] spotLight;
     public float drawGoalTime = 1.2f;
     public float drawGoalDelay = 1.2f;
     public iTween.EaseType drawGoalEaseType = iTween.EaseType.easeOutExpo;
@@ -46,9 +45,13 @@ public class Board : MonoBehaviour
     public Canvas insertPsw;
     public Canvas scanScreen;
     public InputField passwordTyped;
+    public InputField usernameTyped;
     public string pswFromField;
+    public string usernameFromField;
     public string[] password = {"1234", "3142", "2413", "1243", "3214", "4321", "4132", "1432", "1324"};
-    public string pswSecurityCam = "camera";
+    string pswSecurityCam = "admin";
+    string usernameSecurityCam = "admin";
+
 
     void Awake()
     {
@@ -229,15 +232,13 @@ public class Board : MonoBehaviour
             {
                 insertPsw.gameObject.SetActive(true);
                 Debug.Log("HAI DAVANTI UNA PORTA!");
+                usernameFromField = usernameTyped.text;
                 pswFromField = passwordTyped.text;
-                if (pswFromField.Equals(pswSecurityCam))
+                if (pswFromField.Equals(pswSecurityCam) && usernameFromField.Equals(usernameSecurityCam))
                 {
                     Debug.Log("psw correct");
                     insertPsw.gameObject.SetActive(false);
                     scanScreen.gameObject.SetActive(true);
-                    spotLight[0].color = g;
-                    spotLight[1].color = g;
-                    spotLight[2].color = g;
                     return true;
                     //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
                 }

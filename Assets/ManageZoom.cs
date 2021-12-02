@@ -5,9 +5,9 @@ using UnityEngine;
 public class ManageZoom : MonoBehaviour
 {
     public Camera cameraOnBlueEnemy;
-    public float defaultFov = 50;
-    public float zoomMultiplier = 3;
-    public float zoomDuration = 0.05f;
+    float defaultFov = 50;
+    public float zoomMultiplier = 5;
+    float zoomDuration = 0.0065f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,18 +21,28 @@ public class ManageZoom : MonoBehaviour
         if (gameObject.activeSelf)
         {
             ZoomCamera(defaultFov / zoomMultiplier);
+            StartCoroutine(myWaitCoroutine());
+
+        } else if (cameraOnBlueEnemy.fieldOfView != defaultFov)
+        {
+            ZoomCamera(defaultFov);
         }
        
     }
 
     void ZoomCamera(float target)
     {
-        Debug.Log(target.ToString());
-
         float angle = Mathf.Abs((defaultFov / zoomMultiplier) - defaultFov);
-        Debug.Log(angle.ToString());
-
         cameraOnBlueEnemy.fieldOfView = Mathf.MoveTowards(cameraOnBlueEnemy.fieldOfView, target, angle / zoomDuration * Time.deltaTime);
-        Debug.Log(cameraOnBlueEnemy.fieldOfView.ToString());
+        Debug.Log(cameraOnBlueEnemy.fieldOfView);
+        //cameraOnBlueEnemy.transform.Translate(new Vector3(1.2f, 0f, 0f));
     }
+
+    IEnumerator myWaitCoroutine()
+    {
+        yield return new WaitForSeconds(3f);// Wait for one second
+        gameObject.SetActive(false);
+    }
+    
+
 }

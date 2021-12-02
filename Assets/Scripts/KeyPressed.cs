@@ -13,7 +13,6 @@ public class KeyPressed : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //blueEnemyDescription.gameObject.SetActive(false);
         gameObject.SetActive(false);
         if (activateOnStart) 
             ActivateDelayed();
