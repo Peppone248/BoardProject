@@ -29,11 +29,12 @@ public class Board : MonoBehaviour
     public GameObject goalPrefab;
     public GameObject doorPrefab;
     public GameObject computerPrefab;
+    public Light[] pointLight;
     public float drawGoalTime = 1.2f;
     public float drawGoalDelay = 1.2f;
     public iTween.EaseType drawGoalEaseType = iTween.EaseType.easeOutExpo;
     PlayerMover m_player;
-    PlayerManager play;
+    PlayerInput playInput;
 
     public List<Transform> capturePosition;
     public int currentCapturedPosition = 0;
@@ -56,7 +57,7 @@ public class Board : MonoBehaviour
     void Awake()
     {
         m_player = Object.FindObjectOfType<PlayerMover>().GetComponent<PlayerMover>();
-        play = Object.FindObjectOfType<PlayerManager>().GetComponent<PlayerManager>();
+        playInput = Object.FindObjectOfType<PlayerInput>().GetComponent<PlayerInput>();
         GetNodeList();
 
         m_goalNode = FindGoalNode();
@@ -236,9 +237,14 @@ public class Board : MonoBehaviour
                 pswFromField = passwordTyped.text;
                 if (pswFromField.Equals(pswSecurityCam) && usernameFromField.Equals(usernameSecurityCam))
                 {
+                    playInput.InputEnabled = false;
                     Debug.Log("psw correct");
                     insertPsw.gameObject.SetActive(false);
                     scanScreen.gameObject.SetActive(true);
+                    if(pointLight[0].color == g && pointLight[1].color == g && pointLight[2].color == g)
+                    {
+                        playInput.InputEnabled = true;
+                    }
                     return true;
                     //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
                 }

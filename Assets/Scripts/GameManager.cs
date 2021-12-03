@@ -264,7 +264,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void GoalCompletedLvl1()
+    public void GoalCompletedLvl0()
     {
         if (AreEnemiesAllDead())
         {
@@ -282,7 +282,7 @@ public class GameManager : MonoBehaviour
             goalComplete[0].SetActive(false);
     }
 
-    public void GoalCompletedLvl2()
+    public void GoalCompletedLvl1()
     {
         if (pswCluesLvl2[0] == null && pswCluesLvl2[1] == null)
         {
