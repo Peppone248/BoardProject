@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 {
     Board m_board;
     PlayerManager player;
+    PlayerInput p_input;
     bool hasLevelStarted = false;
     bool isGamePlaying = false;
     bool isGameOver = false;
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
     {
         m_board = Object.FindObjectOfType<Board>().GetComponent<Board>();
         player = GameObject.FindObjectOfType<PlayerManager>().GetComponent<PlayerManager>();
+        p_input = Object.FindObjectOfType<PlayerInput>().GetComponent<PlayerInput>();
         EnemyManager[] t_enemies = GameObject.FindObjectsOfType<EnemyManager>() as EnemyManager[];
         enemies = t_enemies.ToList();
       
@@ -300,11 +302,8 @@ public class GameManager : MonoBehaviour
             goalComplete[1].SetActive(false);
     }
 
-    public void CloseCanvas()
+    public void UnlockInput()
     {
-        for(int i=0; i<=passwordCanvas.Length; i++)
-        {
-            passwordCanvas[i].SetActive(false);
-        }
+        p_input.InputEnabled = true;
     }
 }

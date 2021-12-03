@@ -30,8 +30,8 @@ public class Board : MonoBehaviour
     public GameObject doorPrefab;
     public GameObject computerPrefab;
     public Light[] pointLight;
-    public float drawGoalTime = 1.2f;
-    public float drawGoalDelay = 1.2f;
+    float drawGoalTime = 1f;
+    float drawGoalDelay = 0.3f;
     public iTween.EaseType drawGoalEaseType = iTween.EaseType.easeOutExpo;
     PlayerMover m_player;
     PlayerInput playInput;
@@ -191,7 +191,7 @@ public class Board : MonoBehaviour
         
         try
         {
-            if (FindNodeAt(m_player.transform.position + spacingZ).isDoorNode || FindNodeAt(m_player.transform.position + spacingX).isDoorNode)
+            if ((FindNodeAt(m_player.transform.position + spacingZ).isDoorNode || FindNodeAt(m_player.transform.position + spacingX).isDoorNode) && m_player.isMoving == false)
             {
                 int n = Random.Range(0, 9);
                 insertPsw.gameObject.SetActive(true);
