@@ -20,12 +20,11 @@ public class DetectCollision : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Hitman")
-           {
-             player.InputEnabled = false;
-             Destroy(gameObject);
-             pswClue1.SetActive(true);
-                //isDiscover1 = true;
-            }
+        {
+            player.InputEnabled = false;
+            Destroy(gameObject);
+            pswClue1.SetActive(true);
+            //isDiscover1 = true;
         }
     }
 }
