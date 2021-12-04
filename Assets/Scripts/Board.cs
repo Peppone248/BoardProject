@@ -195,7 +195,7 @@ public class Board : MonoBehaviour
             {
                 int n = Random.Range(0, 9);
                 insertPsw.gameObject.SetActive(true);
-                Debug.Log("HAI DAVANTI UNA PORTA!");
+                //Debug.Log("HAI DAVANTI UNA PORTA!");
                 pswFromField = passwordTyped.text;
                 if (pswFromField==password[5])
                 {
@@ -210,7 +210,7 @@ public class Board : MonoBehaviour
             else
             {
                 insertPsw.gameObject.SetActive(false);
-                Debug.Log("VIA LIBERA");
+                //Debug.Log("VIA LIBERA");
                 return false;
             }
         }
@@ -232,7 +232,7 @@ public class Board : MonoBehaviour
             if (FindNodeAt(m_player.transform.position + oneSpaceX).isComputerNode && m_player.isMoving==false)
             {
                 insertPsw.gameObject.SetActive(true);
-                Debug.Log("HAI DAVANTI UNA PORTA!");
+                //Debug.Log("HAI DAVANTI UNA PORTA!");
                 usernameFromField = usernameTyped.text;
                 pswFromField = passwordTyped.text;
                 if (pswFromField.Equals(pswSecurityCam) && usernameFromField.Equals(usernameSecurityCam))
@@ -254,7 +254,7 @@ public class Board : MonoBehaviour
             else
             {
                 insertPsw.gameObject.SetActive(false);
-                Debug.Log("VIA LIBERA");
+                //Debug.Log("VIA LIBERA");
                 return false;
             }
         }
