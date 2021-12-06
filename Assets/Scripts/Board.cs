@@ -29,7 +29,10 @@ public class Board : MonoBehaviour
     public GameObject goalPrefab;
     public GameObject doorPrefab;
     public GameObject computerPrefab;
+    public GameObject mainCamera;
+    public GameObject retroCamera;
     public Light[] pointLight;
+
     float drawGoalTime = 1f;
     float drawGoalDelay = 0.3f;
     public iTween.EaseType drawGoalEaseType = iTween.EaseType.easeOutExpo;
@@ -223,8 +226,6 @@ public class Board : MonoBehaviour
 
     public bool StopPlayerOnPC()
     {
-       /* Vector3 spacingZ = new Vector3(0f, 0f, 2f);
-        Vector3 spacingX = new Vector3(2f, 0f, 0f); */
         Vector3 oneSpaceX = new Vector3(1f, 0f, 0f);
 
         try
@@ -246,7 +247,6 @@ public class Board : MonoBehaviour
                         playInput.InputEnabled = true;
                     }
                     return true;
-                    //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
                 }
                 else
                     return false;
@@ -262,6 +262,16 @@ public class Board : MonoBehaviour
         {
             //Debug.Log("No porte in questo livello.");
             return false;
+        }
+    }
+
+    // Change camera of the level when the player open the door
+    public void ChangeCameraOnNode()
+    {
+        if(m_playerNode == doorNode)
+        {
+            mainCamera.SetActive(false);
+            retroCamera.SetActive(true);
         }
     }
 }

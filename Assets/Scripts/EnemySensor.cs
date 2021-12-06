@@ -25,10 +25,10 @@ public class EnemySensor : MonoBehaviour
         {
             nodeToSearch = m_board.FindNodeAt(worldSpacePosition);
 
-            if (!enemyNode.LinkedNodes.Contains(nodeToSearch))
+           /* if (!enemyNode.LinkedNodes.Contains(nodeToSearch))
             {
                 playerFound = false;
-            }
+            } */
 
             if (nodeToSearch == m_board.PlayerNode)
             {

@@ -20,6 +20,7 @@ public class DoorDetect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        m_board.ChangeCameraOnNode();
         if (m_board.StopPlayerOnDoor())
         {
             iTween.RotateTo(gameObject, iTween.Hash(
