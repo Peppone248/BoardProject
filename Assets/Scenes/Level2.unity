@@ -3432,6 +3432,9 @@ MonoBehaviour:
     type: 3}
   computerPrefab: {fileID: 4604997322381921706, guid: 4a784ce69c77d5a41bdc18d8696bace9,
     type: 3}
+  metalDoorPrefab: {fileID: 0}
+  mainCamera: {fileID: 0}
+  retroCamera: {fileID: 0}
   pointLight:
   - {fileID: 1907823933}
   - {fileID: 1365268352}

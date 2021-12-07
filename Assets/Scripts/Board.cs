@@ -23,12 +23,15 @@ public class Board : MonoBehaviour
     Node m_goalNode;
     Node doorNode;
     Node computerNode;
+    Node keyNode;
     Color g = Color.green;
     public Node GoalNode { get { return m_goalNode; } }
 
     public GameObject goalPrefab;
     public GameObject doorPrefab;
     public GameObject computerPrefab;
+    public GameObject metalDoorPrefab;
+    //public GameObject keyPrefab;
     public GameObject mainCamera;
     public GameObject retroCamera;
     public Light[] pointLight;
@@ -45,7 +48,6 @@ public class Board : MonoBehaviour
 
     public float capturePosIconSize = 0.4f;
     public Color capturePosIconColor = Color.red;
-    //public Canvas pressAKey;
     public Canvas insertPsw;
     public Canvas scanScreen;
     public InputField passwordTyped;
@@ -66,6 +68,7 @@ public class Board : MonoBehaviour
         m_goalNode = FindGoalNode();
         doorNode = FindDoorNode();
         computerNode = FindComputerNode();
+        keyNode = FindKeyNode();
     }
 
     public void GetNodeList()
@@ -93,6 +96,11 @@ public class Board : MonoBehaviour
     private Node FindComputerNode()
     {
         return m_allNodes.Find(n => n.isComputerNode);
+    }
+
+    private Node FindKeyNode()
+    {
+        return m_allNodes.Find(n => n.isKeyNode);
     }
 
     public Node FindPlayerNode()
@@ -144,6 +152,7 @@ public class Board : MonoBehaviour
     {
         Vector3 centerDoor = new Vector3(-0.5f, 0f, 0f);
         Vector3 computerPosition = new Vector3(0f, 0.7f, 0f);
+        Vector3 keyPos = new Vector3(0f, 1.2f, 0f);
         
         if(doorPrefab != null && doorNode != null)
         {
@@ -176,6 +185,24 @@ public class Board : MonoBehaviour
                "delay", drawGoalDelay,
                "time", drawGoalTime));
         }
+
+        if(metalDoorPrefab != null && doorNode != null)
+        {
+            GameObject metalDoorInstance = Instantiate(metalDoorPrefab, doorNode.transform.position, Quaternion.Euler(0f, -90f, 0f));
+            iTween.ScaleFrom(metalDoorInstance, iTween.Hash(
+                "scale", Vector3.zero,
+                "delay", drawGoalDelay,
+                "time", drawGoalTime));
+        }
+
+       /* if(keyPrefab != null && keyNode != null)
+        {
+            GameObject keyInstance = Instantiate(keyPrefab, keyNode.transform.position, Quaternion.identity);
+            iTween.ScaleFrom(keyPrefab, iTween.Hash(
+                "scale", Vector3.zero,
+                "delay", drawGoalDelay,
+                "time", drawGoalTime));
+        } */
     }
 
     public void InitBoard()
