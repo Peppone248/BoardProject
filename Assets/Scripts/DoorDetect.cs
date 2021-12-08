@@ -30,24 +30,15 @@ public class DoorDetect : MonoBehaviour
             "easetype", iTween.EaseType.linear
         ));
         }
-        
-        if (m_board.StopPlayerOnMetalDoor())
-        {
-            //OpenDoorWithKey();
-        }
     }
 
     public void OpenDoorWithKey()
     {
-        Debug.Log(PlayerPrefs.GetInt("key").ToString());
-        if (PlayerPrefs.GetInt("key") == 1)
-        {
-            iTween.RotateTo(gameObject, iTween.Hash(
-            "y", -90,
+        iTween.RotateTo(gameObject, iTween.Hash(
+            "y", 90,
             "time", 0.7f,
             "speed", speed,
             "easetype", iTween.EaseType.linear
-        ));
-        }
+            ));
     }
 }

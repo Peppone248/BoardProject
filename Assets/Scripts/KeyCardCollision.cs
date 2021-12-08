@@ -5,6 +5,7 @@ using UnityEngine;
 public class KeyCardCollision : MonoBehaviour
 {
     Board m_board;
+    public bool isDestroyed;
     private void Awake()
     {
         m_board = Object.FindObjectOfType<Board>().GetComponent<Board>();
@@ -20,10 +21,13 @@ public class KeyCardCollision : MonoBehaviour
     {
         if(other.gameObject.name == "Hitman")
         {
-            Debug.Log("You got a key");
             Destroy(gameObject);
-            PlayerPrefs.SetInt("key", 1);
-            PlayerPrefs.Save();
+            iTween.RotateTo(GameObject.Find("MetalDoor(Clone)"), iTween.Hash(
+            "y", 90,
+            "time", 0.7f,
+            "speed", 70f,
+            "easetype", iTween.EaseType.linear
+            ));
         }
     }
 }

@@ -62,7 +62,6 @@ public class Board : MonoBehaviour
     public float capturePosIconSize = 0.4f;
     public Color capturePosIconColor = Color.red;
 
-    public Canvas unlockDoorWithKey;
     public Canvas insertPsw;
     public Canvas scanScreen;
     public Canvas terminalCanvas;
@@ -179,6 +178,7 @@ public class Board : MonoBehaviour
         Vector3 centerDoor = new Vector3(-0.5f, 0f, 0f);
         Vector3 computerPosition = new Vector3(0f, 0.7f, 0f);
         Vector3 terminalPos = new Vector3(0.15f, 1.3f, 0f);
+        Vector3 metalDoorPos = new Vector3(0.003f, 0f, 0.38f);
         
         if(doorPrefab != null && doorNode != null)
         {
@@ -214,7 +214,7 @@ public class Board : MonoBehaviour
 
         if(metalDoorPrefab != null && doorNode != null)
         {
-            GameObject metalDoorInstance = Instantiate(metalDoorPrefab, doorNode.transform.position, Quaternion.Euler(0f, -90f, 0f));
+            GameObject metalDoorInstance = Instantiate(metalDoorPrefab, doorNode.transform.position + metalDoorPos, Quaternion.identity);
             iTween.ScaleFrom(metalDoorInstance, iTween.Hash(
                 "scale", Vector3.zero,
                 "delay", drawGoalDelay,
@@ -354,32 +354,6 @@ public class Board : MonoBehaviour
             else
             {
                 insertPsw.gameObject.SetActive(false);
-                //Debug.Log("VIA LIBERA");
-                return false;
-            }
-        }
-        catch
-        {
-            //Debug.Log("No porte in questo livello.");
-            return false;
-        }
-    }
-
-    public bool StopPlayerOnMetalDoor()
-    {
-        Vector3 spacingZ = new Vector3(0f, 0f, 2f);
-        Vector3 spacingX = new Vector3(2f, 0f, 0f);
-
-        try
-        {
-            if ((FindNodeAt(m_player.transform.position + spacingZ).isDoorNode || FindNodeAt(m_player.transform.position - spacingX).isDoorNode) && m_player.isMoving == false)
-            {
-                unlockDoorWithKey.gameObject.SetActive(true);
-                return true;
-            }
-            else
-            {
-                unlockDoorWithKey.gameObject.SetActive(false);
                 //Debug.Log("VIA LIBERA");
                 return false;
             }
