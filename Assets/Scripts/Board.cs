@@ -31,7 +31,7 @@ public class Board : MonoBehaviour
     public GameObject doorPrefab;
     public GameObject computerPrefab;
     public GameObject metalDoorPrefab;
-    //public GameObject keyPrefab;
+    public GameObject keyLockPrefab;
     public GameObject mainCamera;
     public GameObject retroCamera;
     public Light[] pointLight;
@@ -152,7 +152,7 @@ public class Board : MonoBehaviour
     {
         Vector3 centerDoor = new Vector3(-0.5f, 0f, 0f);
         Vector3 computerPosition = new Vector3(0f, 0.7f, 0f);
-        Vector3 keyPos = new Vector3(0f, 1.2f, 0f);
+        Vector3 keyPos = new Vector3(0f, 0.5f, 0f);
         
         if(doorPrefab != null && doorNode != null)
         {
@@ -195,14 +195,14 @@ public class Board : MonoBehaviour
                 "time", drawGoalTime));
         }
 
-       /* if(keyPrefab != null && keyNode != null)
+        if (keyLockPrefab != null && keyNode != null);
         {
-            GameObject keyInstance = Instantiate(keyPrefab, keyNode.transform.position, Quaternion.identity);
-            iTween.ScaleFrom(keyPrefab, iTween.Hash(
+            GameObject keyInstance = Instantiate(keyLockPrefab, keyNode.transform.position + keyPos, Quaternion.Euler(0f, 45f, 0f));
+            iTween.ScaleFrom(keyInstance, iTween.Hash(
                 "scale", Vector3.zero,
                 "delay", drawGoalDelay,
                 "time", drawGoalTime));
-        } */
+        } 
     }
 
     public void InitBoard()
