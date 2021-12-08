@@ -41,6 +41,7 @@ public class Node : MonoBehaviour
     public bool isDoorNode = false;
     public bool isComputerNode = false;
     public bool isKeyNode = false;
+    public bool isTerminalNode = false;
 
     void Awake()
     {
