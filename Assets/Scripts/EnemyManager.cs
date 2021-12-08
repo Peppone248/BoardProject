@@ -82,4 +82,9 @@ public class EnemyManager : TurnManager
             deathEvent.Invoke();
         }
     }
+
+    public void RotatePatrolEnemy()
+    {
+        gameObject.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+    }
 }

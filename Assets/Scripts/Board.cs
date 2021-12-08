@@ -19,8 +19,6 @@ public class Board : MonoBehaviour
     List<Node> m_allNodes = new List<Node>();
     public List<Node> AllNodes { get { return m_allNodes; } }
 
-    Node enemiesNode;
-
     Node m_playerNode;
     public Node PlayerNode { get { return m_playerNode; } }
     Node m_goalNode;
@@ -37,14 +35,16 @@ public class Board : MonoBehaviour
     public GameObject keyLockPrefab;
     public GameObject terminalPrefab;
     public GameObject[] enemiesSent;
+    public GameObject[] enemiesPatrol;
     public GameObject hitmanEnemyStat;
-    public GameObject hitmanEnemySent;
-    public GameObject hitmanEnemyPatrol;
+    public GameObject[] hitmanEnemySent;
+    public GameObject[] hitmanEnemyPatrol;
     public GameObject mainCamera;
     public GameObject retroCamera;
 
     public Light[] pointLight;
 
+    bool keySpawned = false;
     float drawGoalTime = 1f;
     float drawGoalDelay = 0.3f;
     public iTween.EaseType drawGoalEaseType = iTween.EaseType.easeOutExpo;
@@ -61,9 +61,12 @@ public class Board : MonoBehaviour
 
     public float capturePosIconSize = 0.4f;
     public Color capturePosIconColor = Color.red;
+
+    public Canvas unlockDoorWithKey;
     public Canvas insertPsw;
     public Canvas scanScreen;
     public Canvas terminalCanvas;
+    
     public InputField passwordTyped;
     public InputField usernameTyped;
     public InputField emailTyped;
@@ -80,8 +83,6 @@ public class Board : MonoBehaviour
     {
         m_player = Object.FindObjectOfType<PlayerMover>().GetComponent<PlayerMover>();
         playInput = Object.FindObjectOfType<PlayerInput>().GetComponent<PlayerInput>();
-        EnemyManager[] t_enemies = GameObject.FindObjectsOfType<EnemyManager>() as EnemyManager[];
-        enemies = t_enemies.ToList();
         GetNodeList();
 
         m_goalNode = FindGoalNode();
@@ -95,13 +96,6 @@ public class Board : MonoBehaviour
     {
         Node[] nList = GameObject.FindObjectsOfType<Node>();
         m_allNodes = new List<Node>(nList);
-    }
-
-    public List<Node> RetrieveNodeList()
-    {
-        Node[] nList = GameObject.FindObjectsOfType<Node>();
-        m_allNodes = new List<Node>(nList);
-        return m_allNodes;
     }
 
     public Node FindNodeAt(Vector3 pos)
@@ -145,17 +139,6 @@ public class Board : MonoBehaviour
         return null;
     }
 
-    public Node FindEnemiesNode()
-    {
-        foreach(EnemyManager enemy in enemies)
-        {
-            Debug.Log(enemy.transform.position.ToString());
-            return FindNodeAt(enemy.transform.position);
-        }
-
-        return null;
-    }
-
     public List<EnemyManager> FindEnemiesAt(Node node)
     {
         List<EnemyManager> foundEnemies = new List<EnemyManager>();
@@ -174,7 +157,6 @@ public class Board : MonoBehaviour
     public void UpdatePlayerNode()
     {
         m_playerNode = FindPlayerNode();
-        enemiesNode = FindEnemiesNode(); 
     }
 
     private void OnDrawGizmos()
@@ -196,7 +178,6 @@ public class Board : MonoBehaviour
     {
         Vector3 centerDoor = new Vector3(-0.5f, 0f, 0f);
         Vector3 computerPosition = new Vector3(0f, 0.7f, 0f);
-        Vector3 keyPos = new Vector3(0f, 0.5f, 0f);
         Vector3 terminalPos = new Vector3(0.15f, 1.3f, 0f);
         
         if(doorPrefab != null && doorNode != null)
@@ -235,15 +216,6 @@ public class Board : MonoBehaviour
         {
             GameObject metalDoorInstance = Instantiate(metalDoorPrefab, doorNode.transform.position, Quaternion.Euler(0f, -90f, 0f));
             iTween.ScaleFrom(metalDoorInstance, iTween.Hash(
-                "scale", Vector3.zero,
-                "delay", drawGoalDelay,
-                "time", drawGoalTime));
-        }
-
-        if (keyLockPrefab != null && keyNode != null)
-        {
-            GameObject keyInstance = Instantiate(keyLockPrefab, keyNode.transform.position + keyPos, Quaternion.Euler(0f, 45f, 0f));
-            iTween.ScaleFrom(keyInstance, iTween.Hash(
                 "scale", Vector3.zero,
                 "delay", drawGoalDelay,
                 "time", drawGoalTime));
@@ -366,8 +338,14 @@ public class Board : MonoBehaviour
                     //Debug.Log("form correct");
                     terminalCanvas.gameObject.SetActive(false);
                     playInput.InputEnabled = true;
-                    enemiesSent[0].SetActive(false);
-                    hitmanEnemySent.SetActive(true);
+                    enemiesPatrol[0].GetComponent<Renderer>().enabled = false;
+                    enemiesPatrol[1].GetComponent<Renderer>().enabled = false;
+                    enemiesPatrol[2].GetComponent<Renderer>().enabled = false;
+                    enemiesSent[0].GetComponent<Renderer>().enabled = false;
+                    hitmanEnemySent[0].GetComponent<Renderer>().enabled = true;
+                    hitmanEnemyPatrol[0].GetComponent<Renderer>().enabled = true;
+                    hitmanEnemyPatrol[1].GetComponent<Renderer>().enabled = true;
+                    hitmanEnemyPatrol[2].GetComponent<Renderer>().enabled = true;
                     return true;
                 }
                 else
@@ -385,7 +363,32 @@ public class Board : MonoBehaviour
             //Debug.Log("No porte in questo livello.");
             return false;
         }
+    }
 
+    public bool StopPlayerOnMetalDoor()
+    {
+        Vector3 spacingZ = new Vector3(0f, 0f, 2f);
+        Vector3 spacingX = new Vector3(2f, 0f, 0f);
+
+        try
+        {
+            if ((FindNodeAt(m_player.transform.position + spacingZ).isDoorNode || FindNodeAt(m_player.transform.position - spacingX).isDoorNode) && m_player.isMoving == false)
+            {
+                unlockDoorWithKey.gameObject.SetActive(true);
+                return true;
+            }
+            else
+            {
+                unlockDoorWithKey.gameObject.SetActive(false);
+                //Debug.Log("VIA LIBERA");
+                return false;
+            }
+        }
+        catch
+        {
+            //Debug.Log("No porte in questo livello.");
+            return false;
+        }
     }
 
     // Change camera of the level when the player open the door
@@ -396,5 +399,25 @@ public class Board : MonoBehaviour
             mainCamera.SetActive(false);
             retroCamera.SetActive(true);
         }
+    }
+
+    public void DrawKey()
+    {
+        Vector3 keyPos = new Vector3(0f, 0.5f, 0f);
+
+        if (keyLockPrefab != null && keyNode != null && enemiesSent[0].GetComponent<EnemyManager>().IsDead && keySpawned == false)
+        {
+            GameObject keyInstance = Instantiate(keyLockPrefab, keyNode.transform.position + keyPos, Quaternion.Euler(0f, 45f, 0f));
+            keySpawned = true;
+            iTween.ScaleFrom(keyInstance, iTween.Hash(
+                "scale", Vector3.zero,
+                "delay", drawGoalDelay,
+                "time", drawGoalTime));
+        }
+    }
+
+    private void Update()
+    {
+        DrawKey();
     }
 }
