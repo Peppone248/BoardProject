@@ -849,9 +849,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 1
-  moveTutorialEnded: 0
   activationDelay: 2
   blueEnemyDescription: {fileID: 61262853}
+  orangeEnemyDescription: {fileID: 1987442456}
+  arrow: {fileID: 6701347943027199165, guid: 3b3ffac8afcb6934a84c753dd29f7f60, type: 3}
 --- !u!114 &53537346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,14 +1015,13 @@ GameObject:
   - component: {fileID: 61262854}
   - component: {fileID: 61262853}
   - component: {fileID: 61262851}
-  - component: {fileID: 61262852}
   m_Layer: 5
   m_Name: FirstEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &61262850
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1039,7 +1039,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 135}
+  m_AnchoredPosition: {x: 0, y: -207}
   m_SizeDelta: {x: 500, y: 550}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &61262851
@@ -1059,20 +1059,6 @@ MonoBehaviour:
   delay: 9
   timeToFade: 5
   easeType: 17
---- !u!114 &61262852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 61262849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 041d615d5c45ae045bc24c92465672d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraOnBlueEnemy: {fileID: 2070962378}
-  zoomMultiplier: 3
 --- !u!114 &61262853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1573,9 +1559,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 1
-  moveTutorialEnded: 0
   activationDelay: 2
   blueEnemyDescription: {fileID: 0}
+  orangeEnemyDescription: {fileID: 0}
+  arrow: {fileID: 0}
 --- !u!114 &131293126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3368,9 +3355,17 @@ MonoBehaviour:
   doorPrefab: {fileID: 4543902309502262397, guid: 7f5dfc76f6b58b3428c1e04e9852ec86,
     type: 3}
   computerPrefab: {fileID: 0}
+  metalDoorPrefab: {fileID: 0}
+  keyLockPrefab: {fileID: 0}
+  terminalPrefab: {fileID: 0}
+  enemiesSent: []
+  enemiesPatrol: []
+  hitmanEnemyStat: {fileID: 0}
+  hitmanEnemySent: []
+  hitmanEnemyPatrol: []
+  mainCamera: {fileID: 0}
+  retroCamera: {fileID: 0}
   pointLight: []
-  drawGoalTime: 1.7
-  drawGoalDelay: 2
   drawGoalEaseType: 16
   capturePosition:
   - {fileID: 1194067972}
@@ -3382,10 +3377,14 @@ MonoBehaviour:
   capturePosIconColor: {r: 1, g: 0, b: 0, a: 1}
   insertPsw: {fileID: 0}
   scanScreen: {fileID: 0}
+  terminalCanvas: {fileID: 0}
   passwordTyped: {fileID: 0}
   usernameTyped: {fileID: 0}
+  emailTyped: {fileID: 0}
+  surnameTyped: {fileID: 0}
   pswFromField: 
   usernameFromField: 
+  emailFromField: 
   password:
   - 
   - 
@@ -13113,9 +13112,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 1
-  moveTutorialEnded: 0
   activationDelay: 2
   blueEnemyDescription: {fileID: 0}
+  orangeEnemyDescription: {fileID: 0}
+  arrow: {fileID: 0}
 --- !u!114 &1987442456
 MonoBehaviour:
   m_ObjectHideFlags: 0
