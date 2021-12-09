@@ -807,7 +807,6 @@ GameObject:
   - component: {fileID: 53537344}
   - component: {fileID: 53537348}
   - component: {fileID: 53537347}
-  - component: {fileID: 53537345}
   - component: {fileID: 53537346}
   m_Layer: 5
   m_Name: MoveArrows
@@ -815,7 +814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &53537344
 RectTransform:
   m_ObjectHideFlags: 0
@@ -836,23 +835,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 184}
   m_SizeDelta: {x: 950, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &53537345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53537343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d21e14894ba3a4948b6c8881f671e9db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activateOnStart: 1
-  activationDelay: 2
-  blueEnemyDescription: {fileID: 61262853}
-  orangeEnemyDescription: {fileID: 1987442456}
-  arrow: {fileID: 6701347943027199165, guid: 3b3ffac8afcb6934a84c753dd29f7f60, type: 3}
 --- !u!114 &53537346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1500,7 +1482,6 @@ GameObject:
   - component: {fileID: 131293123}
   - component: {fileID: 131293127}
   - component: {fileID: 131293126}
-  - component: {fileID: 131293125}
   - component: {fileID: 131293124}
   m_Layer: 5
   m_Name: FirstEnemy (2)
@@ -1526,7 +1507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 135}
+  m_AnchoredPosition: {x: 0, y: -207}
   m_SizeDelta: {x: 500, y: 550}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131293124
@@ -1546,23 +1527,6 @@ MonoBehaviour:
   delay: 9
   timeToFade: 5
   easeType: 17
---- !u!114 &131293125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131293122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d21e14894ba3a4948b6c8881f671e9db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activateOnStart: 1
-  activationDelay: 2
-  blueEnemyDescription: {fileID: 0}
-  orangeEnemyDescription: {fileID: 0}
-  arrow: {fileID: 0}
 --- !u!114 &131293126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1600,6 +1564,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131293122}
   m_CullTransparentMesh: 0
+--- !u!1 &134605033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 698050060647823641, guid: c64eccfa99a52f940a5b0c99ccabc5c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1888983410}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &138641341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1776,7 +1746,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1888983410}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 134605033}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f685ecbcb928f24aa221936d5bf2b4b, type: 3}
@@ -3871,6 +3841,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1456249720}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   startLevelEvent:
     m_PersistentCalls:
       m_Calls:
@@ -3962,7 +3943,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1207506300}
+      - m_Target: {fileID: 1456249720}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -4761,7 +4742,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1914261990}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 763384648}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f685ecbcb928f24aa221936d5bf2b4b, type: 3}
@@ -5038,6 +5019,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3443596827282097127, guid: 3245e2d94429b014296599c45c60fa1c,
     type: 3}
   m_PrefabInstance: {fileID: 1366674757}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &763384648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9081399356564730478, guid: 406476e8bebd85c4e80576415359c293,
+    type: 3}
+  m_PrefabInstance: {fileID: 1914261990}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &781079746
 PrefabInstance:
@@ -7972,6 +7959,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3245e2d94429b014296599c45c60fa1c, type: 3}
+--- !u!1 &1246322293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8331520176273364825, guid: a463083b5e1e61941987eecba10f4c54,
+    type: 3}
+  m_PrefabInstance: {fileID: 1327862818}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1268050314
 GameObject:
   m_ObjectHideFlags: 0
@@ -9759,6 +9752,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450932990}
   m_CullTransparentMesh: 0
+--- !u!1 &1456249720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1456249722}
+  - component: {fileID: 1456249721}
+  m_Layer: 0
+  m_Name: ManageTutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1456249721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456249720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21e14894ba3a4948b6c8881f671e9db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayTime: 3
+  firstEnemy: {fileID: 763384648}
+  secondEnemy: {fileID: 1246322293}
+  thirdEnemy: {fileID: 134605033}
+  firstTip: {fileID: 53537347}
+  blueEnemyDescription: {fileID: 61262853}
+  orangeEnemyDescription: {fileID: 1987442456}
+  greenEnemyDescription: {fileID: 131293126}
+  arrow: {fileID: 6701347943027199165, guid: 3b3ffac8afcb6934a84c753dd29f7f60, type: 3}
+  tutorial: {fileID: 1207506303}
+--- !u!4 &1456249722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456249720}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1456367114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3443596827282097127, guid: 3245e2d94429b014296599c45c60fa1c,
@@ -9928,7 +9974,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1327862818}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1246322293}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f685ecbcb928f24aa221936d5bf2b4b, type: 3}
@@ -13053,7 +13099,6 @@ GameObject:
   - component: {fileID: 1987442453}
   - component: {fileID: 1987442457}
   - component: {fileID: 1987442456}
-  - component: {fileID: 1987442455}
   - component: {fileID: 1987442454}
   m_Layer: 5
   m_Name: FirstEnemy (1)
@@ -13079,7 +13124,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 135}
+  m_AnchoredPosition: {x: 0, y: -207}
   m_SizeDelta: {x: 500, y: 550}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1987442454
@@ -13099,23 +13144,6 @@ MonoBehaviour:
   delay: 9
   timeToFade: 5
   easeType: 17
---- !u!114 &1987442455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1987442452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d21e14894ba3a4948b6c8881f671e9db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activateOnStart: 1
-  activationDelay: 2
-  blueEnemyDescription: {fileID: 0}
-  orangeEnemyDescription: {fileID: 0}
-  arrow: {fileID: 0}
 --- !u!114 &1987442456
 MonoBehaviour:
   m_ObjectHideFlags: 0
