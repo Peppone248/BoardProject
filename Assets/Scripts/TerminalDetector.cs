@@ -5,10 +5,12 @@ using UnityEngine;
 public class TerminalDetector : MonoBehaviour
 {
     Board m_board;
+    public GameObject spoofAlert;
 
     private void Awake()
     {
         m_board = Object.FindObjectOfType<Board>().GetComponent<Board>();
+        spoofAlert = GameObject.Find("SpoofAlert");
     }
 
     // Update is called once per frame
@@ -16,7 +18,7 @@ public class TerminalDetector : MonoBehaviour
     {
         if (m_board.StopPlayerOnTerminal())
         {
-            Debug.Log("Hai hackerato le cam");
+            m_board.spoofed.gameObject.SetActive(true);
         }
     }
 }

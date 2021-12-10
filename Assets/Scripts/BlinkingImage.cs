@@ -5,36 +5,51 @@ using UnityEngine.UI;
 
 public class BlinkingImage : MonoBehaviour
 {
-    public float timer = 0.5f;
-    public Image imageToBlink;
-    private int count = 0;
+    // this is the UI.Text or other UI element you want to toggle
+    public MaskableGraphic imageToToggle;
+    public float interval = 1f;
+    public float startDelay = 0.5f;
+    public float counter;
+    public bool currentState = true;
+    public bool defaultState = true;
+    bool isBlinking = false;
 
-    // Start is called before the first frame update
 
-    private void OnEnable()
+    void Start()
     {
-        StartCoroutine(Blink());
+        counter = 6;
+        imageToToggle.enabled = defaultState;
+        StartBlink();
     }
 
-    IEnumerator Blink()
+    private void Update()
     {
-        while (true)
+        imageToToggle.gameObject.SetActive(true);
+        if (counter <= 0)
         {
-            imageToBlink.gameObject.SetActive(false);
-            yield return new WaitForSeconds(timer);
-            imageToBlink.gameObject.SetActive(true);
-            yield return new WaitForSeconds(timer);
+            CancelInvoke("ToggleState");
+            imageToToggle.gameObject.SetActive(false);
         }
     }
 
-    IEnumerator SelfDestruct()
+    public void StartBlink()
     {
-        if (count == 4)
+        // do not invoke the blink twice - needed if you need to start the blink from an external object
+        if (isBlinking)
+            return;
+
+        if (imageToToggle != null)
         {
-            yield return new WaitForSeconds(5f);
-            Destroy(gameObject);
+            isBlinking = true;
+            InvokeRepeating("ToggleState", startDelay, interval);
+            InvokeRepeating("ToggleState", startDelay, interval);
         }
-       
+    }
+
+    public void ToggleState()
+    {
+        imageToToggle.enabled = !imageToToggle.enabled;
+        counter--;
     }
 
 }

@@ -338,7 +338,6 @@ public class Board : MonoBehaviour
                     //Debug.Log("form correct");
                     terminalCanvas.gameObject.SetActive(false);
                     playInput.InputEnabled = true;
-                    spoofed.gameObject.SetActive(true);
                     enemiesPatrol[0].GetComponent<Renderer>().enabled = false;
                     enemiesPatrol[1].GetComponent<Renderer>().enabled = false;
                     enemiesPatrol[2].GetComponent<Renderer>().enabled = false;
