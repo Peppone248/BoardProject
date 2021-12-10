@@ -41,7 +41,7 @@ public class Board : MonoBehaviour
     public GameObject[] hitmanEnemyPatrol;
     public GameObject mainCamera;
     public GameObject retroCamera;
-
+    public GameObject obstacle;
     public Light[] pointLight;
 
     bool keySpawned = false;
@@ -373,6 +373,11 @@ public class Board : MonoBehaviour
             mainCamera.SetActive(false);
             retroCamera.SetActive(true);
         }
+        else if (m_playerNode.transform.position == new Vector3(7f, 0f, 0f) && retroCamera.activeInHierarchy)
+        {
+            mainCamera.SetActive(true);
+            retroCamera.SetActive(false);
+        }
     }
 
     public void DrawKey()
@@ -387,6 +392,7 @@ public class Board : MonoBehaviour
                 "scale", Vector3.zero,
                 "delay", drawGoalDelay,
                 "time", drawGoalTime));
+            keyInstance.GetComponent<KeyCardCollision>().obstacleOnDoor = obstacle;
         }
     }
 

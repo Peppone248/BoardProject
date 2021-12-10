@@ -5,6 +5,7 @@ using UnityEngine;
 public class KeyCardCollision : MonoBehaviour
 {
     Board m_board;
+    public GameObject obstacleOnDoor;
     public bool isDestroyed;
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class KeyCardCollision : MonoBehaviour
         if(other.gameObject.name == "Hitman")
         {
             Destroy(gameObject);
+            Destroy(obstacleOnDoor);
             iTween.RotateTo(GameObject.Find("MetalDoor(Clone)"), iTween.Hash(
             "y", 90,
             "time", 0.7f,

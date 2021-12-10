@@ -302,6 +302,27 @@ public class GameManager : MonoBehaviour
             goalComplete[1].SetActive(false);
     }
 
+    public void GoalCompleteLvl3()
+    {
+        if (m_board.StopPlayerOnTerminal())
+        {
+            goalComplete[0].SetActive(false);
+        }
+        else
+        {
+            goalComplete[0].SetActive(true);
+        }
+
+        if (AreEnemiesAllDead())
+        {
+            goalComplete[1].SetActive(true);
+        }
+        else
+        {
+            goalComplete[1].SetActive(false);
+        }
+    }
+
     public void UnlockInput()
     {
         p_input.InputEnabled = true;
