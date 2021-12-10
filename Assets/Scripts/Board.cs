@@ -65,6 +65,7 @@ public class Board : MonoBehaviour
     public Canvas insertPsw;
     public Canvas scanScreen;
     public Canvas terminalCanvas;
+    public Canvas spoofed;
     
     public InputField passwordTyped;
     public InputField usernameTyped;
@@ -332,12 +333,12 @@ public class Board : MonoBehaviour
                 usernameFromField = usernameTyped.text;
                 pswFromField = surnameTyped.text;
                 emailFromField = emailTyped.text;
-                if (usernameFromField.Equals("1") && emailFromField.Equals("@") && pswFromField.Equals("1"))
+                if (usernameFromField.Length>=4 && emailFromField.Contains('@') && pswFromField.Length>=7)
                 {
-                    playInput.InputEnabled = false;
                     //Debug.Log("form correct");
                     terminalCanvas.gameObject.SetActive(false);
                     playInput.InputEnabled = true;
+                    spoofed.gameObject.SetActive(true);
                     enemiesPatrol[0].GetComponent<Renderer>().enabled = false;
                     enemiesPatrol[1].GetComponent<Renderer>().enabled = false;
                     enemiesPatrol[2].GetComponent<Renderer>().enabled = false;
