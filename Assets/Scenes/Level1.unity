@@ -2155,8 +2155,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9178028885020551783, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178028885020551783, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178028885020551783, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 382869375}
+    - target: {fileID: 9178028885020551783, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178028885020551783, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Die
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178028885020551783, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a463083b5e1e61941987eecba10f4c54, type: 3}
+--- !u!114 &382869375 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1968427048989006905, guid: a463083b5e1e61941987eecba10f4c54,
+    type: 3}
+  m_PrefabInstance: {fileID: 382869374}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f685ecbcb928f24aa221936d5bf2b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &385417104
 GameObject:
   m_ObjectHideFlags: 0
@@ -6056,7 +6098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1075033660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7317,8 +7359,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9178028885020551783, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178028885020551783, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178028885020551783, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1231233725}
+    - target: {fileID: 9178028885020551783, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178028885020551783, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Die
+      objectReference: {fileID: 0}
+    - target: {fileID: 9178028885020551783, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a463083b5e1e61941987eecba10f4c54, type: 3}
+--- !u!114 &1231233725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1968427048989006905, guid: a463083b5e1e61941987eecba10f4c54,
+    type: 3}
+  m_PrefabInstance: {fileID: 1231233724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f685ecbcb928f24aa221936d5bf2b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1263930159
 GameObject:
   m_ObjectHideFlags: 0
@@ -10296,9 +10380,19 @@ MonoBehaviour:
   doorPrefab: {fileID: 4543902309502262397, guid: 7f5dfc76f6b58b3428c1e04e9852ec86,
     type: 3}
   computerPrefab: {fileID: 0}
+  metalDoorPrefab: {fileID: 0}
+  keyLockPrefab: {fileID: 0}
+  terminalPrefab: {fileID: 0}
+  enemiesSent: []
+  enemiesPatrol: []
+  hitmanEnemyStat: {fileID: 0}
+  hitmanEnemySent: []
+  hitmanEnemyPatrol: []
   mainCamera: {fileID: 1803325647}
   retroCamera: {fileID: 524903575}
+  obstacle: {fileID: 0}
   pointLight: []
+  countAttemptsCredentials: 0
   drawGoalEaseType: 16
   capturePosition:
   - {fileID: 285411785}
@@ -10312,10 +10406,15 @@ MonoBehaviour:
   capturePosIconColor: {r: 1, g: 0, b: 0, a: 1}
   insertPsw: {fileID: 2070086510}
   scanScreen: {fileID: 0}
+  terminalCanvas: {fileID: 0}
+  spoofed: {fileID: 0}
   passwordTyped: {fileID: 524975687}
   usernameTyped: {fileID: 0}
+  emailTyped: {fileID: 0}
+  surnameTyped: {fileID: 0}
   pswFromField: 5
   usernameFromField: 
+  emailFromField: 
   password:
   - 1234
   - 3142

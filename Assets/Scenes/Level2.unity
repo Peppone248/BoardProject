@@ -281,7 +281,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &85377538
 GameObject:
@@ -311,7 +311,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &90486061
 GameObject:
@@ -698,7 +698,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &180340842 stripped
 Transform:
@@ -1375,7 +1375,7 @@ GameObject:
   - component: {fileID: 342635283}
   - component: {fileID: 342635282}
   m_Layer: 5
-  m_Name: DisableCam
+  m_Name: DisableCam3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1444,8 +1444,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1365268353}
-        m_MethodName: ChangeColorLight
+      - m_Target: {fileID: 698285999}
+        m_MethodName: ChangeLightColor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1758,7 +1758,7 @@ RectTransform:
   - {fileID: 1424163678}
   - {fileID: 1423630394}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2748,7 +2748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &509915580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2778,7 +2778,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &553243284
 GameObject:
@@ -3017,18 +3017,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 6fe071c7e52d10f4881763d182a35cc5, type: 3}
-    m_FontSize: 40
+    m_FontSize: 43
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 45
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: LEVEL 1-1
+  m_Text: LEVEL 2
 --- !u!222 &592040920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3433,12 +3433,21 @@ MonoBehaviour:
   computerPrefab: {fileID: 4604997322381921706, guid: 4a784ce69c77d5a41bdc18d8696bace9,
     type: 3}
   metalDoorPrefab: {fileID: 0}
+  keyLockPrefab: {fileID: 0}
+  terminalPrefab: {fileID: 0}
+  enemiesSent: []
+  enemiesPatrol: []
+  hitmanEnemyStat: {fileID: 0}
+  hitmanEnemySent: []
+  hitmanEnemyPatrol: []
   mainCamera: {fileID: 0}
   retroCamera: {fileID: 0}
+  obstacle: {fileID: 0}
   pointLight:
   - {fileID: 1907823933}
   - {fileID: 1365268352}
   - {fileID: 698285997}
+  countAttemptsCredentials: 0
   drawGoalEaseType: 16
   capturePosition:
   - {fileID: 159130779}
@@ -3450,10 +3459,15 @@ MonoBehaviour:
   capturePosIconColor: {r: 1, g: 0, b: 0, a: 1}
   insertPsw: {fileID: 1345952846}
   scanScreen: {fileID: 404789707}
+  terminalCanvas: {fileID: 0}
+  spoofed: {fileID: 0}
   passwordTyped: {fileID: 1332962307}
   usernameTyped: {fileID: 509348215}
+  emailTyped: {fileID: 0}
+  surnameTyped: {fileID: 0}
   pswFromField: 
   usernameFromField: 
+  emailFromField: 
   password: []
 --- !u!4 &660018368
 Transform:
@@ -3978,7 +3992,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 670176742}
-        m_MethodName: GoalCompleted
+        m_MethodName: GoalCompletedLvl2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4359,10 +4373,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 698285996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f0ee022c3b3f741b651854874e1ad7, type: 3}
+  m_Script: {fileID: 11500000, guid: 106ed72e7927b4d4e8cd62de59d11389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lt: {fileID: 698285997}
+  spotLight: {fileID: 698285996}
 --- !u!4 &724979490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3443596827282097127, guid: 3245e2d94429b014296599c45c60fa1c,
@@ -4947,7 +4961,7 @@ Transform:
   - {fileID: 543450652967361074}
   - {fileID: 594543763314601556}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &867181231
 GameObject:
@@ -5658,7 +5672,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1907823934}
-        m_MethodName: ChangeColorLight
+        m_MethodName: ChangeLightColor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7089,7 +7103,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1283132882
 GameObject:
@@ -7615,7 +7629,7 @@ RectTransform:
   m_Children:
   - {fileID: 1476250697}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7947,10 +7961,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1365268350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f0ee022c3b3f741b651854874e1ad7, type: 3}
+  m_Script: {fileID: 11500000, guid: 106ed72e7927b4d4e8cd62de59d11389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lt: {fileID: 1365268352}
+  spotLight: {fileID: 1365268350}
 --- !u!1 &1385536311
 GameObject:
   m_ObjectHideFlags: 0
@@ -7963,7 +7977,7 @@ GameObject:
   - component: {fileID: 1385536314}
   - component: {fileID: 1385536313}
   m_Layer: 5
-  m_Name: LiveFeed2
+  m_Name: LiveFeed3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8556,8 +8570,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 698285999}
-        m_MethodName: ChangeColorLight
+      - m_Target: {fileID: 1365268353}
+        m_MethodName: ChangeLightColor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10103,7 +10117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1739962192
 GameObject:
@@ -10390,7 +10404,7 @@ GameObject:
   - component: {fileID: 1805777037}
   - component: {fileID: 1805777036}
   m_Layer: 5
-  m_Name: LiveFeed3
+  m_Name: LiveFeed2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11244,10 +11258,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1907823931}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f0ee022c3b3f741b651854874e1ad7, type: 3}
+  m_Script: {fileID: 11500000, guid: 106ed72e7927b4d4e8cd62de59d11389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lt: {fileID: 1907823933}
+  spotLight: {fileID: 1907823931}
 --- !u!1 &1915809288
 GameObject:
   m_ObjectHideFlags: 0

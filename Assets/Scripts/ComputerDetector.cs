@@ -19,7 +19,7 @@ public class ComputerDetector : MonoBehaviour
     {
         if (m_board.StopPlayerOnPC())
         {
-            Debug.Log("Hai hackerato le cam");
+           // Debug.Log("Hai hackerato le cam");
         }
     }
 }

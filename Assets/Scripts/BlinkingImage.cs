@@ -17,7 +17,7 @@ public class BlinkingImage : MonoBehaviour
 
     void Start()
     {
-        counter = 6;
+        counter = 8;
         imageToToggle.enabled = defaultState;
         StartBlink();
     }
@@ -25,7 +25,7 @@ public class BlinkingImage : MonoBehaviour
     private void Update()
     {
         imageToToggle.gameObject.SetActive(true);
-        if (counter <= 0)
+      if (counter <= 0)
         {
             CancelInvoke("ToggleState");
             imageToToggle.gameObject.SetActive(false);
@@ -41,7 +41,6 @@ public class BlinkingImage : MonoBehaviour
         if (imageToToggle != null)
         {
             isBlinking = true;
-            InvokeRepeating("ToggleState", startDelay, interval);
             InvokeRepeating("ToggleState", startDelay, interval);
         }
     }

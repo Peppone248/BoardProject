@@ -44,6 +44,7 @@ public class Board : MonoBehaviour
     public GameObject obstacle;
     public Light[] pointLight;
 
+    public float countAttemptsCredentials = 0;
     bool keySpawned = false;
     float drawGoalTime = 1f;
     float drawGoalDelay = 0.3f;
@@ -293,7 +294,7 @@ public class Board : MonoBehaviour
                 if (pswFromField.Equals(pswSecurityCam) && usernameFromField.Equals(usernameSecurityCam))
                 {
                     playInput.InputEnabled = false;
-                    Debug.Log("psw correct");
+                    //Debug.Log("psw correct");
                     insertPsw.gameObject.SetActive(false);
                     scanScreen.gameObject.SetActive(true);
                     if(pointLight[0].color == g && pointLight[1].color == g && pointLight[2].color == g)
@@ -303,7 +304,11 @@ public class Board : MonoBehaviour
                     return true;
                 }
                 else
+                {
+                    countAttemptsCredentials++;
                     return false;
+                }
+                    
             }
             else
             {

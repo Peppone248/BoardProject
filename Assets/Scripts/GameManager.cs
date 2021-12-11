@@ -296,7 +296,22 @@ public class GameManager : MonoBehaviour
         if (player.countTurn <= 15)
         {
             goalComplete[1].SetActive(true);
+        }
+        else
+            goalComplete[1].SetActive(false);
+    }
 
+    public void GoalCompletedLvl2()
+    {
+        if (m_board.countAttemptsCredentials == 0)
+        {
+            goalComplete[0].SetActive(true);
+        } else
+            goalComplete[0].SetActive(false);
+
+        if (player.countTurn <= 20)
+        {
+            goalComplete[1].SetActive(true);
         }
         else
             goalComplete[1].SetActive(false);
