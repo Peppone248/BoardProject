@@ -2155,6 +2155,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9178028885020551780, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: enemyP
+      value: 
+      objectReference: {fileID: 886573856}
+    - target: {fileID: 9178028885020551780, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: faceDestination
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9178028885020551783, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
       propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.size
@@ -2193,7 +2203,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 382869374}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 886573856}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f685ecbcb928f24aa221936d5bf2b4b, type: 3}
@@ -4999,6 +5009,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 883370301}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &886573856 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8331520176273364825, guid: a463083b5e1e61941987eecba10f4c54,
+    type: 3}
+  m_PrefabInstance: {fileID: 382869374}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &906666771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7359,6 +7375,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9178028885020551780, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: enemyP
+      value: 
+      objectReference: {fileID: 1883814116}
+    - target: {fileID: 9178028885020551780, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: faceDestination
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9178028885020551783, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
       propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.size
@@ -7397,7 +7423,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1231233724}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1883814116}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f685ecbcb928f24aa221936d5bf2b4b, type: 3}
@@ -11066,6 +11092,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3245e2d94429b014296599c45c60fa1c, type: 3}
+--- !u!1 &1883814116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8331520176273364825, guid: a463083b5e1e61941987eecba10f4c54,
+    type: 3}
+  m_PrefabInstance: {fileID: 1231233724}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1919516320
 GameObject:
   m_ObjectHideFlags: 0
