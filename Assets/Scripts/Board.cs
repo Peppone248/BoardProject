@@ -48,6 +48,7 @@ public class Board : MonoBehaviour
 
     public float countAttemptsCredentials = 0;
     bool keySpawned = false;
+    bool jacketSpawned = false;
     float drawGoalTime = 1f;
     float drawGoalDelay = 0.3f;
     public iTween.EaseType drawGoalEaseType = iTween.EaseType.easeOutExpo;
@@ -423,16 +424,27 @@ public class Board : MonoBehaviour
 
     public void DrawJacket()
     {
-        if (enemyJacketPrefab != null && (enemiesPatrol[0].GetComponent<EnemyManager>().IsDead || enemiesPatrol[1].GetComponent<EnemyManager>().IsDead 
-            || enemiesPatrol[2].GetComponent<EnemyManager>().IsDead))
+        if (enemyJacketPrefab != null && (enemiesPatrol[0].GetComponent<EnemyManager>().IsDead || enemiesPatrol[1].GetComponent<EnemyManager>().IsDead
+            || enemiesPatrol[2].GetComponent<EnemyManager>().IsDead) && jacketSpawned == false)
         {
-            
-        }
+            jacketSpawned = true;
+            if (enemiesPatrol[0].GetComponent<EnemyManager>().IsDead)
+            {
+                GameObject jacketInstance = Instantiate(enemyJacketPrefab, (enemiesPatrol[0].transform.position + new Vector3(2f, -0.5f, 0f)), Quaternion.identity);
+                iTween.ScaleFrom(jacketInstance, iTween.Hash(
+                "scale", Vector3.zero,
+                "delay", drawGoalDelay,
+                "time", drawGoalTime));
+            }
+        }   
     }
 
     private void Update()
     {
         DrawKey();
         ChangeCameraOnNodeLvl4();
+        DrawJacket();
     }
 }
+
+

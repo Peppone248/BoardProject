@@ -407,6 +407,7 @@ GameObject:
   - component: {fileID: -2027453162905901736}
   - component: {fileID: -1156719182543887179}
   - component: {fileID: 8982905839029869774}
+  - component: {fileID: -6576795643870328798}
   m_Layer: 0
   m_Name: jacket_low
   m_TagString: Untagged
@@ -422,7 +423,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7095874701202536632}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 786334857886289118}
@@ -475,3 +476,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 35
+--- !u!114 &-6576795643870328798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095874701202536632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee7ef65b916da545992b0984e04b221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPatrolMat: {fileID: 2100000, guid: 1867394b55fcd7547a6a5938e5325267, type: 2}

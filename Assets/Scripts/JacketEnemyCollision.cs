@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class JacketEnemyCollision : MonoBehaviour
 {
+
+    public Material enemyPatrolMat;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,10 @@ public class JacketEnemyCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.name == "Hitman")
+        {
+            Destroy(gameObject);
+            GameObject.Find("Hitman").GetComponent<Renderer>().material = enemyPatrolMat;
+        }
     }
 }
