@@ -167,7 +167,7 @@ public class Mover : MonoBehaviour
         Vector3 relativePosition = destination - transform.position;
 
         // vector direction converted to a Quaternion rotation
-        Quaternion newRotation = Quaternion.LookRotation(relativePosition, Vector3.up); 
+        Quaternion newRotation = Quaternion.LookRotation(relativePosition, Vector3.up);
 
         // euler angle y component 
         float newY = newRotation.eulerAngles.y;

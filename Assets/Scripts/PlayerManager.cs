@@ -27,7 +27,7 @@ public class PlayerManager : TurnManager
     // Update is called once per frame
     void Update()
     {
-        if (playerMover.isMoving || gameManager.CurrentTurn != Turn.Player)
+        if (playerMover.isMoving || m_gameManager.CurrentTurn != Turn.Player)
         {
             return;
         }

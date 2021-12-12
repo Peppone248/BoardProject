@@ -8,83 +8,103 @@ using UnityEngine.Events;
 [RequireComponent(typeof(EnemyAttack))]
 public class EnemyManager : TurnManager
 {
-    EnemyMover enemyMover;
-    EnemySensor enemySensor;
-    EnemyAttack enemyAttack;
+    // reference to EnemyMover component
+    EnemyMover m_enemyMover;
+
+    // reference to EnemySensor component
+    EnemySensor m_enemySensor;
+
+    EnemyAttack m_enemyAttack;
+
+    // reference to Board component
     Board m_board;
 
-    bool isDead = false;
+    // are we dead yet?
+    bool m_isDead = false;
+    public bool IsDead { get { return m_isDead; } }
 
+    // actions to invoke upon enemy death
     public UnityEvent deathEvent;
 
-    public bool IsDead { get => isDead; }
-
+    // setup member variables
     protected override void Awake()
     {
         base.Awake();
+
         m_board = Object.FindObjectOfType<Board>().GetComponent<Board>();
-        enemySensor = GetComponent<EnemySensor>();
-        enemyMover = GetComponent<EnemyMover>();
-        enemyAttack = GetComponent<EnemyAttack>();
+        m_enemyMover = GetComponent<EnemyMover>();
+        m_enemySensor = GetComponent<EnemySensor>();
+        m_enemyAttack = GetComponent<EnemyAttack>();
+
     }
 
+    // play the Enemy's turn routine
     public void PlayTurn()
     {
-        if (isDead)
+        // if dead, finish the turn manually and disable enemy behavior
+        if (m_isDead)
         {
             FinishTurn();
             return;
         }
+
         StartCoroutine(PlayTurnRoutine());
     }
 
+    // main enemy routine: detect/attack Player if possible...then move/wait
     IEnumerator PlayTurnRoutine()
     {
-        if (gameManager != null && !gameManager.IsGameOver)
+        if (m_gameManager != null && !m_gameManager.IsGameOver)
         {
             // detect player
-            enemySensor.UpdateSensor(enemyMover.CurrentNode);
+            m_enemySensor.UpdateSensor(m_enemyMover.CurrentNode);
 
             // wait
             yield return new WaitForSeconds(0f);
 
-            if (enemySensor.PlayerFound)
+            if (m_enemySensor.FoundPlayer)
             {
-                gameManager.LoseLevel();
+                // notify the GameManager to lose the level
+                m_gameManager.LoseLevel();
 
-                Vector3 playerPosition = new Vector3(m_board.PlayerNode.Coordinate.x, 0f, m_board.PlayerNode.Coordinate.y);
-                enemyMover.Move(playerPosition, 0f);
+                // the player's position
+                Vector3 playerPosition = new Vector3(m_board.PlayerNode.Coordinate.x, 0f,
+                                                     m_board.PlayerNode.Coordinate.y);
+                // move to the Player's position
+                m_enemyMover.Move(playerPosition, 0f);
 
-                while (enemyMover.isMoving)
+                // wait for the enemy iTween animation to finish
+                while (m_enemyMover.isMoving)
                 {
                     yield return null;
                 }
-                // attack
-                enemyAttack.Attack();        
+
+                // attack/kill player   
+                m_enemyAttack.Attack();
+
+
             }
             else
             {
-                enemyMover.MoveOneTurn();
+                // movement
+                m_enemyMover.MoveOneTurn();
             }
         }
     }
 
+    // invoke the death event if we are not already dead
     public void Die()
     {
-        if (isDead)
+        if (m_isDead)
         {
             return;
         }
-        isDead = true;
 
-        if(deathEvent != null)
+        m_isDead = true;
+
+        if (deathEvent != null)
         {
             deathEvent.Invoke();
         }
-    }
-
-    public void RotatePatrolEnemy()
-    {
-        gameObject.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
     }
 }

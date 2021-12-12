@@ -26,14 +26,17 @@ public class Board : MonoBehaviour
     Node computerNode;
     Node keyNode;
     Node terminalNode;
+    Node jacketNode;
     public Node GoalNode { get { return m_goalNode; } }
 
     public GameObject goalPrefab;
     public GameObject doorPrefab;
+    public GameObject doubleDoorPrefab;
     public GameObject computerPrefab;
     public GameObject metalDoorPrefab;
     public GameObject keyLockPrefab;
     public GameObject terminalPrefab;
+    public GameObject enemyJacketPrefab;
     public GameObject[] enemiesSent;
     public GameObject[] enemiesPatrol;
     public GameObject hitmanEnemyStat;
@@ -41,7 +44,6 @@ public class Board : MonoBehaviour
     public GameObject[] hitmanEnemyPatrol;
     public GameObject mainCamera;
     public GameObject retroCamera;
-    public GameObject obstacle;
     public Light[] pointLight;
 
     public float countAttemptsCredentials = 0;
@@ -181,6 +183,7 @@ public class Board : MonoBehaviour
         Vector3 computerPosition = new Vector3(0f, 0.7f, 0f);
         Vector3 terminalPos = new Vector3(0.15f, 1.3f, 0f);
         Vector3 metalDoorPos = new Vector3(0.003f, 0f, 0.38f);
+        Vector3 doubleDoorPos = new Vector3(0f, 1.45f, 0f);
         
         if(doorPrefab != null && doorNode != null)
         {
@@ -227,6 +230,15 @@ public class Board : MonoBehaviour
         {
             GameObject terminalInstance = Instantiate(terminalPrefab, terminalNode.transform.position + terminalPos, Quaternion.Euler(0f, 180f, 0f));
             iTween.ScaleFrom(terminalInstance, iTween.Hash(
+                "scale", Vector3.zero,
+                "delay", drawGoalDelay,
+                "time", drawGoalTime));
+        }
+
+        if(doubleDoorPrefab != null && doorNode != null)
+        {
+            GameObject doubleDoorInstance = Instantiate(doubleDoorPrefab, doorNode.transform.position + doubleDoorPos, Quaternion.Euler(0f, 90f, 0f));
+            iTween.ScaleFrom(doubleDoorInstance, iTween.Hash(
                 "scale", Vector3.zero,
                 "delay", drawGoalDelay,
                 "time", drawGoalTime));
@@ -371,7 +383,7 @@ public class Board : MonoBehaviour
     }
 
     // Change camera of the level when the player open the door
-    public void ChangeCameraOnNode()
+    public void ChangeCameraOnNodeLvl3()
     {
         if(m_playerNode == doorNode)
         {
@@ -382,6 +394,15 @@ public class Board : MonoBehaviour
         {
             mainCamera.SetActive(true);
             retroCamera.SetActive(false);
+        } 
+    }
+
+    public void ChangeCameraOnNodeLvl4()
+    {
+        if (m_playerNode.transform.position == new Vector3(1f, 0f, -2f))
+        {
+            mainCamera.SetActive(false);
+            retroCamera.SetActive(true);
         }
     }
 
@@ -397,12 +418,21 @@ public class Board : MonoBehaviour
                 "scale", Vector3.zero,
                 "delay", drawGoalDelay,
                 "time", drawGoalTime));
-            keyInstance.GetComponent<KeyCardCollision>().obstacleOnDoor = obstacle;
+        }
+    }
+
+    public void DrawJacket()
+    {
+        if (enemyJacketPrefab != null && (enemiesPatrol[0].GetComponent<EnemyManager>().IsDead || enemiesPatrol[1].GetComponent<EnemyManager>().IsDead 
+            || enemiesPatrol[2].GetComponent<EnemyManager>().IsDead))
+        {
+            
         }
     }
 
     private void Update()
     {
         DrawKey();
+        ChangeCameraOnNodeLvl4();
     }
 }
