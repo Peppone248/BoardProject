@@ -9,12 +9,22 @@ public class SecurityCamDetection : MonoBehaviour
     PlayerManager player;
     public Light spotlight;
     Color g = Color.green;
+    MeshRenderer hitmanRend;
+    Material[] materials;
+    Color orange;
 
     private void Awake()
     {
         game = Object.FindObjectOfType<GameManager>().GetComponent<GameManager>();
         player = Object.FindObjectOfType<PlayerManager>().GetComponent<PlayerManager>();
         board = Object.FindObjectOfType<Board>().GetComponent<Board>();
+    }
+
+    private void Start()
+    {
+        hitmanRend = GameObject.Find("Hitman").GetComponent<MeshRenderer>();
+        materials = hitmanRend.materials;
+        ColorUtility.TryParseHtmlString("#FF7600", out orange);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,6 +36,9 @@ public class SecurityCamDetection : MonoBehaviour
                 Debug.Log("Sei Morto");
                 player.Die();
                 game.LoseLevel();
+            } else if (spotlight.color != Color.green && materials[0].color == orange && materials[4].color == orange)
+            {
+                return;
             }
         } else if(other.gameObject.name == "EnemyPatrol (2)")
         

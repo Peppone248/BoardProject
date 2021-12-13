@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Board : MonoBehaviour
@@ -44,6 +45,9 @@ public class Board : MonoBehaviour
     public GameObject[] hitmanEnemyPatrol;
     public GameObject mainCamera;
     public GameObject retroCamera;
+    public GameObject lateralCam;
+    public GameObject cameraFirstRoom;
+    public GameObject cameraSecondRoom;
     public Light[] pointLight;
 
     public float countAttemptsCredentials = 0;
@@ -58,6 +62,8 @@ public class Board : MonoBehaviour
     Color g = Color.green;
 
     List<EnemyManager> enemies;
+    Scene currentScene;
+    string nameCurrentScene;
 
     public List<Transform> capturePosition;
     public int currentCapturedPosition = 0;
@@ -82,7 +88,11 @@ public class Board : MonoBehaviour
     string pswSecurityCam = "admin";
     string usernameSecurityCam = "admin";
 
-
+    private void Start()
+    {
+        currentScene = SceneManager.GetActiveScene();
+        nameCurrentScene = currentScene.name;
+    }
     void Awake()
     {
         m_player = Object.FindObjectOfType<PlayerMover>().GetComponent<PlayerMover>();
@@ -94,6 +104,22 @@ public class Board : MonoBehaviour
         computerNode = FindComputerNode();
         keyNode = FindKeyNode();
         terminalNode = FindTerminalNode();
+    }
+
+    void Update()
+    {
+        if (currentScene.name == "Level4")
+        {
+            ChangeCameraOnNodeLvl4();
+        }
+
+        if(currentScene.name == "Level3")
+        {
+            ChangeCameraOnNodeLvl3();
+        }
+       
+        DrawKey();
+        DrawJacket();
     }
 
     public void GetNodeList()
@@ -400,10 +426,34 @@ public class Board : MonoBehaviour
 
     public void ChangeCameraOnNodeLvl4()
     {
-        if (m_playerNode.transform.position == new Vector3(1f, 0f, -2f))
+        
+        if (m_playerNode.transform.position == new Vector3(-1f, 0f, 2f) && retroCamera.activeInHierarchy)
+        {
+            cameraFirstRoom.SetActive(true);
+            retroCamera.SetActive(false);
+        }
+        else if (m_playerNode.transform.position == new Vector3(1f, 0f, 2f))
+        {
+            cameraFirstRoom.SetActive(false);
+            retroCamera.SetActive(true);
+        }
+
+        if (m_playerNode.transform.position == new Vector3(1f, 0f, -2f) || m_playerNode.transform.position == new Vector3(1f, 0f, -4f))
         {
             mainCamera.SetActive(false);
             retroCamera.SetActive(true);
+        } 
+
+        if (m_playerNode.transform.position == new Vector3(5f, 0f, 8f))
+        {
+            lateralCam.SetActive(false);
+            cameraSecondRoom.SetActive(true);
+        }
+
+        if (m_playerNode.transform.position == new Vector3(1f, 0f, 4f))
+        {
+            retroCamera.SetActive(false);
+            lateralCam.SetActive(true);
         }
     }
 
@@ -430,21 +480,33 @@ public class Board : MonoBehaviour
             jacketSpawned = true;
             if (enemiesPatrol[0].GetComponent<EnemyManager>().IsDead)
             {
-                GameObject jacketInstance = Instantiate(enemyJacketPrefab, (enemiesPatrol[0].transform.position + new Vector3(2f, -0.5f, 0f)), Quaternion.identity);
+                GameObject jacketInstance = Instantiate(enemyJacketPrefab, (enemiesPatrol[0].transform.position + new Vector3(2f, -0.7f, 0f)), Quaternion.identity);
                 iTween.ScaleFrom(jacketInstance, iTween.Hash(
                 "scale", Vector3.zero,
                 "delay", drawGoalDelay,
                 "time", drawGoalTime));
+
+            } else if (enemiesPatrol[1].GetComponent<EnemyManager>().IsDead)
+            {
+                GameObject jacketInstance = Instantiate(enemyJacketPrefab, (enemiesPatrol[1].transform.position + new Vector3(0f, -0.7f, -1.3f)), Quaternion.identity);
+                iTween.ScaleFrom(jacketInstance, iTween.Hash(
+                "scale", Vector3.zero,
+                "delay", drawGoalDelay,
+                "time", drawGoalTime));
+
+            } else if (enemiesPatrol[2].GetComponent<EnemyManager>().IsDead)
+            {
+                GameObject jacketInstance = Instantiate(enemyJacketPrefab, (enemiesPatrol[2].transform.position + new Vector3(-1.3f, -0.7f, 0f)), Quaternion.identity);
+                iTween.ScaleFrom(jacketInstance, iTween.Hash(
+                "scale", Vector3.zero,
+                "delay", drawGoalDelay,
+                "time", drawGoalTime));
+
             }
         }   
     }
 
-    private void Update()
-    {
-        DrawKey();
-        ChangeCameraOnNodeLvl4();
-        DrawJacket();
-    }
+  
 }
 
 

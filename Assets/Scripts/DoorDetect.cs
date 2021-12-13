@@ -20,7 +20,6 @@ public class DoorDetect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_board.ChangeCameraOnNodeLvl3();
         if (m_board.StopPlayerOnDoor())
         {
             iTween.RotateTo(gameObject, iTween.Hash(
@@ -29,7 +28,7 @@ public class DoorDetect : MonoBehaviour
             "speed", speed,
             "easetype", iTween.EaseType.linear
         ));
-        }
+        } 
     }
 
     public void OpenDoorWithKey()
