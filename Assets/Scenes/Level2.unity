@@ -3430,11 +3430,13 @@ MonoBehaviour:
     type: 3}
   doorPrefab: {fileID: 4543902309502262397, guid: 7f5dfc76f6b58b3428c1e04e9852ec86,
     type: 3}
+  doubleDoorPrefab: {fileID: 0}
   computerPrefab: {fileID: 4604997322381921706, guid: 4a784ce69c77d5a41bdc18d8696bace9,
     type: 3}
   metalDoorPrefab: {fileID: 0}
   keyLockPrefab: {fileID: 0}
   terminalPrefab: {fileID: 0}
+  enemyJacketPrefab: {fileID: 0}
   enemiesSent: []
   enemiesPatrol: []
   hitmanEnemyStat: {fileID: 0}
@@ -3442,7 +3444,9 @@ MonoBehaviour:
   hitmanEnemyPatrol: []
   mainCamera: {fileID: 0}
   retroCamera: {fileID: 0}
-  obstacle: {fileID: 0}
+  lateralCam: {fileID: 0}
+  cameraFirstRoom: {fileID: 0}
+  cameraSecondRoom: {fileID: 0}
   pointLight:
   - {fileID: 1907823933}
   - {fileID: 1365268352}

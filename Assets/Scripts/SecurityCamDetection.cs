@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SecurityCamDetection : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class SecurityCamDetection : MonoBehaviour
     Color g = Color.green;
     MeshRenderer hitmanRend;
     Material[] materials;
-    Color orange;
+    Scene currentScene;
+    string nameScene;
+    bool isEnemy = false;
 
     private void Awake()
     {
@@ -22,26 +25,32 @@ public class SecurityCamDetection : MonoBehaviour
 
     private void Start()
     {
+        currentScene = SceneManager.GetActiveScene();
+        nameScene = currentScene.name;
+    }
+
+    private void Update()
+    {
         hitmanRend = GameObject.Find("Hitman").GetComponent<MeshRenderer>();
         materials = hitmanRend.materials;
-        ColorUtility.TryParseHtmlString("#FF7600", out orange);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.name == "Hitman")
         {
-            if(spotlight.color != Color.green)
+            if (materials[0].name.Equals("EnemyPatrol (Instance)") && materials[4].name.Equals("EnemyPatrol (Instance)"))
+            {
+                isEnemy = true;
+            }
+            else if(spotlight.color != Color.green && isEnemy == false)
             {
                 Debug.Log("Sei Morto");
                 player.Die();
                 game.LoseLevel();
-            } else if (spotlight.color != Color.green && materials[0].color == orange && materials[4].color == orange)
-            {
-                return;
             }
-        } else if(other.gameObject.name == "EnemyPatrol (2)")
-        
+                
+        } else if(other.gameObject.name == "EnemyPatrol (2)" && nameScene.Equals("Level4"))
         {
             iTween.RotateTo(GameObject.Find("Leaf1"), iTween.Hash(
                "y", 0f,
@@ -61,11 +70,11 @@ public class SecurityCamDetection : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.name == "EnemyPatrol (2)" && board.FindNodeAt(GameObject.Find("EnemyPatrol (2)").transform.position).isDoorNode)
+        if(nameScene.Equals("Level4") && other.gameObject.name == "EnemyPatrol (2)" && board.FindNodeAt(GameObject.Find("EnemyPatrol (2)").transform.position).isDoorNode)
         {
             return;
         }
-        else
+        else if(nameScene.Equals("Level4"))
         {
             iTween.RotateTo(GameObject.Find("Leaf1"), iTween.Hash(
                "y", 90f,

@@ -24,6 +24,7 @@ public class Board : MonoBehaviour
     public Node PlayerNode { get { return m_playerNode; } }
     Node m_goalNode;
     Node doorNode;
+    Node doubleDoorNode;
     Node computerNode;
     Node keyNode;
     Node terminalNode;
@@ -104,6 +105,7 @@ public class Board : MonoBehaviour
         computerNode = FindComputerNode();
         keyNode = FindKeyNode();
         terminalNode = FindTerminalNode();
+        doubleDoorNode = FindDoubleDoorNode();
     }
 
     void Update()
@@ -157,6 +159,11 @@ public class Board : MonoBehaviour
     private Node FindTerminalNode()
     {
         return m_allNodes.Find(n => n.isTerminalNode);
+    }
+
+    private Node FindDoubleDoorNode()
+    {
+        return m_allNodes.Find(n => n.isDoubleDoorNode);
     }
 
     public Node FindPlayerNode()
@@ -234,9 +241,17 @@ public class Board : MonoBehaviour
            
         }
 
-        if(computerPrefab != null && computerNode != null)
+        if(computerPrefab != null && computerNode != null && nameCurrentScene.Equals("Level2"))
         {
             GameObject computerInstance = Instantiate(computerPrefab, computerNode.transform.position + computerPosition, Quaternion.Euler(0f,-90f, 0f));
+
+            iTween.ScaleFrom(computerInstance, iTween.Hash(
+               "scale", Vector3.zero,
+               "delay", drawGoalDelay,
+               "time", drawGoalTime));
+        } else if(computerPrefab != null && computerNode != null && nameCurrentScene.Equals("Level4"))
+        {
+            GameObject computerInstance = Instantiate(computerPrefab, computerNode.transform.position + new Vector3(0f, 0.89f, 0f), Quaternion.Euler(0f, 90f, 0f));
 
             iTween.ScaleFrom(computerInstance, iTween.Hash(
                "scale", Vector3.zero,
@@ -269,6 +284,17 @@ public class Board : MonoBehaviour
                 "scale", Vector3.zero,
                 "delay", drawGoalDelay,
                 "time", drawGoalTime));
+        }
+
+        if(doubleDoorPrefab != null && doubleDoorNode != null)
+        {
+            GameObject doubleDoorInstance1 = Instantiate(doubleDoorPrefab, doubleDoorNode.transform.position + doubleDoorPos, Quaternion.Euler(0f, 90f, 0f));
+            
+            iTween.ScaleFrom(doubleDoorInstance1, iTween.Hash(
+                "scale", Vector3.zero,
+                "delay", drawGoalDelay,
+                "time", drawGoalTime));
+
         }
     }
 

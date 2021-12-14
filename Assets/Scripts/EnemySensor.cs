@@ -17,10 +17,19 @@ public class EnemySensor : MonoBehaviour
     bool m_foundPlayer = false;
     public bool FoundPlayer { get { return m_foundPlayer; } }
 
+    MeshRenderer hitmanRend;
+    Material[] materials;
+
     void Awake()
     {
         // find Board component
         m_board = Object.FindObjectOfType<Board>().GetComponent<Board>();
+    }
+
+    private void Update()
+    {
+        hitmanRend = GameObject.Find("Hitman").GetComponent<MeshRenderer>();
+        materials = hitmanRend.materials;
     }
 
     // check if the Player has moved into our sensor
