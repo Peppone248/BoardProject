@@ -39,7 +39,7 @@ public class SecurityCamDetection : MonoBehaviour
     {
         if(other.gameObject.name == "Hitman")
         {
-            if (materials[0].name.Equals("EnemyPatrol (Instance)") && materials[4].name.Equals("EnemyPatrol (Instance)"))
+            if (materials[0].name.Equals("EnemyPatrol (Instance)") && materials[4].name.Equals("EnemyPatrol (  Instance)"))
             {
                 isEnemy = true;
             }
@@ -50,7 +50,7 @@ public class SecurityCamDetection : MonoBehaviour
                 game.LoseLevel();
             }
                 
-        } else if(other.gameObject.name == "EnemyPatrol (2)" && nameScene.Equals("Level4"))
+        } else if((other.gameObject.name == "EnemyPatrol (2)" || other.gameObject.name == "EnemyPatrol (4)") && nameScene.Equals("Level4"))
         {
             iTween.RotateTo(GameObject.Find("Leaf1"), iTween.Hash(
                "y", 0f,
@@ -70,7 +70,7 @@ public class SecurityCamDetection : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(nameScene.Equals("Level4") && other.gameObject.name == "EnemyPatrol (2)")
+        if(nameScene.Equals("Level4") && (other.gameObject.name == "EnemyPatrol (2)" || other.gameObject.name == "EnemyPatrol (4)"))
         {
             iTween.RotateTo(GameObject.Find("Leaf1"), iTween.Hash(
                "y", 90f,
