@@ -70,11 +70,7 @@ public class SecurityCamDetection : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(nameScene.Equals("Level4") && other.gameObject.name == "EnemyPatrol (2)" && board.FindNodeAt(GameObject.Find("EnemyPatrol (2)").transform.position).isDoorNode)
-        {
-            return;
-        }
-        else if(nameScene.Equals("Level4"))
+        if(nameScene.Equals("Level4") && other.gameObject.name == "EnemyPatrol (2)")
         {
             iTween.RotateTo(GameObject.Find("Leaf1"), iTween.Hash(
                "y", 90f,
@@ -89,6 +85,10 @@ public class SecurityCamDetection : MonoBehaviour
                 "speed", 50f,
                 "easetype", iTween.EaseType.linear
                                                 ));
+        }
+        else if(nameScene.Equals("Level4"))
+        {
+            return;
         }
     }
 }

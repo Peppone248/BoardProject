@@ -14,6 +14,7 @@ public class EnemyDeath : MonoBehaviour
     public float iTweenDelay = 0f;
     public iTween.EaseType easeType = iTween.EaseType.easeInOutQuint;
     public float moveTime = 0.5f;
+    
     private void Awake()
     {
         m_board = Object.FindObjectOfType<Board>().GetComponent<Board>();
@@ -30,10 +31,6 @@ public class EnemyDeath : MonoBehaviour
             "time", moveTime));
     }
 
-    /* private void Start()
-    {
-        Die();
-    } */
     public void Die()
     {
         StartCoroutine(DieRoutine());

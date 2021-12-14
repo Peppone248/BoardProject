@@ -86,6 +86,7 @@ public class Board : MonoBehaviour
     public string usernameFromField;
     public string emailFromField;
     public string[] password = {"1234", "3142", "2413", "1243", "3214", "4321", "4132", "1432", "1324"};
+    int n;
     string pswSecurityCam = "admin";
     string usernameSecurityCam = "admin";
 
@@ -93,6 +94,7 @@ public class Board : MonoBehaviour
     {
         currentScene = SceneManager.GetActiveScene();
         nameCurrentScene = currentScene.name;
+        n = Random.Range(0, 8);
     }
     void Awake()
     {
@@ -110,6 +112,11 @@ public class Board : MonoBehaviour
 
     void Update()
     {
+        if (currentScene.name == "Level1")
+        {
+            ChangeCameraOnNodeLvl2();
+        }
+
         if (currentScene.name == "Level4")
         {
             ChangeCameraOnNodeLvl4();
@@ -294,7 +301,6 @@ public class Board : MonoBehaviour
                 "scale", Vector3.zero,
                 "delay", drawGoalDelay,
                 "time", drawGoalTime));
-
         }
     }
 
@@ -311,18 +317,17 @@ public class Board : MonoBehaviour
     {
         Vector3 spacingZ = new Vector3(0f, 0f, 2f);
         Vector3 spacingX = new Vector3(2f, 0f, 0f);
-        
+
         try
         {
             if ((FindNodeAt(m_player.transform.position + spacingZ).isDoorNode || FindNodeAt(m_player.transform.position + spacingX).isDoorNode) && m_player.isMoving == false)
             {
-                int n = Random.Range(0, 9);
+                Debug.Log(n.ToString());
                 insertPsw.gameObject.SetActive(true);
                 //Debug.Log("HAI DAVANTI UNA PORTA!");
                 pswFromField = passwordTyped.text;
-                if (pswFromField==password[5])
-                {
-                    Debug.Log("psw correct");
+                if (pswFromField==password[n])
+                { 
                     insertPsw.gameObject.SetActive(false);
                     return true;
                     //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
@@ -448,6 +453,20 @@ public class Board : MonoBehaviour
             mainCamera.SetActive(true);
             retroCamera.SetActive(false);
         } 
+    }
+
+    public void ChangeCameraOnNodeLvl2()
+    {
+        if(m_playerNode == doorNode)
+        {
+            mainCamera.SetActive(false);
+            retroCamera.SetActive(true);
+        } 
+        else if(m_playerNode.transform.position == new Vector3(-2f, 0f, 0f) && retroCamera.activeInHierarchy)
+        {
+            mainCamera.SetActive(true);
+            retroCamera.SetActive(false);
+        }
     }
 
     public void ChangeCameraOnNodeLvl4()

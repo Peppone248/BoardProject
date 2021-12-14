@@ -288,10 +288,10 @@ public class GameManager : MonoBehaviour
     {
         if (pswCluesLvl2[0] == null && pswCluesLvl2[1] == null)
         {
-            goalComplete[0].SetActive(true);
+            goalComplete[0].SetActive(false);
         }
         else
-            goalComplete[0].SetActive(false);
+            goalComplete[0].SetActive(true);
 
         if (player.countTurn <= 15)
         {

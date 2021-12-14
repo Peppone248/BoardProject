@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class KeyPressed : MonoBehaviour
 {
-    bool tipIsSpawned = true;
+    bool tipIsSpawned;
     bool arrowSpawned = false;
     public float delayTime = 2.2f;
     public GameObject firstEnemy;
@@ -26,17 +26,21 @@ public class KeyPressed : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(gameObject.activeInHierarchy)
+        if (gameObject.activeInHierarchy)
+        {
             DelaySpawn(delayTime);
+            tipIsSpawned = true;
+        }
+            
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(player.countTurn == 1 && tipIsSpawned)
+        if(player.countTurn == 1)
         {
             tipIsSpawned = false;
-            DelaySpawn(delayTime);
+            //DelaySpawn(delayTime);
         }
 
         try
@@ -56,11 +60,10 @@ public class KeyPressed : MonoBehaviour
         }
         catch
         {
-            //Debug.Log("No porte in questo livello.");
             return;
         }
 
-        if (player.countTurn==3)
+        if (player.countTurn==3 && arrowSpawned)
         {
             blueEnemyDescription.gameObject.SetActive(false);
             orangeEnemyDescription.gameObject.SetActive(true);
@@ -73,7 +76,7 @@ public class KeyPressed : MonoBehaviour
                 "easetype", iTween.EaseType.linear));
         }
 
-        if (player.countTurn == 4)
+        if (player.countTurn == 4 && arrowSpawned)
         {
             orangeEnemyDescription.gameObject.SetActive(false);
             greenEnemyDescription.gameObject.SetActive(true);
