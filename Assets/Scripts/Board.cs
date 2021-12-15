@@ -74,6 +74,8 @@ public class Board : MonoBehaviour
     public float capturePosIconSize = 0.4f;
     public Color capturePosIconColor = Color.red;
 
+    public Canvas coverCanvasPsw;
+    public Canvas coverCanvasWiFi;
     public Canvas insertPsw;
     public Canvas scanScreen;
     public Canvas terminalCanvas;
@@ -365,10 +367,10 @@ public class Board : MonoBehaviour
             // Check if the player is in front of the ComputerNode
             if (FindNodeAt(m_player.transform.position + oneSpaceX).isComputerNode && m_player.isMoving==false)
             {
-                
+
                 // If it happens, InsertCredentials Canvas spawn
-                
-                insertPsw.gameObject.SetActive(true);
+
+                coverCanvasPsw.gameObject.SetActive(true);
                 
                 // Take the credentials typed inside the InputField and check if the credentials are correct 
                 
@@ -376,14 +378,16 @@ public class Board : MonoBehaviour
                 pswFromField = passwordTyped.text;
                 if (pswFromField.Equals(pswSecurityCam) && usernameFromField.Equals(usernameSecurityCam))
                 {
-                  // The player now can't move because is using the PC and must disable the securityCams, switching of Canvas
+                 // The player now can't move because is using the PC and must disable the securityCams, switching of Canvas
                   
                   playInput.InputEnabled = false;
-                  insertPsw.gameObject.SetActive(false);
-                  scanScreen.gameObject.SetActive(true);
-                  if (pointLight[0].color == g && pointLight[1].color == g && pointLight[2].color == g)
+                  coverCanvasPsw.gameObject.SetActive(false);
+                  coverCanvasWiFi.gameObject.SetActive(true);
+                 
+                  if (!scanScreen.isActiveAndEnabled)
                   {
-                      playInput.InputEnabled = true;
+                        playInput.InputEnabled = true;
+                        coverCanvasPsw.gameObject.SetActive(true);
                   }
                         return true;
                   }
@@ -392,11 +396,11 @@ public class Board : MonoBehaviour
                     countAttemptsCredentials++;
                     return false;
                   }
-
                 }
             else
             {
-                insertPsw.gameObject.SetActive(false);
+                coverCanvasPsw.gameObject.SetActive(false);
+                insertPsw.gameObject.SetActive(true);
                 //Debug.Log("VIA LIBERA");
                 return false;
             }
