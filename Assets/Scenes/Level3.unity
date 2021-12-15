@@ -763,7 +763,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83385397}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -1324,7 +1324,6 @@ MonoBehaviour:
         m_CallState: 2
   directionToMove: {x: 0, y: 0, z: 2}
   movementType: 1
-  speedMovement: 0
   standTime: 1
 --- !u!1 &180052028
 GameObject:
@@ -3325,7 +3324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4712024491682072, guid: cb7fa3512c39fdb4c8aabc07a7f0cd99, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4712024491682072, guid: cb7fa3512c39fdb4c8aabc07a7f0cd99, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3333,11 +3332,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4712024491682072, guid: cb7fa3512c39fdb4c8aabc07a7f0cd99, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4712024491682072, guid: cb7fa3512c39fdb4c8aabc07a7f0cd99, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4712024491682072, guid: cb7fa3512c39fdb4c8aabc07a7f0cd99, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3345,7 +3344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4712024491682072, guid: cb7fa3512c39fdb4c8aabc07a7f0cd99, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4712024491682072, guid: cb7fa3512c39fdb4c8aabc07a7f0cd99, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3399,7 +3398,6 @@ MonoBehaviour:
         m_CallState: 2
   directionToMove: {x: 0, y: 0, z: 2}
   movementType: 1
-  speedMovement: 0
   standTime: 1
 --- !u!114 &659812938
 MonoBehaviour:
@@ -3990,7 +3988,6 @@ MonoBehaviour:
         m_CallState: 2
   directionToMove: {x: 0, y: 0, z: 2}
   movementType: 1
-  speedMovement: 0
   standTime: 1
 --- !u!1 &786472461
 GameObject:
@@ -4827,7 +4824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4712024491682072, guid: cb7fa3512c39fdb4c8aabc07a7f0cd99, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4712024491682072, guid: cb7fa3512c39fdb4c8aabc07a7f0cd99, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8750,7 +8747,7 @@ PrefabInstance:
     - target: {fileID: 8706673975745727971, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 8706673975745727971, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
@@ -8985,6 +8982,7 @@ MonoBehaviour:
   goalPrefab: {fileID: 5466340243135475816, guid: 74df63c480c89cf42902469af1ccac99,
     type: 3}
   doorPrefab: {fileID: 0}
+  doubleDoorPrefab: {fileID: 0}
   computerPrefab: {fileID: 4604997322381921706, guid: 4a784ce69c77d5a41bdc18d8696bace9,
     type: 3}
   metalDoorPrefab: {fileID: 1056823021771475407, guid: 62569147f9c1e0448a272a56b32df7a1,
@@ -8993,6 +8991,7 @@ MonoBehaviour:
     type: 3}
   terminalPrefab: {fileID: 3067233715351354962, guid: 67d4d8d5992a5404fbdc95df5616c0ce,
     type: 3}
+  enemyJacketPrefab: {fileID: 0}
   enemiesSent:
   - {fileID: 773986117}
   enemiesPatrol:
@@ -9008,7 +9007,9 @@ MonoBehaviour:
   - {fileID: 659812936}
   mainCamera: {fileID: 83385397}
   retroCamera: {fileID: 42239200}
-  obstacle: {fileID: 0}
+  lateralCam: {fileID: 0}
+  cameraFirstRoom: {fileID: 0}
+  cameraSecondRoom: {fileID: 0}
   pointLight: []
   countAttemptsCredentials: 0
   drawGoalEaseType: 16
@@ -9484,7 +9485,6 @@ MonoBehaviour:
         m_CallState: 2
   directionToMove: {x: 0, y: 0, z: 2}
   movementType: 2
-  speedMovement: 0
   standTime: 1
 --- !u!114 &1687890023
 MonoBehaviour:
@@ -10258,7 +10258,7 @@ PrefabInstance:
     - target: {fileID: 8706673975745727971, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8706673975745727971, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
@@ -10268,7 +10268,7 @@ PrefabInstance:
     - target: {fileID: 8706673975745727971, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8706673975745727971, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
@@ -10283,7 +10283,7 @@ PrefabInstance:
     - target: {fileID: 8706673975745727971, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8706673975745727971, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}

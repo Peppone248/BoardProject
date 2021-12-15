@@ -39,10 +39,26 @@ public class SecurityCamDetection : MonoBehaviour
     {
         if(other.gameObject.name == "Hitman")
         {
-            if (materials[0].name.Equals("EnemyPatrol (Instance)") && materials[4].name.Equals("EnemyPatrol (  Instance)"))
+            if (materials[0].name.Equals("EnemyPatrol (Instance)") && materials[4].name.Equals("EnemyPatrol (Instance)"))
             {
+                
                 isEnemy = true;
+                
+                iTween.RotateTo(GameObject.Find("Leaf1"), iTween.Hash(
+                        "y", 0f,
+                        "time", 0.7f,
+                        "speed", 50f,
+                        "easetype", iTween.EaseType.linear
+                                                 ));
+
+                iTween.RotateTo(GameObject.Find("Leaf2"), iTween.Hash(
+                    "y", 180f,
+                    "time", 0.7f,
+                    "speed", 50f,
+                    "easetype", iTween.EaseType.linear
+                                                    ));
             }
+
             else if(spotlight.color != Color.green && isEnemy == false)
             {
                 Debug.Log("Sei Morto");
@@ -50,7 +66,8 @@ public class SecurityCamDetection : MonoBehaviour
                 game.LoseLevel();
             }
                 
-        } else if((other.gameObject.name == "EnemyPatrol (2)" || other.gameObject.name == "EnemyPatrol (4)") && nameScene.Equals("Level4"))
+        } else if((other.gameObject.name == "EnemyPatrol (2)" || other.gameObject.name == "EnemySentinel") && nameScene.Equals("Level4"))
+        
         {
             iTween.RotateTo(GameObject.Find("Leaf1"), iTween.Hash(
                "y", 0f,
@@ -70,7 +87,7 @@ public class SecurityCamDetection : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(nameScene.Equals("Level4") && (other.gameObject.name == "EnemyPatrol (2)" || other.gameObject.name == "EnemyPatrol (4)"))
+        if(nameScene.Equals("Level4") && (other.gameObject.name == "EnemyPatrol (2)" || other.gameObject.name == "EnemySentinel"))
         {
             iTween.RotateTo(GameObject.Find("Leaf1"), iTween.Hash(
                "y", 90f,

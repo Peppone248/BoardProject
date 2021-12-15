@@ -108,6 +108,7 @@ public class Board : MonoBehaviour
         keyNode = FindKeyNode();
         terminalNode = FindTerminalNode();
         doubleDoorNode = FindDoubleDoorNode();
+        jacketNode = FindJacketNode();
     }
 
     void Update()
@@ -171,6 +172,11 @@ public class Board : MonoBehaviour
     private Node FindDoubleDoorNode()
     {
         return m_allNodes.Find(n => n.isDoubleDoorNode);
+    }
+
+    private Node FindJacketNode()
+    {
+        return m_allNodes.Find(n => n.isJacketNode);
     }
 
     public Node FindPlayerNode()
@@ -495,7 +501,7 @@ public class Board : MonoBehaviour
             cameraSecondRoom.SetActive(true);
         }
 
-        if (m_playerNode.transform.position == new Vector3(1f, 0f, 4f))
+        if (m_playerNode.transform.position == new Vector3(3f, 0f, 4f))
         {
             retroCamera.SetActive(false);
             lateralCam.SetActive(true);
@@ -525,7 +531,7 @@ public class Board : MonoBehaviour
             jacketSpawned = true;
             if (enemiesPatrol[0].GetComponent<EnemyManager>().IsDead)
             {
-                GameObject jacketInstance = Instantiate(enemyJacketPrefab, (enemiesPatrol[0].transform.position + new Vector3(2f, -0.7f, 0f)), Quaternion.identity);
+                GameObject jacketInstance = Instantiate(enemyJacketPrefab, (jacketNode.transform.position + new Vector3(0f, -0.7f, 0f)), Quaternion.identity);
                 iTween.ScaleFrom(jacketInstance, iTween.Hash(
                 "scale", Vector3.zero,
                 "delay", drawGoalDelay,
@@ -533,7 +539,7 @@ public class Board : MonoBehaviour
 
             } else if (enemiesPatrol[1].GetComponent<EnemyManager>().IsDead)
             {
-                GameObject jacketInstance = Instantiate(enemyJacketPrefab, (enemiesPatrol[1].transform.position + new Vector3(0f, -0.7f, -1.3f)), Quaternion.identity);
+                GameObject jacketInstance = Instantiate(enemyJacketPrefab, (jacketNode.transform.position + new Vector3(0f, -0.7f, 0f)), Quaternion.identity);
                 iTween.ScaleFrom(jacketInstance, iTween.Hash(
                 "scale", Vector3.zero,
                 "delay", drawGoalDelay,
@@ -541,7 +547,7 @@ public class Board : MonoBehaviour
 
             } else if (enemiesPatrol[2].GetComponent<EnemyManager>().IsDead)
             {
-                GameObject jacketInstance = Instantiate(enemyJacketPrefab, (enemiesPatrol[2].transform.position + new Vector3(-1.3f, -0.7f, 0f)), Quaternion.identity);
+                GameObject jacketInstance = Instantiate(enemyJacketPrefab, (jacketNode.transform.position + new Vector3(0f, -0.7f, 0f)), Quaternion.identity);
                 iTween.ScaleFrom(jacketInstance, iTween.Hash(
                 "scale", Vector3.zero,
                 "delay", drawGoalDelay,
