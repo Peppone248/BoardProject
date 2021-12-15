@@ -54,6 +54,7 @@ public class Board : MonoBehaviour
     public float countAttemptsCredentials = 0;
     bool keySpawned = false;
     bool jacketSpawned = false;
+    bool close = false;
     float drawGoalTime = 1f;
     float drawGoalDelay = 0.3f;
     public iTween.EaseType drawGoalEaseType = iTween.EaseType.easeOutExpo;
@@ -361,31 +362,38 @@ public class Board : MonoBehaviour
 
         try
         {
+            // Check if the player is in front of the ComputerNode
             if (FindNodeAt(m_player.transform.position + oneSpaceX).isComputerNode && m_player.isMoving==false)
             {
+                
+                // If it happens, InsertCredentials Canvas spawn
+                
                 insertPsw.gameObject.SetActive(true);
-                //Debug.Log("HAI DAVANTI UNA PORTA!");
+                
+                // Take the credentials typed inside the InputField and check if the credentials are correct 
+                
                 usernameFromField = usernameTyped.text;
                 pswFromField = passwordTyped.text;
                 if (pswFromField.Equals(pswSecurityCam) && usernameFromField.Equals(usernameSecurityCam))
                 {
-                    playInput.InputEnabled = false;
-                    //Debug.Log("psw correct");
-                    insertPsw.gameObject.SetActive(false);
-                    scanScreen.gameObject.SetActive(true);
-                    if(pointLight[0].color == g && pointLight[1].color == g && pointLight[2].color == g)
-                    {
-                        playInput.InputEnabled = true;
-                    }
-                    return true;
-                }
-                else
-                {
+                  // The player now can't move because is using the PC and must disable the securityCams, switching of Canvas
+                  
+                  playInput.InputEnabled = false;
+                  insertPsw.gameObject.SetActive(false);
+                  scanScreen.gameObject.SetActive(true);
+                  if (pointLight[0].color == g && pointLight[1].color == g && pointLight[2].color == g)
+                  {
+                      playInput.InputEnabled = true;
+                  }
+                        return true;
+                  }
+                  else
+                  {
                     countAttemptsCredentials++;
                     return false;
+                  }
+
                 }
-                    
-            }
             else
             {
                 insertPsw.gameObject.SetActive(false);
@@ -556,8 +564,6 @@ public class Board : MonoBehaviour
             }
         }   
     }
-
-  
 }
 
 
