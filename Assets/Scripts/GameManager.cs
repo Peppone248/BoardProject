@@ -20,11 +20,14 @@ public class GameManager : MonoBehaviour
     bool hasLevelStarted = false;
     bool isGamePlaying = false;
     bool isGameOver = false;
-    bool hasLevelFinish= false;
+    bool hasLevelFinish = false;
+    bool hasGamePaused = false;
     public float delay = 1f;
     public GameObject[] goalComplete;
     public GameObject[] passwordCanvas;
     public GameObject[] pswCluesLvl2;
+    public GameObject pauseMenu;
+    public GameObject pauseButton;
 
     List<EnemyManager> enemies;
     Turn currentTurn = Turn.Player;
@@ -48,12 +51,12 @@ public class GameManager : MonoBehaviour
         p_input = Object.FindObjectOfType<PlayerInput>().GetComponent<PlayerInput>();
         EnemyManager[] t_enemies = GameObject.FindObjectsOfType<EnemyManager>() as EnemyManager[];
         enemies = t_enemies.ToList();
-      
+
     }
     // Start is called before the first frame update
     void Start()
     {
-        if(player != null && m_board != null)
+        if (player != null && m_board != null)
         {
             StartCoroutine(RunGameLoop());
         }
@@ -73,13 +76,13 @@ public class GameManager : MonoBehaviour
     IEnumerator StartLevelRoutine()
     {
         Debug.Log("SETUP LEVEL");
-        if(setupEvent != null)
+        if (setupEvent != null)
         {
             setupEvent.Invoke();
         }
         Debug.Log("START LEVEL");
         player.playerInput.InputEnabled = false;
-       
+
         while (!hasLevelStarted)
         {
             //show start screen
@@ -87,8 +90,8 @@ public class GameManager : MonoBehaviour
             // set bool true
             yield return null;
         }
-        
-        if(startLevelEvent != null)
+
+        if (startLevelEvent != null)
         {
             startLevelEvent.Invoke();
         }
@@ -100,8 +103,8 @@ public class GameManager : MonoBehaviour
         isGamePlaying = true;
         yield return new WaitForSeconds(delay);
         player.playerInput.InputEnabled = true;
-        
-        if(playLevelEvent != null)
+
+        if (playLevelEvent != null)
         {
             playLevelEvent.Invoke();
         }
@@ -146,7 +149,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("END LEVEL");
         player.playerInput.InputEnabled = false;
 
-        if(endLevelEvent != null)
+        if (endLevelEvent != null)
         {
             endLevelEvent.Invoke();
         }
@@ -178,7 +181,7 @@ public class GameManager : MonoBehaviour
 
     public bool IsWinner()
     {
-        if(m_board.PlayerNode != null && m_board.PlayerNode == m_board.GoalNode)
+        if (m_board.PlayerNode != null && m_board.PlayerNode == m_board.GoalNode)
         {
             Debug.Log("Hai vinto!");
             return true;
@@ -207,7 +210,7 @@ public class GameManager : MonoBehaviour
     void PlayEnemyTurn()
     {
         currentTurn = Turn.Enemy;
-        foreach(EnemyManager enemy in enemies)
+        foreach (EnemyManager enemy in enemies)
         {
             if (enemy != null && !enemy.IsDead)
             {
@@ -234,7 +237,7 @@ public class GameManager : MonoBehaviour
 
     bool AreEnemiesAllDead()
     {
-        foreach(EnemyManager enemy in enemies)
+        foreach (EnemyManager enemy in enemies)
         {
             if (!enemy.IsDead)
             {
@@ -246,7 +249,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateTurn()
     {
-        if(currentTurn == Turn.Player && player != null)
+        if (currentTurn == Turn.Player && player != null)
         {
             if (player.IsTurnComplete && !AreEnemiesAllDead())
             {
@@ -254,7 +257,8 @@ public class GameManager : MonoBehaviour
                 PlayEnemyTurn();
             }
 
-        } else if (currentTurn == Turn.Enemy)
+        }
+        else if (currentTurn == Turn.Enemy)
         {
             // if enermy turn is complete, start player turn
             if (IsEnemyTurnComplete())
@@ -306,7 +310,8 @@ public class GameManager : MonoBehaviour
         if (m_board.countAttemptsCredentials == 0)
         {
             goalComplete[0].SetActive(true);
-        } else
+        }
+        else
             goalComplete[0].SetActive(false);
 
         if (player.countTurn <= 20)
@@ -343,4 +348,24 @@ public class GameManager : MonoBehaviour
         p_input.InputEnabled = true;
     }
 
+    public void QuitGame()
+    {
+        // Da cambiare con "Application.Quit()" quando il gioco verrà completato
+        UnityEditor.EditorApplication.isPlaying = false;
+    }
+
+    public void PauseButton()
+    {
+        Time.timeScale = 0f;
+        pauseMenu.SetActive(true);
+        pauseButton.SetActive(false);
+
+    }
+
+    public void ResumeButton()
+    {
+        Time.timeScale = 1.0f;
+        pauseMenu.SetActive(false);
+        pauseButton.SetActive(true);
+    }
 }

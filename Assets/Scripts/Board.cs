@@ -54,7 +54,6 @@ public class Board : MonoBehaviour
     public float countAttemptsCredentials = 0;
     bool keySpawned = false;
     bool jacketSpawned = false;
-    bool close = false;
     float drawGoalTime = 1f;
     float drawGoalDelay = 0.3f;
     public iTween.EaseType drawGoalEaseType = iTween.EaseType.easeOutExpo;

@@ -37,7 +37,7 @@ public class KeyPressed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.countTurn == 1)
+        if(player.countTurn == 0)
         {
             tipIsSpawned = false;
             //DelaySpawn(delayTime);
@@ -45,7 +45,7 @@ public class KeyPressed : MonoBehaviour
 
         try
         {
-            if (player.countTurn == 2 && !arrowSpawned)
+            if (player.countTurn == 1 && !arrowSpawned)
             {
                 arrowSpawned = true;
                 firstTip.gameObject.SetActive(false);
@@ -63,7 +63,7 @@ public class KeyPressed : MonoBehaviour
             return;
         }
 
-        if (player.countTurn==3 && arrowSpawned)
+        if (player.countTurn==2 && arrowSpawned)
         {
             blueEnemyDescription.gameObject.SetActive(false);
             orangeEnemyDescription.gameObject.SetActive(true);
@@ -76,7 +76,7 @@ public class KeyPressed : MonoBehaviour
                 "easetype", iTween.EaseType.linear));
         }
 
-        if (player.countTurn == 4 && arrowSpawned)
+        if (player.countTurn == 3 && arrowSpawned)
         {
             orangeEnemyDescription.gameObject.SetActive(false);
             greenEnemyDescription.gameObject.SetActive(true);
@@ -89,7 +89,7 @@ public class KeyPressed : MonoBehaviour
                 "easetype", iTween.EaseType.linear));
         }
 
-        if(player.countTurn == 5)
+        if(player.countTurn == 4)
         {
             Destroy(GameObject.Find("Arrow5(Clone)"));
             greenEnemyDescription.gameObject.SetActive(false);
