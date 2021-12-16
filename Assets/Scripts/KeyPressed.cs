@@ -12,6 +12,7 @@ public class KeyPressed : MonoBehaviour
     public GameObject secondEnemy;
     public GameObject thirdEnemy;
     public Image firstTip;
+    public Image interactionObjTip;
     public Image blueEnemyDescription;
     public Image orangeEnemyDescription;
     public Image greenEnemyDescription;
@@ -51,11 +52,6 @@ public class KeyPressed : MonoBehaviour
                 firstTip.gameObject.SetActive(false);
                 blueEnemyDescription.gameObject.SetActive(true);
                 Instantiate(arrow, new Vector3(2f, 3f, 2f), Quaternion.Euler(-182.80f, -290.347f, 276.406f));
-                iTween.MoveTo(GameObject.Find("Arrow5(Clone)"), iTween.Hash(
-                "y", 3.5f,
-                "time", 1f,
-                "loopType", iTween.LoopType.pingPong,
-                "easetype", iTween.EaseType.linear));
             }
         }
         catch
@@ -63,7 +59,7 @@ public class KeyPressed : MonoBehaviour
             return;
         }
 
-        if (player.countTurn==2 && arrowSpawned)
+        if (player.countTurn==2)
         {
             blueEnemyDescription.gameObject.SetActive(false);
             orangeEnemyDescription.gameObject.SetActive(true);
@@ -76,7 +72,7 @@ public class KeyPressed : MonoBehaviour
                 "easetype", iTween.EaseType.linear));
         }
 
-        if (player.countTurn == 3 && arrowSpawned)
+        if (player.countTurn == 3)
         {
             orangeEnemyDescription.gameObject.SetActive(false);
             greenEnemyDescription.gameObject.SetActive(true);
@@ -87,12 +83,26 @@ public class KeyPressed : MonoBehaviour
                 "speed", 10f,
                 "time", 2.5f,
                 "easetype", iTween.EaseType.linear));
+
         }
 
-        if(player.countTurn == 4)
+        if (player.countTurn == 4)
         {
-            Destroy(GameObject.Find("Arrow5(Clone)"));
+            iTween.MoveTo(GameObject.Find("Arrow5(Clone)"), iTween.Hash(
+                "x", 0f,
+                "y", 3f,
+                "z", 5f,
+                "speed", 10f,
+                "time", 2.5f,
+                "easetype", iTween.EaseType.linear));
             greenEnemyDescription.gameObject.SetActive(false);
+            interactionObjTip.gameObject.SetActive(true);
+        }
+
+        if(player.countTurn == 5)
+        {
+            interactionObjTip.gameObject.SetActive(false);
+            Destroy(GameObject.Find("Arrow5(Clone)"));
         }
     }
 

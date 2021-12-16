@@ -14,7 +14,10 @@ public class EnemyDeath : MonoBehaviour
     public float iTweenDelay = 0f;
     public iTween.EaseType easeType = iTween.EaseType.easeInOutQuint;
     public float moveTime = 0.5f;
-    
+
+    public AudioClip deathEffect;
+    public AudioSource deathSource;
+
     private void Awake()
     {
         m_board = Object.FindObjectOfType<Board>().GetComponent<Board>();
@@ -33,6 +36,7 @@ public class EnemyDeath : MonoBehaviour
 
     public void Die()
     {
+        deathSource.PlayOneShot(deathEffect);
         StartCoroutine(DieRoutine());
     }
 
