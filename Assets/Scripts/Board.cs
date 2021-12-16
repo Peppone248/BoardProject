@@ -74,13 +74,15 @@ public class Board : MonoBehaviour
     public float capturePosIconSize = 0.4f;
     public Color capturePosIconColor = Color.red;
 
+    //public Button btnClick;
+
     public Canvas coverCanvasPsw;
     public Canvas coverCanvasWiFi;
     public Canvas insertPsw;
     public Canvas scanScreen;
     public Canvas terminalCanvas;
     public Canvas spoofed;
-    
+
     public InputField passwordTyped;
     public InputField usernameTyped;
     public InputField emailTyped;
@@ -98,6 +100,7 @@ public class Board : MonoBehaviour
         currentScene = SceneManager.GetActiveScene();
         nameCurrentScene = currentScene.name;
         n = Random.Range(0, 8);
+        //btnClick.onClick.AddListener(() => GetInputOnClickHandler());
     }
     void Awake()
     {
@@ -379,10 +382,10 @@ public class Board : MonoBehaviour
                 if (pswFromField.Equals(pswSecurityCam) && usernameFromField.Equals(usernameSecurityCam))
                 {
                  // The player now can't move because is using the PC and must disable the securityCams, switching of Canvas
-                  
                   playInput.InputEnabled = false;
                   coverCanvasPsw.gameObject.SetActive(false);
                   coverCanvasWiFi.gameObject.SetActive(true);
+                  passwordTyped.text = "";
                  
                   if (!scanScreen.isActiveAndEnabled)
                   {
@@ -411,6 +414,12 @@ public class Board : MonoBehaviour
             return false;
         }
     }
+
+    /*
+    public void GetInputOnClickHandler()
+    {
+        Debug.Log("premuto");
+    }*/
 
     public bool StopPlayerOnTerminal()
     {
