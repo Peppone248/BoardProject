@@ -385,7 +385,6 @@ public class Board : MonoBehaviour
                   playInput.InputEnabled = false;
                   coverCanvasPsw.gameObject.SetActive(false);
                   coverCanvasWiFi.gameObject.SetActive(true);
-                  passwordTyped.text = "";
                  
                   if (!scanScreen.isActiveAndEnabled)
                   {
@@ -576,6 +575,12 @@ public class Board : MonoBehaviour
 
             }
         }   
+    }
+
+    public void DeleteCredIfPressed()
+    {
+        passwordTyped.text = "";
+        usernameTyped.text = "";
     }
 }
 
