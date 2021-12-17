@@ -276,7 +276,7 @@ public class Board : MonoBehaviour
                "delay", drawGoalDelay,
                "time", drawGoalTime));
         }
-
+       
         if(metalDoorPrefab != null && doorNode != null)
         {
             GameObject metalDoorInstance = Instantiate(metalDoorPrefab, doorNode.transform.position + metalDoorPos, Quaternion.identity);
