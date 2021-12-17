@@ -16,6 +16,7 @@ public class KeyPressed : MonoBehaviour
     public Image blueEnemyDescription;
     public Image orangeEnemyDescription;
     public Image greenEnemyDescription;
+    public Image scoreDescription;
     public GameObject arrow;
     PlayerManager player;
     public Canvas tutorial;
@@ -99,9 +100,22 @@ public class KeyPressed : MonoBehaviour
             interactionObjTip.gameObject.SetActive(true);
         }
 
-        if(player.countTurn == 5)
+        if (player.countTurn == 5)
         {
+            iTween.MoveTo(GameObject.Find("Arrow5(Clone)"), iTween.Hash(
+                "x", -4f,
+                "y", 3f,
+                "z", -2f,
+                "speed", 10f,
+                "time", 2.5f,
+                "easetype", iTween.EaseType.linear));
             interactionObjTip.gameObject.SetActive(false);
+            scoreDescription.gameObject.SetActive(true);
+        }
+
+        if (player.countTurn == 6)
+        {
+            scoreDescription.gameObject.SetActive(false);
             Destroy(GameObject.Find("Arrow5(Clone)"));
         }
     }
