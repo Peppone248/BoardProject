@@ -2,18 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spinner : MonoBehaviour
+public class SpinBitcoin : MonoBehaviour
 {
-    public float rotateSpeed = 20f;
-
     // Start is called before the first frame update
     void Start()
     {
         iTween.RotateBy(gameObject, iTween.Hash(
-            "y", 360,
+            "z", 360,
             "looptype", iTween.LoopType.loop,
-            "speed", rotateSpeed,
+            "speed", 60f,
             "easetype", iTween.EaseType.linear));
-
     }
 }

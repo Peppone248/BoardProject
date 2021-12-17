@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     bool isGamePlaying = false;
     bool isGameOver = false;
     bool hasLevelFinish = false;
-    bool hasGamePaused = false;
     public float delay = 1f;
     public GameObject[] goalComplete;
     public GameObject[] passwordCanvas;
@@ -359,7 +358,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         pauseButton.SetActive(false);
-
+        p_input.InputEnabled = false;
     }
 
     public void ResumeButton()
@@ -367,5 +366,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         pauseMenu.SetActive(false);
         pauseButton.SetActive(true);
+        p_input.InputEnabled = true;
+
     }
 }
