@@ -73,8 +73,6 @@ public class Board : MonoBehaviour
     public float capturePosIconSize = 0.4f;
     public Color capturePosIconColor = Color.red;
 
-    //public Button btnClick;
-
     public Canvas coverCanvasPsw;
     public Canvas coverCanvasWiFi;
     public Canvas insertPsw;
@@ -99,7 +97,6 @@ public class Board : MonoBehaviour
         currentScene = SceneManager.GetActiveScene();
         nameCurrentScene = currentScene.name;
         n = Random.Range(0, 8);
-        //btnClick.onClick.AddListener(() => GetInputOnClickHandler());
     }
     void Awake()
     {
