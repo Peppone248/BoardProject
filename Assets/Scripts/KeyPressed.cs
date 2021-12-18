@@ -7,7 +7,7 @@ public class KeyPressed : MonoBehaviour
 {
     bool tipIsSpawned;
     bool arrowSpawned = false;
-    public float delayTime = 2.2f;
+    public float delayTime = 2f;
     public GameObject firstEnemy;
     public GameObject secondEnemy;
     public GameObject thirdEnemy;
@@ -18,6 +18,7 @@ public class KeyPressed : MonoBehaviour
     public Image greenEnemyDescription;
     public Image scoreDescription;
     public GameObject arrow;
+    public GameObject arrow2;
     PlayerManager player;
     public Canvas tutorial;
 
@@ -52,7 +53,13 @@ public class KeyPressed : MonoBehaviour
                 arrowSpawned = true;
                 firstTip.gameObject.SetActive(false);
                 blueEnemyDescription.gameObject.SetActive(true);
-                Instantiate(arrow, new Vector3(2f, 3f, 2f), Quaternion.Euler(-182.80f, -290.347f, 276.406f));
+                Instantiate(arrow, new Vector3(2f, 3f, 2f), Quaternion.identity);
+                iTween.RotateBy(GameObject.Find("Pointer(Clone)"), iTween.Hash(
+                "y", 360f,
+                "looptype", iTween.LoopType.loop,
+                "speed", 65f,
+                "time", 2f,
+                "easetype", iTween.EaseType.linear));
             }
         }
         catch
@@ -60,63 +67,73 @@ public class KeyPressed : MonoBehaviour
             return;
         }
 
-        if (player.countTurn==2)
+        if (player.countTurn==2 && arrowSpawned)
         {
+            arrowSpawned = false;
+            Destroy(GameObject.Find("Pointer(Clone)"));
             blueEnemyDescription.gameObject.SetActive(false);
             orangeEnemyDescription.gameObject.SetActive(true);
-            iTween.MoveTo(GameObject.Find("Arrow5(Clone)"), iTween.Hash(
-                "x", 0f,
-                "y", 3f,
-                "z", 2f,
-                "speed", 10f,
-                "time", 2.5f,
+            Instantiate(arrow2, new Vector3(0f, 3f, 2f), Quaternion.identity);
+            iTween.RotateBy(GameObject.Find("Pointer 1(Clone)"), iTween.Hash(
+                "y", 360f,
+                "looptype", iTween.LoopType.loop,
+                "speed", 65f,
+                "time", 2f,
                 "easetype", iTween.EaseType.linear));
         }
 
-        if (player.countTurn == 3)
+        if (player.countTurn == 3 && !arrowSpawned)
         {
+            arrowSpawned = true;
+            Destroy(GameObject.Find("Pointer 1(Clone)"));
             orangeEnemyDescription.gameObject.SetActive(false);
             greenEnemyDescription.gameObject.SetActive(true);
-            iTween.MoveTo(GameObject.Find("Arrow5(Clone)"), iTween.Hash(
-                "x", -2f,
-                "y", 3f,
-                "z", 0f,
-                "speed", 10f,
-                "time", 2.5f,
-                "easetype", iTween.EaseType.linear));
+            Instantiate(arrow, new Vector3(-2f, 3f, 0f), Quaternion.identity);
+            iTween.RotateBy(GameObject.Find("Pointer(Clone)"), iTween.Hash(
+               "y", 360f,
+               "looptype", iTween.LoopType.loop,
+               "speed", 65f,
+               "time", 2f,
+               "easetype", iTween.EaseType.linear));
 
         }
 
-        if (player.countTurn == 4)
+        if (player.countTurn == 4 && arrowSpawned)
         {
-            iTween.MoveTo(GameObject.Find("Arrow5(Clone)"), iTween.Hash(
-                "x", 0f,
-                "y", 3f,
-                "z", 5f,
-                "speed", 10f,
-                "time", 2.5f,
-                "easetype", iTween.EaseType.linear));
+            arrowSpawned = false;
+            Destroy(GameObject.Find("Pointer(Clone)"));
             greenEnemyDescription.gameObject.SetActive(false);
             interactionObjTip.gameObject.SetActive(true);
+            Instantiate(arrow2, new Vector3(0f, 2.8f, 5f), Quaternion.identity);
+            iTween.RotateBy(GameObject.Find("Pointer 1(Clone)"), iTween.Hash(
+               "y", 360f,
+               "looptype", iTween.LoopType.loop,
+               "speed", 65f,
+               "time", 2f,
+               "easetype", iTween.EaseType.linear));
+            
         }
 
-        if (player.countTurn == 5)
+        if (player.countTurn == 5 && !arrowSpawned)
         {
-            iTween.MoveTo(GameObject.Find("Arrow5(Clone)"), iTween.Hash(
-                "x", -4f,
-                "y", 3f,
-                "z", -2f,
-                "speed", 10f,
-                "time", 2.5f,
-                "easetype", iTween.EaseType.linear));
+            arrowSpawned = true;
+            Destroy(GameObject.Find("Pointer 1(Clone)"));
+            Instantiate(arrow, new Vector3(-4f, 2.5f, -2f), Quaternion.identity);
+            iTween.RotateBy(GameObject.Find("Pointer(Clone)"), iTween.Hash(
+               "y", 360f,
+               "looptype", iTween.LoopType.loop,
+               "speed", 65f,
+               "time", 2f,
+               "easetype", iTween.EaseType.linear));
             interactionObjTip.gameObject.SetActive(false);
             scoreDescription.gameObject.SetActive(true);
         }
 
-        if (player.countTurn == 6)
+        if (player.countTurn == 6 && arrowSpawned)
         {
+            arrowSpawned = false;
             scoreDescription.gameObject.SetActive(false);
-            Destroy(GameObject.Find("Arrow5(Clone)"));
+            Destroy(GameObject.Find("Pointer(Clone)"));
         }
     }
 
