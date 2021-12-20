@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5286466295288896196
+--- !u!1 &46226739871851007
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4762167081224716414}
-  - component: {fileID: 8482888544891326427}
-  - component: {fileID: 5935094936015387409}
-  - component: {fileID: 5015924526112502137}
+  - component: {fileID: 860163704704990021}
+  - component: {fileID: 4341524742655767776}
+  - component: {fileID: 1991935229861822506}
+  - component: {fileID: 893211533875628610}
+  - component: {fileID: 46226739871850997}
+  - component: {fileID: 46226739871850992}
   m_Layer: 0
-  m_Name: Bitcoin
+  m_Name: Bitcoin 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4762167081224716414
+--- !u!4 &860163704704990021
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5286466295288896196}
+  m_GameObject: {fileID: 46226739871851007}
   m_LocalRotation: {x: -0.4698463, y: -0.4698463, z: -0.32898986, w: 0.6710102}
-  m_LocalPosition: {x: 5.72, y: 0.81, z: 0.82}
+  m_LocalPosition: {x: -4, y: 0.5, z: -2}
   m_LocalScale: {x: 350, y: 350, z: 350}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -70, y: -70, z: 0}
---- !u!33 &8482888544891326427
+--- !u!33 &4341524742655767776
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5286466295288896196}
+  m_GameObject: {fileID: 46226739871851007}
   m_Mesh: {fileID: -5936309679425232550, guid: c3aed10a79c6e9341b56e4187ebb8c57, type: 3}
---- !u!23 &5935094936015387409
+--- !u!23 &1991935229861822506
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5286466295288896196}
+  m_GameObject: {fileID: 46226739871851007}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -80,15 +82,46 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &5015924526112502137
+--- !u!114 &893211533875628610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5286466295288896196}
+  m_GameObject: {fileID: 46226739871851007}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9e7a0bb652695848960d970701ac534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinSource: {fileID: 0}
+  coinEffect: {fileID: 8300000, guid: 7e5ad10fcb6d99e409315b3df3047ed4, type: 3}
+--- !u!54 &46226739871850997
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46226739871851007}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &46226739871850992
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46226739871851007}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0020921822, y: 0.00024016933, z: 0.00196772}
+  m_Center: {x: -0.000061325096, y: 0.000029831675, z: -0.0000014830484}

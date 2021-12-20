@@ -8,6 +8,8 @@ public class SpinBitcoin : MonoBehaviour
     public AudioSource coinSource;
     public AudioClip coinEffect;
 
+    public float GetScore { get => score; set => score = value; }
+
 
     // Start is called before the first frame update
     void Start()

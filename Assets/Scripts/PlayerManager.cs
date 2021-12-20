@@ -29,6 +29,7 @@ public class PlayerManager : TurnManager
     {
         if (playerMover.isMoving || m_gameManager.CurrentTurn != Turn.Player)
         {
+            
             return;
         }
 

@@ -37,6 +37,9 @@ public class Mover : MonoBehaviour
 
     public UnityEvent finishMovementEvent;
 
+    public AudioSource movementEffect;
+    public AudioClip pawnEffect;
+
     // setup the Mover
     protected virtual void Awake()
     {
@@ -81,6 +84,8 @@ public class Mover : MonoBehaviour
 
         // we are moving
         isMoving = true;
+
+        movementEffect.PlayOneShot(pawnEffect);
 
         // set the destination to the destinationPos being passed into the coroutine
         destination = destinationPos;

@@ -271,13 +271,6 @@ public class GameManager : MonoBehaviour
 
     public void GoalCompletedLvl0()
     {
-        if (AreEnemiesAllDead())
-        {
-            goalComplete[1].SetActive(true);
-        }
-        else
-            goalComplete[1].SetActive(false);
-
         if (player.countTurn <= 8)
         {
             goalComplete[0].SetActive(true);

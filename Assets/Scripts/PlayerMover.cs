@@ -7,8 +7,6 @@ public class PlayerMover : Mover
     // reference to visual arrows
     PlayerCompass m_playerCompass;
 
-    public AudioSource pawnMovement;
-
     // invoke the base class Awake method and setup the PlayerMover
     protected override void Awake()
     {

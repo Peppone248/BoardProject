@@ -117,7 +117,7 @@ public class Board : MonoBehaviour
     {
         if (currentScene.name == "Level1")
         {
-            ChangeCameraOnNodeLvl2();
+            ChangeCameraOnNodeLvl1();
         }
 
         if (currentScene.name == "Level4")
@@ -330,7 +330,7 @@ public class Board : MonoBehaviour
         {
             if ((FindNodeAt(m_player.transform.position + spacingZ).isDoorNode || FindNodeAt(m_player.transform.position + spacingX).isDoorNode) && m_player.isMoving == false)
             {
-                Debug.Log(n.ToString());
+                // Debug.Log(n.ToString());
                 insertPsw.gameObject.SetActive(true);
                 //Debug.Log("HAI DAVANTI UNA PORTA!");
                 pswFromField = passwordTyped.text;
@@ -477,14 +477,14 @@ public class Board : MonoBehaviour
         } 
     }
 
-    public void ChangeCameraOnNodeLvl2()
+    public void ChangeCameraOnNodeLvl1()
     {
         if(m_playerNode == doorNode)
         {
             mainCamera.SetActive(false);
             retroCamera.SetActive(true);
         } 
-        else if(m_playerNode.transform.position == new Vector3(-2f, 0f, 0f) && retroCamera.activeInHierarchy)
+        else if(m_playerNode.transform.position == new Vector3(-2f, 0f, 0f))
         {
             mainCamera.SetActive(true);
             retroCamera.SetActive(false);
