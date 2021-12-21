@@ -52,6 +52,7 @@ public class Board : MonoBehaviour
     public Light[] pointLight;
 
     public float countAttemptsCredentials = 0;
+    bool displayOnlyWifi = false;
     bool keySpawned = false;
     bool jacketSpawned = false;
     float drawGoalTime = 1f;
@@ -361,6 +362,8 @@ public class Board : MonoBehaviour
     {
         Vector3 oneSpaceX = new Vector3(1f, 0f, 0f);
 
+        displayOnlyWifi = false;
+
         try
         {
             // Check if the player is in front of the ComputerNode
@@ -368,38 +371,30 @@ public class Board : MonoBehaviour
             {
 
                 // If it happens, InsertCredentials Canvas spawn
-
                 coverCanvasPsw.gameObject.SetActive(true);
                 
                 // Take the credentials typed inside the InputField and check if the credentials are correct 
                 
                 usernameFromField = usernameTyped.text;
                 pswFromField = passwordTyped.text;
-                if (pswFromField.Equals(pswSecurityCam) && usernameFromField.Equals(usernameSecurityCam))
+                if (pswFromField.Equals(pswSecurityCam) && usernameFromField.Equals(usernameSecurityCam) && !displayOnlyWifi)
                 {
-                 // The player now can't move because is using the PC and must disable the securityCams, switching of Canvas
-                  playInput.InputEnabled = false;
+
+                  displayOnlyWifi = true;
+                  // The player now can't move because is using the PC and must disable the securityCams, switching of Canvas
                   coverCanvasPsw.gameObject.SetActive(false);
                   coverCanvasWiFi.gameObject.SetActive(true);
-                 
-                  if (!scanScreen.isActiveAndEnabled)
-                  {
-                        playInput.InputEnabled = true;
-                        coverCanvasPsw.gameObject.SetActive(true);
-                  }
-                        return true;
                   }
                   else
                   {
                     countAttemptsCredentials++;
                     return false;
                   }
+                return true;
                 }
             else
             {
                 coverCanvasPsw.gameObject.SetActive(false);
-                insertPsw.gameObject.SetActive(true);
-                //Debug.Log("VIA LIBERA");
                 return false;
             }
         }
