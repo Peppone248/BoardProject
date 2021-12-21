@@ -74,8 +74,6 @@ public class Board : MonoBehaviour
     public float capturePosIconSize = 0.4f;
     public Color capturePosIconColor = Color.red;
 
-    public Canvas coverCanvasPsw;
-    public Canvas coverCanvasWiFi;
     public Canvas insertPsw;
     public Canvas scanScreen;
     public Canvas terminalCanvas;
@@ -362,54 +360,34 @@ public class Board : MonoBehaviour
     {
         Vector3 oneSpaceX = new Vector3(1f, 0f, 0f);
 
-        displayOnlyWifi = false;
-
         try
         {
             // Check if the player is in front of the ComputerNode
-            if (FindNodeAt(m_player.transform.position + oneSpaceX).isComputerNode && m_player.isMoving==false)
+            if (FindNodeAt(m_player.transform.position + oneSpaceX).isComputerNode && m_player.isMoving == false)
             {
-
+                displayOnlyWifi = true;
                 // If it happens, InsertCredentials Canvas spawn
-                coverCanvasPsw.gameObject.SetActive(true);
-                
-                // Take the credentials typed inside the InputField and check if the credentials are correct 
-                
-                usernameFromField = usernameTyped.text;
-                pswFromField = passwordTyped.text;
-                if (pswFromField.Equals(pswSecurityCam) && usernameFromField.Equals(usernameSecurityCam) && !displayOnlyWifi)
-                {
+                insertPsw.gameObject.SetActive(true);
 
-                  displayOnlyWifi = true;
-                  // The player now can't move because is using the PC and must disable the securityCams, switching of Canvas
-                  coverCanvasPsw.gameObject.SetActive(false);
-                  coverCanvasWiFi.gameObject.SetActive(true);
-                  }
-                  else
-                  {
-                    countAttemptsCredentials++;
-                    return false;
-                  }
                 return true;
-                }
+
+                // Take the credentials typed inside the InputField and check if the credentials are correct 
+
+            }
             else
             {
-                coverCanvasPsw.gameObject.SetActive(false);
+                insertPsw.gameObject.SetActive(false);
                 return false;
             }
+                
+
         }
         catch
         {
-            //Debug.Log("No porte in questo livello.");
             return false;
         }
-    }
 
-    /*
-    public void GetInputOnClickHandler()
-    {
-        Debug.Log("premuto");
-    }*/
+    }
 
     public bool StopPlayerOnTerminal()
     {
