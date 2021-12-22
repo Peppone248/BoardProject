@@ -7,7 +7,6 @@ public class SpinBitcoin : MonoBehaviour
     int score = 0;
     public AudioSource coinSource;
     public AudioClip coinEffect;
-
     public float GetScore { get => score; set => score = (int)value; }
 
 
@@ -27,7 +26,6 @@ public class SpinBitcoin : MonoBehaviour
         {
             coinSource.PlayOneShot(coinEffect);
             Destroy(gameObject);
-            score++;
 
             PlayerPrefs.SetInt("Score", score++);
             PlayerPrefs.Save();

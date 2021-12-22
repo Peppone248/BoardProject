@@ -85,7 +85,7 @@ public class Mover : MonoBehaviour
         // we are moving
         isMoving = true;
 
-        movementEffect.PlayOneShot(pawnEffect);
+        //movementEffect.PlayOneShot(pawnEffect);
 
         // set the destination to the destinationPos being passed into the coroutine
         destination = destinationPos;

@@ -17,11 +17,13 @@ public class GameManager : MonoBehaviour
     Board m_board;
     PlayerManager player;
     PlayerInput p_input;
+
     bool hasLevelStarted = false;
     bool isGamePlaying = false;
     bool isGameOver = false;
     bool hasLevelFinish = false;
     public float delay = 1f;
+
     public GameObject[] goalComplete;
     public GameObject[] passwordCanvas;
     public GameObject[] pswCluesLvl2;
@@ -36,6 +38,9 @@ public class GameManager : MonoBehaviour
     public UnityEvent playLevelEvent;
     public UnityEvent endLevelEvent;
     public UnityEvent loseLevelEvent;
+
+    Scene currentScene;
+    string nameCurrentScene;
 
     public bool HasLevelStarted { get => hasLevelStarted; set => hasLevelStarted = value; }
     public bool IsGamePlaying { get => isGamePlaying; set => isGamePlaying = value; }
@@ -55,6 +60,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentScene = SceneManager.GetActiveScene();
+        nameCurrentScene = currentScene.name;
+
         if (player != null && m_board != null)
         {
             StartCoroutine(RunGameLoop());
@@ -74,6 +82,10 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartLevelRoutine()
     {
+        if (nameCurrentScene.Equals("Level0"))
+        {
+            PlayerPrefs.SetInt("Score", 0);
+        }
         Debug.Log("SETUP LEVEL");
         if (setupEvent != null)
         {

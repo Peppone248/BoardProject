@@ -52,7 +52,6 @@ public class Board : MonoBehaviour
     public Light[] pointLight;
 
     public float countAttemptsCredentials = 0;
-    bool displayOnlyWifi = false;
     bool keySpawned = false;
     bool jacketSpawned = false;
     float drawGoalTime = 1f;
@@ -60,8 +59,6 @@ public class Board : MonoBehaviour
     public iTween.EaseType drawGoalEaseType = iTween.EaseType.easeOutExpo;
     PlayerMover m_player;
     PlayerInput playInput;
-
-    Color g = Color.green;
 
     List<EnemyManager> enemies;
     Scene currentScene;
@@ -365,7 +362,6 @@ public class Board : MonoBehaviour
             // Check if the player is in front of the ComputerNode
             if (FindNodeAt(m_player.transform.position + oneSpaceX).isComputerNode && m_player.isMoving == false)
             {
-                displayOnlyWifi = true;
                 // If it happens, InsertCredentials Canvas spawn
                 insertPsw.gameObject.SetActive(true);
 

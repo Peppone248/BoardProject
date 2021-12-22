@@ -20,7 +20,14 @@ public class ComputerDetector : MonoBehaviour
 
     private void OnEnable()
     {
-        loginBtn.onClick.AddListener(() => buttonCallBack(loginBtn));
+        try
+        {
+            loginBtn.onClick.AddListener(() => buttonCallBack(loginBtn));
+        }
+        catch
+        {
+            return;
+        }
     }
 
     private void Awake()
