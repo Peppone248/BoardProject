@@ -11374,8 +11374,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9178028885020551780, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
+      propertyPath: pawnEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: cd513eb09f67fcf4589c8989d52ef9fb, type: 3}
+    - target: {fileID: 9178028885020551780, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: movementEffect
+      value: 
+      objectReference: {fileID: 1077996352}
+    - target: {fileID: 9178028885020551780, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
       propertyPath: finishMovementEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9178028885020551780, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}

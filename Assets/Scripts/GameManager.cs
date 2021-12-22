@@ -301,7 +301,7 @@ public class GameManager : MonoBehaviour
         else
             goalComplete[0].SetActive(true);
 
-        if (player.countTurn <= 15)
+        if (player.countTurn <= 20)
         {
             goalComplete[1].SetActive(true);
         }

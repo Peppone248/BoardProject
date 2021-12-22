@@ -10857,8 +10857,6 @@ MonoBehaviour:
   currentCapturedPosition: 0
   capturePosIconSize: 0.4
   capturePosIconColor: {r: 1, g: 0, b: 0, a: 1}
-  coverCanvasPsw: {fileID: 0}
-  coverCanvasWiFi: {fileID: 0}
   insertPsw: {fileID: 0}
   scanScreen: {fileID: 0}
   terminalCanvas: {fileID: 0}

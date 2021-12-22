@@ -27,8 +27,10 @@ public class SpinBitcoin : MonoBehaviour
             coinSource.PlayOneShot(coinEffect);
             Destroy(gameObject);
 
-            PlayerPrefs.SetInt("Score", score++);
+            
+            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + 1);
             PlayerPrefs.Save();
+            Debug.Log(PlayerPrefs.GetInt("Score").ToString());
 
             switch (score)
             {
