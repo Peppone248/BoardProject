@@ -38,7 +38,7 @@ public class ComputerDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_board.StopPlayerOnPC())
+        if (m_board.ShowInteractionWitchPC())
         {
            
         }

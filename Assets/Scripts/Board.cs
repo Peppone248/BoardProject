@@ -222,7 +222,7 @@ public class Board : MonoBehaviour
         }
     }
 
-    public void DrawGoal()
+    public void DrawPrefabs()
     {
         Vector3 centerDoor = new Vector3(-0.5f, 0f, 0f);
         Vector3 computerPosition = new Vector3(0f, 0.7f, 0f);
@@ -353,7 +353,7 @@ public class Board : MonoBehaviour
         }
     }
 
-    public bool StopPlayerOnPC()
+    public bool ShowInteractionWitchPC()
     {
         Vector3 oneSpaceX = new Vector3(1f, 0f, 0f);
 
