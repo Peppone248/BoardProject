@@ -21,6 +21,7 @@ public class KeyPressed : MonoBehaviour
     public GameObject arrow2;
     PlayerManager player;
     public Canvas tutorial;
+    public GameObject intro;
 
     private void Awake()
     {
@@ -40,10 +41,11 @@ public class KeyPressed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.countTurn == 0 && !arrowSpawned)
+        if(player.countTurn == 0 && !arrowSpawned && !intro.activeInHierarchy)
         {
             tipIsSpawned = false;
             arrowSpawned = true;
+            firstTip.gameObject.SetActive(true);
             Instantiate(arrow, new Vector3(6f, 3f, 0f), Quaternion.identity);
             iTween.RotateBy(GameObject.Find("Pointer(Clone)"), iTween.Hash(
                 "y", 360f,
@@ -157,6 +159,5 @@ public class KeyPressed : MonoBehaviour
 
         //Do the action after the delay time has finished.
         tutorial.gameObject.SetActive(true);
-        firstTip.gameObject.SetActive(true);
     }
 }
