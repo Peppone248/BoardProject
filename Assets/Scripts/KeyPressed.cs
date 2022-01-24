@@ -19,13 +19,16 @@ public class KeyPressed : MonoBehaviour
     public Image scoreDescription;
     public GameObject arrow;
     public GameObject arrow2;
-    PlayerManager player;
     public Canvas tutorial;
     public GameObject intro;
+
+    PlayerManager player;
+    GameManager gm;
 
     private void Awake()
     {
         player = Object.FindObjectOfType<PlayerManager>().GetComponent<PlayerManager>();
+        gm = Object.FindObjectOfType<GameManager>().GetComponent<GameManager>();
     }
     // Start is called before the first frame update
     void Start()
@@ -55,8 +58,14 @@ public class KeyPressed : MonoBehaviour
                 "easetype", iTween.EaseType.linear));
         }
 
-        try
+        if (player.countTurn == 0 && intro.activeInHierarchy)
         {
+            player.playerInput.InputEnabled = false;
+        }
+
+            try
+        {
+
             if (player.countTurn == 1 && arrowSpawned)
             {
                 arrowSpawned = false;
