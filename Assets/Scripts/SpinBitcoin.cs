@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class SpinBitcoin : MonoBehaviour
 {
+    PlayerInput player;
+
     int score = 0;
+    int n;
     public AudioSource coinSource;
     public AudioClip coinEffect;
     public GameObject[] cyberSecurityTips;
     public float GetScore { get => score; set => score = (int)value; }
 
+
+    public void Awake()
+    {
+        player = Object.FindObjectOfType<PlayerInput>().GetComponent<PlayerInput>();
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -26,27 +35,36 @@ public class SpinBitcoin : MonoBehaviour
     {
         if (other.gameObject.name == "Hitman")
         {
-
+            n = Random.Range(0,1);
             PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + 1);
             PlayerPrefs.Save();
             score = PlayerPrefs.GetInt("Score");
             Debug.Log(PlayerPrefs.GetInt("Score").ToString());
             Debug.Log(score);
 
-            if (score == 5)
+            if (score == 2)
             {
                 Debug.Log("Entro nel ramo");
-                cyberSecurityTips[0].SetActive(true);
+                cyberSecurityTips[n].SetActive(true);
+                player.InputEnabled = false;
+            }
+
+            if (score == 4)
+            {
+                cyberSecurityTips[n].SetActive(true);
+                player.InputEnabled = false;
             }
 
             if (score == 6)
             {
-                // Show CyberSecurity Tip
+                cyberSecurityTips[n].SetActive(true);
+                player.InputEnabled = false;
             }
 
-            if (score == 9)
+            if (score == 8)
             {
-                // Show CyberSecurity Tip
+                cyberSecurityTips[n].SetActive(true);
+                player.InputEnabled = false;
             }
 
             coinSource.PlayOneShot(coinEffect);
