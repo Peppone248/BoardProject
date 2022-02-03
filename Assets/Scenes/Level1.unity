@@ -16580,13 +16580,18 @@ PrefabInstance:
     - target: {fileID: 893211533875628610, guid: f4907322d3ab40646a0651d5991761a2,
         type: 3}
       propertyPath: cyberSecurityTips.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 893211533875628610, guid: f4907322d3ab40646a0651d5991761a2,
         type: 3}
       propertyPath: cyberSecurityTips.Array.data[0]
       value: 
       objectReference: {fileID: 1506585854}
+    - target: {fileID: 893211533875628610, guid: f4907322d3ab40646a0651d5991761a2,
+        type: 3}
+      propertyPath: cyberSecurityTips.Array.data[1]
+      value: 
+      objectReference: {fileID: 557759677}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4907322d3ab40646a0651d5991761a2, type: 3}
 --- !u!1 &1943006040
