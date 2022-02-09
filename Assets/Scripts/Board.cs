@@ -76,6 +76,7 @@ public class Board : MonoBehaviour
     public Canvas terminalCanvas;
     public Canvas spoofed;
 
+    public Text passwordText;
     public InputField passwordTyped;
     public InputField usernameTyped;
     public InputField emailTyped;
@@ -83,7 +84,7 @@ public class Board : MonoBehaviour
     public string pswFromField;
     public string usernameFromField;
     public string emailFromField;
-    public string[] password = {"1234", "3142", "2413", "1243", "3214", "4321", "4132", "1432", "1324"};
+    private string[] password = {"1243", "1423", "2143", "2413", "4123", "4213"};
     int n;
     string pswSecurityCam = "admin";
     string usernameSecurityCam = "admin";
@@ -92,7 +93,7 @@ public class Board : MonoBehaviour
     {
         currentScene = SceneManager.GetActiveScene();
         nameCurrentScene = currentScene.name;
-        n = Random.Range(0, 8);
+        n = Random.Range(0, 5);
     }
     void Awake()
     {
@@ -329,15 +330,22 @@ public class Board : MonoBehaviour
                 // Debug.Log(n.ToString());
                 insertPsw.gameObject.SetActive(true);
                 //Debug.Log("HAI DAVANTI UNA PORTA!");
-                pswFromField = passwordTyped.text;
-                if (pswFromField==password[n])
-                { 
-                    insertPsw.gameObject.SetActive(false);
-                    return true;
-                    //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
+                pswFromField = passwordText.text;
+                if (pswFromField.Length == 4)
+                {
+                    if (pswFromField == password[n])
+                    {
+                        insertPsw.gameObject.SetActive(false);
+                        return true;
+                        //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
+                    }
+                    else
+                    {
+                        passwordText.text = "";
+                        return false;
+                    }
                 }
-                else
-                    return false;
+                return false;
             }
             else
             {
