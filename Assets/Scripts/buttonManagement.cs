@@ -8,6 +8,9 @@ public class buttonManagement : MonoBehaviour
 
     public Button Btn1, Btn2, Btn3, Btn4, Btn5, Btn6, Btn7, Btn8, Btn9, Btn0, Btn10, Btn11;
     public Text passwordText;
+    public AudioSource buttonSource;
+    public AudioClip buttonPressedEffect;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +32,7 @@ public class buttonManagement : MonoBehaviour
 
     void ButtonClicked(string buttonNo)
     {
-        Debug.Log("hai premuto il tasto" + buttonNo);
+        buttonSource.PlayOneShot(buttonPressedEffect);
         passwordText.text += buttonNo;
     }
 }

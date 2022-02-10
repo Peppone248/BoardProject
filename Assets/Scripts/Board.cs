@@ -76,6 +76,9 @@ public class Board : MonoBehaviour
     public Canvas terminalCanvas;
     public Canvas spoofed;
 
+    public AudioSource errorSource;
+    public AudioClip errorEffect;
+
     public Text passwordText;
     public InputField passwordTyped;
     public InputField usernameTyped;
@@ -341,6 +344,7 @@ public class Board : MonoBehaviour
                     }
                     else
                     {
+                        errorSource.PlayOneShot(errorEffect);
                         passwordText.text = "";
                         return false;
                     }
