@@ -52,7 +52,7 @@ public class PlayerInput : MonoBehaviour
             m_h = Input.GetAxisRaw("Horizontal");
             m_v = Input.GetAxisRaw("Vertical");
         }
-        
+
     }
 
 }

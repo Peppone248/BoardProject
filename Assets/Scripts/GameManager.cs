@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     Board m_board;
     PlayerManager player;
     PlayerInput p_input;
+    ComputerDetector c;
 
     bool hasLevelStarted = false;
     bool isGamePlaying = false;
@@ -311,7 +312,8 @@ public class GameManager : MonoBehaviour
 
     public void GoalCompletedLvl2()
     {
-        if (m_board.countAttemptsCredentials == 0)
+        c = Object.FindObjectOfType<ComputerDetector>().GetComponent<ComputerDetector>();
+        if (c.AttemptsCred==0)
         {
             goalComplete[0].SetActive(true);
         }

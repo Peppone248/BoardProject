@@ -780,7 +780,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1516538548}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -13189,6 +13189,9 @@ MonoBehaviour:
   scanScreen: {fileID: 0}
   terminalCanvas: {fileID: 180052031}
   spoofed: {fileID: 20397975}
+  errorSource: {fileID: 0}
+  errorEffect: {fileID: 0}
+  passwordText: {fileID: 0}
   passwordTyped: {fileID: 0}
   usernameTyped: {fileID: 1185517747}
   emailTyped: {fileID: 1731671196}
@@ -13196,7 +13199,6 @@ MonoBehaviour:
   pswFromField: 
   usernameFromField: 
   emailFromField: 
-  password: []
 --- !u!4 &1635583780
 Transform:
   m_ObjectHideFlags: 0

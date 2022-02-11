@@ -378,9 +378,6 @@ public class Board : MonoBehaviour
                 insertPsw.gameObject.SetActive(true);
 
                 return true;
-
-                // Take the credentials typed inside the InputField and check if the credentials are correct 
-
             }
             else
             {
@@ -406,7 +403,6 @@ public class Board : MonoBehaviour
             if (FindNodeAt(m_player.transform.position - distanceFromNode).isTerminalNode && m_player.isMoving == false)
             {
                 terminalCanvas.gameObject.SetActive(true);
-                playInput.InputEnabled = false;
                 //Debug.Log("HAI DAVANTI UNA PORTA!");
                 usernameFromField = usernameTyped.text;
                 pswFromField = surnameTyped.text;
@@ -431,7 +427,7 @@ public class Board : MonoBehaviour
             }
             else
             {
-                insertPsw.gameObject.SetActive(false);
+                terminalCanvas.gameObject.SetActive(false);
                 //Debug.Log("VIA LIBERA");
                 return false;
             }

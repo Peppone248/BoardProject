@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.754717, g: 0.020108571, b: 0, a: 1}
+  m_Color: {r: 0.8627451, g: 0.54901963, b: 0, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 0
   m_OnCullStateChanged:
@@ -2145,7 +2145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12941177, g: 0.61960787, b: 0, a: 1}
+  m_Color: {r: 0.86274517, g: 0.54901963, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3422,7 +3422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.754717, g: 0.020108571, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.5568628, b: 0.9843137, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 0
   m_OnCullStateChanged:
@@ -4040,6 +4040,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 501028912}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &501028914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 893211533875628610, guid: f4907322d3ab40646a0651d5991761a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 501028912}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e7a0bb652695848960d970701ac534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &509348213
 GameObject:
   m_ObjectHideFlags: 0
@@ -4667,7 +4679,7 @@ RectTransform:
   - {fileID: 1621211302}
   - {fileID: 2023142508}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4996,7 +5008,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4681815b409270c448425d8ed5e1bdf9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40d365ea7acaa874fa9c082a1efbaf53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5477,6 +5489,9 @@ MonoBehaviour:
   scanScreen: {fileID: 0}
   terminalCanvas: {fileID: 0}
   spoofed: {fileID: 0}
+  errorSource: {fileID: 0}
+  errorEffect: {fileID: 0}
+  passwordText: {fileID: 0}
   passwordTyped: {fileID: 1332962307}
   usernameTyped: {fileID: 509348215}
   emailTyped: {fileID: 0}
@@ -5484,7 +5499,6 @@ MonoBehaviour:
   pswFromField: 
   usernameFromField: 
   emailFromField: 
-  password: []
 --- !u!4 &660018368
 Transform:
   m_ObjectHideFlags: 0
@@ -6726,7 +6740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.14901961, g: 0.62352943, b: 0.019607844, a: 1}
+  m_Color: {r: 0, g: 0.5568628, b: 0.9843138, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7126,7 +7140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4681815b409270c448425d8ed5e1bdf9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ce676a3aaabda3c40bc2247e009f34a8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7194,7 +7208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.14509805, g: 0.61960787, b: 0.015686275, a: 1}
+  m_Color: {r: 0.03137255, g: 0.5529412, b: 0.9490197, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7942,7 +7956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12941177, g: 0.61960787, b: 0, a: 1}
+  m_Color: {r: 0.86274517, g: 0.54901963, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -8784,7 +8798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.754717, g: 0.020108571, b: 0, a: 1}
+  m_Color: {r: 0.8627451, g: 0.54901963, b: 0, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 0
   m_OnCullStateChanged:
@@ -10832,6 +10846,18 @@ PrefabInstance:
       objectReference: {fileID: 2023142507}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4907322d3ab40646a0651d5991761a2, type: 3}
+--- !u!114 &1178982249 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 893211533875628610, guid: f4907322d3ab40646a0651d5991761a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1178982248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e7a0bb652695848960d970701ac534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1191223993
 GameObject:
   m_ObjectHideFlags: 0
@@ -10921,6 +10947,7 @@ GameObject:
   - component: {fileID: 1192253297}
   - component: {fileID: 1192253299}
   - component: {fileID: 1192253298}
+  - component: {fileID: 1192253300}
   m_Layer: 5
   m_Name: BitcoinText
   m_TagString: Untagged
@@ -10976,8 +11003,8 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 0
 --- !u!222 &1192253299
@@ -10988,6 +11015,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192253296}
   m_CullTransparentMesh: 0
+--- !u!114 &1192253300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192253296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1fa66eaf8cd2740bd73e3f652cdf0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinScore:
+  - {fileID: 501028914}
+  - {fileID: 1178982249}
 --- !u!1 &1196421968
 GameObject:
   m_ObjectHideFlags: 0
@@ -11387,7 +11429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12941177, g: 0.61960787, b: 0, a: 1}
+  m_Color: {r: 0.86274517, g: 0.54901963, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -12148,7 +12190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12941177, g: 0.61960787, b: 0, a: 1}
+  m_Color: {r: 0.86274517, g: 0.54901963, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -12605,7 +12647,7 @@ RectTransform:
   - {fileID: 1608415099}
   - {fileID: 1940046882}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13473,7 +13515,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4681815b409270c448425d8ed5e1bdf9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ce676a3aaabda3c40bc2247e009f34a8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15076,7 +15118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.75294125, g: 0.019607844, b: 0, a: 1}
+  m_Color: {r: 0.8627451, g: 0.54901963, b: 0, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 0
   m_OnCullStateChanged:
@@ -15717,7 +15759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.75294125, g: 0.019607844, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.5568628, b: 0.9843137, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 0
   m_OnCullStateChanged:
@@ -16826,7 +16868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.75294125, g: 0.019607844, b: 0, a: 1}
+  m_Color: {r: 0.8627451, g: 0.54901963, b: 0, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 0
   m_OnCullStateChanged:
@@ -19846,7 +19888,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 670176742}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -19866,7 +19908,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_MethodName: PlayOneShot

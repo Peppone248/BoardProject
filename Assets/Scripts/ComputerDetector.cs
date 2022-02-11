@@ -8,6 +8,7 @@ public class ComputerDetector : MonoBehaviour
     Board m_board;
     public Button loginBtn;
     public Canvas wifiCanvas;
+    private int attemptsCred = 0;
 
     public InputField passwordTyped;
     public InputField usernameTyped;
@@ -17,6 +18,8 @@ public class ComputerDetector : MonoBehaviour
     string usernameSecurityCam = "admin";
     public GameObject[] listOfUIelementsToDeactivate;
     public GameObject[] listOfUIelementsToActivate;
+
+    public int AttemptsCred { get => attemptsCred; set => attemptsCred = value; }
 
     private void OnEnable()
     {
@@ -52,7 +55,6 @@ public class ComputerDetector : MonoBehaviour
             pswFromField = passwordTyped.text;
             if (pswFromField.Equals(pswSecurityCam) && usernameFromField.Equals(usernameSecurityCam))
             {
-
                 for (int i = 0; i < listOfUIelementsToDeactivate.Length; i++)
                 {
                     Debug.Log(i.ToString());
@@ -68,7 +70,10 @@ public class ComputerDetector : MonoBehaviour
                 return true;
             }
             else
+            {
+                AttemptsCred++;
                 return false;
+            }
         }
 
         return false;
