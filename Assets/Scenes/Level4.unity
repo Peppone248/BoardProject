@@ -10594,7 +10594,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1331556798}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -10616,7 +10616,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1299210126}
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
@@ -11261,6 +11261,9 @@ MonoBehaviour:
   scanScreen: {fileID: 0}
   terminalCanvas: {fileID: 0}
   spoofed: {fileID: 0}
+  errorSource: {fileID: 0}
+  errorEffect: {fileID: 0}
+  passwordText: {fileID: 0}
   passwordTyped: {fileID: 0}
   usernameTyped: {fileID: 0}
   emailTyped: {fileID: 0}
@@ -11268,7 +11271,6 @@ MonoBehaviour:
   pswFromField: 
   usernameFromField: 
   emailFromField: 
-  password: []
 --- !u!4 &2003373792
 Transform:
   m_ObjectHideFlags: 0
