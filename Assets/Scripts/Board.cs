@@ -9,6 +9,7 @@ public class Board : MonoBehaviour
 {
 
     public static float spacing = 2f;
+
     public static readonly Vector2[] directions =
     {
         new Vector2(spacing, 0f),
@@ -51,7 +52,6 @@ public class Board : MonoBehaviour
     public GameObject cameraSecondRoom;
     public Light[] pointLight;
 
-    public float countAttemptsCredentials = 0;
     bool keySpawned = false;
     bool jacketSpawned = false;
     float drawGoalTime = 1f;
@@ -76,6 +76,8 @@ public class Board : MonoBehaviour
     public Canvas terminalCanvas;
     public Canvas spoofed;
 
+    public Button buttonCrackDoor;
+
     public AudioSource errorSource;
     public AudioClip errorEffect;
 
@@ -89,8 +91,6 @@ public class Board : MonoBehaviour
     public string emailFromField;
     private string[] password = {"1243", "1423", "2143", "2413", "4123", "4213"};
     int n;
-    string pswSecurityCam = "admin";
-    string usernameSecurityCam = "admin";
 
     private void Start()
     {
@@ -376,7 +376,6 @@ public class Board : MonoBehaviour
             {
                 // If it happens, InsertCredentials Canvas spawn
                 insertPsw.gameObject.SetActive(true);
-
                 return true;
             }
             else
@@ -384,8 +383,6 @@ public class Board : MonoBehaviour
                 insertPsw.gameObject.SetActive(false);
                 return false;
             }
-                
-
         }
         catch
         {
@@ -400,41 +397,20 @@ public class Board : MonoBehaviour
 
         try
         {
+            // Check if the player is in front of the TerminalNode
             if (FindNodeAt(m_player.transform.position - distanceFromNode).isTerminalNode && m_player.isMoving == false)
             {
                 terminalCanvas.gameObject.SetActive(true);
-                //Debug.Log("HAI DAVANTI UNA PORTA!");
-                usernameFromField = usernameTyped.text;
-                pswFromField = surnameTyped.text;
-                emailFromField = emailTyped.text;
-                if (usernameFromField.Length>=4 && emailFromField.Contains('@') && pswFromField.Length>=7)
-                {
-                    //Debug.Log("form correct");
-                    terminalCanvas.gameObject.SetActive(false);
-                    playInput.InputEnabled = true;
-                    enemiesPatrol[0].GetComponent<Renderer>().enabled = false;
-                    enemiesPatrol[1].GetComponent<Renderer>().enabled = false;
-                    enemiesPatrol[2].GetComponent<Renderer>().enabled = false;
-                    enemiesSent[0].GetComponent<Renderer>().enabled = false;
-                    hitmanEnemySent[0].GetComponent<Renderer>().enabled = true;
-                    hitmanEnemyPatrol[0].GetComponent<Renderer>().enabled = true;
-                    hitmanEnemyPatrol[1].GetComponent<Renderer>().enabled = true;
-                    hitmanEnemyPatrol[2].GetComponent<Renderer>().enabled = true;
-                    return true;
-                }
-                else
-                    return false;
+                return true;
             }
             else
             {
                 terminalCanvas.gameObject.SetActive(false);
-                //Debug.Log("VIA LIBERA");
                 return false;
             }
         }
         catch
         {
-            //Debug.Log("No porte in questo livello.");
             return false;
         }
     }

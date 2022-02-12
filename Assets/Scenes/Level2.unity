@@ -5475,7 +5475,6 @@ MonoBehaviour:
   - {fileID: 1907823933}
   - {fileID: 1365268352}
   - {fileID: 698285997}
-  countAttemptsCredentials: 0
   drawGoalEaseType: 16
   capturePosition:
   - {fileID: 159130779}
@@ -5489,6 +5488,7 @@ MonoBehaviour:
   scanScreen: {fileID: 0}
   terminalCanvas: {fileID: 0}
   spoofed: {fileID: 0}
+  buttonCrackDoor: {fileID: 0}
   errorSource: {fileID: 0}
   errorEffect: {fileID: 0}
   passwordText: {fileID: 0}
