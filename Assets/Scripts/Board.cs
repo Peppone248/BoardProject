@@ -49,16 +49,18 @@ public class Board : MonoBehaviour
     public GameObject retroCamera;
     public GameObject lateralCam;
     public GameObject cameraFirstRoom;
-    public GameObject cameraSecondRoom;
     public Light[] pointLight;
 
     bool keySpawned = false;
     bool jacketSpawned = false;
+    bool doorOpen = false;
     float drawGoalTime = 1f;
-    float drawGoalDelay = 0.3f;
+    float drawGoalDelay = 0.1f;
     public iTween.EaseType drawGoalEaseType = iTween.EaseType.easeOutExpo;
     PlayerMover m_player;
+    PlayerManager playerManager;
     PlayerInput playInput;
+    GameManager game;
 
     List<EnemyManager> enemies;
     Scene currentScene;
@@ -102,6 +104,8 @@ public class Board : MonoBehaviour
     {
         m_player = Object.FindObjectOfType<PlayerMover>().GetComponent<PlayerMover>();
         playInput = Object.FindObjectOfType<PlayerInput>().GetComponent<PlayerInput>();
+        playerManager = Object.FindObjectOfType<PlayerManager>().GetComponent<PlayerManager>();
+        game = Object.FindObjectOfType<GameManager>().GetComponent<GameManager>();
         GetNodeList();
 
         m_goalNode = FindGoalNode();
@@ -328,6 +332,12 @@ public class Board : MonoBehaviour
 
         try
         {
+            if (FindNodeAt(m_player.transform.position).isDoorNode && !doorOpen)
+            {
+                playerManager.Die();
+                game.LoseLevel();
+            }
+
             if ((FindNodeAt(m_player.transform.position + spacingZ).isDoorNode || FindNodeAt(m_player.transform.position + spacingX).isDoorNode) && m_player.isMoving == false)
             {
                 // Debug.Log(n.ToString());
@@ -338,6 +348,7 @@ public class Board : MonoBehaviour
                 {
                     if (pswFromField == password[n])
                     {
+                        doorOpen = true;
                         insertPsw.gameObject.SetActive(false);
                         return true;
                         //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
@@ -464,16 +475,14 @@ public class Board : MonoBehaviour
             retroCamera.SetActive(true);
         } 
 
-        if (m_playerNode.transform.position == new Vector3(5f, 0f, 8f))
-        {
-            lateralCam.SetActive(false);
-            cameraSecondRoom.SetActive(true);
-        }
-
         if (m_playerNode.transform.position == new Vector3(3f, 0f, 4f))
         {
             retroCamera.SetActive(false);
             lateralCam.SetActive(true);
+        } else if(m_playerNode.transform.position == new Vector3(3f, 0f, 2f) && lateralCam.activeInHierarchy)
+        {
+            retroCamera.SetActive(true);
+            lateralCam.SetActive(false);
         }
     }
 

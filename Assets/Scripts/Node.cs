@@ -30,7 +30,7 @@ public class Node : MonoBehaviour
     public iTween.EaseType easeType = iTween.EaseType.easeInExpo;
 
     // delay time before animation
-    public float delay = 1f;
+    public float delay = 0.4f;
 
     // whether the node has already been initialized
     bool m_isInitialized = false;

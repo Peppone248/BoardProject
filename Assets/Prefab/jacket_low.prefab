@@ -489,3 +489,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPatrolMat: {fileID: 2100000, guid: 1867394b55fcd7547a6a5938e5325267, type: 2}
+  zipSource: {fileID: 0}
+  zipEffect: {fileID: 8300000, guid: bbe39aca22af20f49a045bc3c344d499, type: 3}
+  isSoundPlayed: 0
