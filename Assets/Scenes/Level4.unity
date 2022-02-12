@@ -930,7 +930,7 @@ PrefabInstance:
     - target: {fileID: 8706673975745727971, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -0.92
       objectReference: {fileID: 0}
     - target: {fileID: 8706673975745727971, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
@@ -940,7 +940,7 @@ PrefabInstance:
     - target: {fileID: 8706673975745727971, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2
+      value: -1.89
       objectReference: {fileID: 0}
     - target: {fileID: 8706673975745727971, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
@@ -11247,7 +11247,6 @@ MonoBehaviour:
   cameraFirstRoom: {fileID: 367844829}
   cameraSecondRoom: {fileID: 89754342}
   pointLight: []
-  countAttemptsCredentials: 0
   drawGoalEaseType: 16
   capturePosition:
   - {fileID: 539299304}
@@ -11261,6 +11260,7 @@ MonoBehaviour:
   scanScreen: {fileID: 0}
   terminalCanvas: {fileID: 0}
   spoofed: {fileID: 0}
+  buttonCrackDoor: {fileID: 0}
   errorSource: {fileID: 0}
   errorEffect: {fileID: 0}
   passwordText: {fileID: 0}
