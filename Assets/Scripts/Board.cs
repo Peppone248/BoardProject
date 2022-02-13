@@ -332,7 +332,7 @@ public class Board : MonoBehaviour
 
         try
         {
-            if (FindNodeAt(m_player.transform.position).isDoorNode && !doorOpen)
+            if (FindNodeAt(m_player.transform.position).isDoorNode && !doorOpen && nameCurrentScene.Equals("Level1"))
             {
                 playerManager.Die();
                 game.LoseLevel();
