@@ -21,11 +21,19 @@ public class KeyCardCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_board.FindNodeAt(m_player.transform.position).isDoorNode && isClosed)
+        try
         {
-            playerManager.Die();
-            game.LoseLevel();
+            if (m_board.FindNodeAt(m_player.transform.position).isDoorNode && isClosed)
+            {
+                playerManager.Die();
+                game.LoseLevel();
+            }
         }
+        catch
+        {
+            Debug.Log("Porta aperta.");
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)

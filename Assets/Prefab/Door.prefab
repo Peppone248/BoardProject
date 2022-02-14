@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 70
+  openDoorEffect: {fileID: 8300000, guid: 38c6fb2c782510043987bc76e84cd45d, type: 3}
 --- !u!1001 &4543902307994596320
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -17,12 +17,6 @@ public class JacketEnemyCollision : MonoBehaviour
         ColorUtility.TryParseHtmlString("#FF7600", out orange);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Hitman")
