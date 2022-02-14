@@ -284,55 +284,56 @@ public class GameManager : MonoBehaviour
 
     public void GoalCompletedLvl0()
     {
-        if (player.countTurn <= 8)
+        if (player.countTurn <= 9)
         {
             goalComplete[0].SetActive(true);
 
         }
         else
-            goalComplete[0].SetActive(false);
+            goalComplete[1].SetActive(true);
     }
 
     public void GoalCompletedLvl1()
     {
         if (pswCluesLvl2[0] == null && pswCluesLvl2[1] == null)
         {
-            goalComplete[0].SetActive(false);
+            goalComplete[2].SetActive(true);
         }
         else
             goalComplete[0].SetActive(true);
 
-        if (player.countTurn <= 20)
+        if (player.countTurn <= 23)
         {
             goalComplete[1].SetActive(true);
         }
         else
-            goalComplete[1].SetActive(false);
+            goalComplete[3].SetActive(true);
     }
 
     public void GoalCompletedLvl2()
     {
         c = Object.FindObjectOfType<ComputerDetector>().GetComponent<ComputerDetector>();
+        
         if (c.AttemptsCred==0)
         {
             goalComplete[0].SetActive(true);
         }
         else
-            goalComplete[0].SetActive(false);
+            goalComplete[2].SetActive(true);
 
         if (player.countTurn <= 20)
         {
             goalComplete[1].SetActive(true);
         }
         else
-            goalComplete[1].SetActive(false);
+            goalComplete[3].SetActive(true);
     }
 
     public void GoalCompleteLvl3()
     {
         if (m_board.StopPlayerOnTerminal())
         {
-            goalComplete[0].SetActive(false);
+            goalComplete[2].SetActive(true);
         }
         else
         {
@@ -345,7 +346,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            goalComplete[1].SetActive(false);
+            goalComplete[3].SetActive(true);
         }
     }
 

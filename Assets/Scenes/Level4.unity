@@ -156,7 +156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &32232851
 PrefabInstance:
@@ -407,15 +407,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '- Switch on your spam filter inside your email box
-
-    - Examine the
-    communication
-
-    - Use two-factor authentication in all your devices
-
-    -
-    Invest in cybersecurity software'
+  m_Text: "Email, messages, link masking powerful risks. Even if you\nare in a controlled
+    environment you are not safe from these\nkinds of traps. To bring social engineering
+    attacks into effect, \ncybercriminals play with human psychology."
 --- !u!222 &49101983
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -568,17 +562,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: NextLevel
-        m_Mode: 1
+      - m_Target: {fileID: 1299210126}
+        m_MethodName: PlayOneShot
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 03da95412f52fbc40aeba6acab018e30,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 0
+        m_CallState: 1
       - m_Target: {fileID: 1707663821}
         m_MethodName: SetActive
         m_Mode: 6
@@ -590,7 +585,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1000025544}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -1266,7 +1261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -206, y: -155}
+  m_AnchoredPosition: {x: -206, y: -133}
   m_SizeDelta: {x: 320, y: 530}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &192651921
@@ -1301,14 +1296,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'IF THE PERSON FALLS FOR IT
+  m_Text: 'REMEMBER THA ATTACKER IS
 
-    AND LOGS IN, THE SCAMMER COULD
+    TRYING TO MANIPULATE YOUR
 
-    USE
-    THE INFORMATION THAT THE
-
-    VICTIM TYPED INTO THE FORM.'
+    EMOTIONS
+    TO STEAL INFORMATION'
 --- !u!222 &192651922
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1432,7 +1425,7 @@ PrefabInstance:
     - target: {fileID: 8706673975745727971, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.92
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8706673975745727971, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
@@ -1442,7 +1435,7 @@ PrefabInstance:
     - target: {fileID: 8706673975745727971, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.89
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 8706673975745727971, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
@@ -1650,6 +1643,54 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253951304}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &313715603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 313715605}
+  - component: {fileID: 313715604}
+  m_Layer: 8
+  m_Name: PostProcessingVolume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &313715604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313715603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 8b60b883fe641d249b8337e845aa8c53, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!4 &313715605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313715603}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &316878566
 GameObject:
   m_ObjectHideFlags: 0
@@ -2013,7 +2054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blurProf: {fileID: 11400000, guid: 8b60b883fe641d249b8337e845aa8c53, type: 2}
   normalProf: {fileID: 11400000, guid: 30aeea30e53134f40ab5aa64e281b239, type: 2}
-  postProcessVolume: {fileID: 0}
+  postProcessVolume: {fileID: 313715604}
 --- !u!114 &360486822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2435,7 +2476,7 @@ Transform:
   - {fileID: 1235216835}
   - {fileID: 329776631}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &391269990 stripped
 Transform:
@@ -2580,7 +2621,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0d1d984f1e400404daf45ba4b0e8c710, type: 3}
-    m_FontSize: 30
+    m_FontSize: 28
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -2591,7 +2632,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: CHECK THE RELIABILITY OF THE FORM
+  m_Text: WORK IN CONTROLLED ENVIRONMENTS
 --- !u!222 &429673660
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2934,7 +2975,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &543022596 stripped
 Transform:
@@ -3871,7 +3912,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: WHAT MEANS SPOOFING?
+  m_Text: YOU MADE A TAILGATING ATTACK!
 --- !u!222 &662959491
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4065,7 +4106,7 @@ Transform:
   - {fileID: 683478025}
   - {fileID: 1751942568}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &682573795 stripped
 Transform:
@@ -4784,9 +4825,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Spoofing is when fraudsters pretend to be someone\nor something else to
-    win a person\u2019s trust. \nThe motivation is usually to gain access to systems,
-    \nsteal data, steal money."
+  m_Text: "Tailgating is a simple social engineering attack enabling\nhackers to
+    gain access in a off-limits physical area. In \nyour case have assumed the appearance
+    of a subject\nwith permissions."
 --- !u!222 &768748606
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4965,7 +5006,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &786456882
 GameObject:
@@ -5870,16 +5911,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'If you receive a request for personal information, do not
+  m_Text: 'Direct tailgating attempts do not work in all environments
 
-    provide
-    it if you are not sure about the credibility of the
+    Established
+    organizations commonly have entry-oriented
 
-    form or site. You can
-    check it looking at the URL of the site
+    security protocols in place;
+    from biometrics-based systems,
 
-    or the sender of the email in case
-    it was a mail.'
+    to badge systems, to other forms of identification.'
 --- !u!222 &914031725
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6569,7 +6609,7 @@ RectTransform:
   - {fileID: 360486820}
   - {fileID: 2015944524}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6684,7 +6724,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1078940802 stripped
 Transform:
@@ -7482,12 +7522,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'DON''T CLICK UNFAMILIAR LINKS OR
+  m_Text: 'BE AWARE OF WHO IS FOLLOWING
 
-    DOWNLOADS. DON''T GIVE OUT
+    YOU AND FOR WHOM YOU ARE
 
-    PERSONAL
-    INFORMATION.'
+    OPENING
+    FOR OFF-LIMITS AREA.'
 --- !u!222 &1184178215
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8520,7 +8560,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -206, y: -163}
+  m_AnchoredPosition: {x: -206, y: -152}
   m_SizeDelta: {x: 320, y: 530}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1258909038
@@ -8555,11 +8595,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'NEVER INSERT YOUR PERSONAL
-
-    DATA INTO A SUSPECT SYSTEM OR
-
-    WEBSITE.'
+  m_Text: "BE AWARE ON YOUR MOVEMENT. \nREMAIN VIGILANT AND ADHERE TO\nSECURITY BEST
+    PRACTICES."
 --- !u!222 &1258909039
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10004,18 +10041,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1000025544}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1345375846}
         m_MethodName: Move
@@ -10027,7 +10053,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 1292061288}
         m_MethodName: Move
         m_Mode: 1
@@ -10038,7 +10064,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 1784873905}
         m_MethodName: Move
         m_Mode: 1
@@ -10049,21 +10075,10 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 1112304018}
         m_MethodName: ShowArrows
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 996174239}
-        m_MethodName: Move
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10082,7 +10097,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 1331556798}
         m_MethodName: GoalCompleteLvl3
         m_Mode: 1
@@ -10093,6 +10108,50 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1707663821}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1707663823}
+        m_MethodName: EnableCameraBlur
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1668648564}
+        m_MethodName: Move
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 64863046}
+        m_MethodName: Move
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   loseLevelEvent:
     m_PersistentCalls:
@@ -10131,7 +10190,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1345375845
 GameObject:
@@ -10681,7 +10740,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -208, y: -153}
+  m_AnchoredPosition: {x: -208, y: -131}
   m_SizeDelta: {x: 320, y: 530}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1474259033
@@ -10716,14 +10775,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'IF THE PERSON FALLS FOR IT
+  m_Text: 'REMEMBER THA ATTACKER IS
 
-    AND LOGS IN, THE SCAMMER COULD
+    TRYING TO MANIPULATE YOUR
 
-    USE
-    THE INFORMATION THAT THE
-
-    VICTIM TYPED INTO THE FORM.'
+    EMOTIONS
+    TO STEAL INFORMATION'
 --- !u!222 &1474259034
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11729,7 +11786,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1667782597
 GameObject:
@@ -12104,12 +12161,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: UnlockInput
-        m_Mode: 1
+      - m_Target: {fileID: 1299210126}
+        m_MethodName: PlayOneShot
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 03da95412f52fbc40aeba6acab018e30,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -12177,7 +12235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1707663822
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12215,7 +12273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blurProf: {fileID: 11400000, guid: 8b60b883fe641d249b8337e845aa8c53, type: 2}
   normalProf: {fileID: 11400000, guid: 30aeea30e53134f40ab5aa64e281b239, type: 2}
-  postProcessVolume: {fileID: 0}
+  postProcessVolume: {fileID: 313715604}
 --- !u!114 &1707663824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12507,7 +12565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -208, y: -161}
+  m_AnchoredPosition: {x: -208, y: -150}
   m_SizeDelta: {x: 320, y: 530}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1766912885
@@ -12542,11 +12600,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'NEVER INSERT YOUR PERSONAL
-
-    DATA INTO A SUSPECT SYSTEM OR
-
-    WEBSITE.'
+  m_Text: "BE AWARE ON YOUR MOVEMENT. \nREMAIN VIGILANT AND ADHERE TO\nSECURITY BEST
+    PRACTICES."
 --- !u!222 &1766912886
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12766,6 +12821,21 @@ PrefabInstance:
       propertyPath: coinSource
       value: 
       objectReference: {fileID: 1235216836}
+    - target: {fileID: 893211533875628610, guid: f4907322d3ab40646a0651d5991761a2,
+        type: 3}
+      propertyPath: cyberSecurityTips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 893211533875628610, guid: f4907322d3ab40646a0651d5991761a2,
+        type: 3}
+      propertyPath: cyberSecurityTips.Array.data[0]
+      value: 
+      objectReference: {fileID: 360486819}
+    - target: {fileID: 893211533875628610, guid: f4907322d3ab40646a0651d5991761a2,
+        type: 3}
+      propertyPath: cyberSecurityTips.Array.data[1]
+      value: 
+      objectReference: {fileID: 2015944523}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4907322d3ab40646a0651d5991761a2, type: 3}
 --- !u!4 &1789189252 stripped
@@ -13091,12 +13161,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'DON''T CLICK UNFAMILIAR LINKS OR
+  m_Text: 'BE AWARE OF WHO IS FOLLOWING
 
-    DOWNLOADS. DON''T GIVE OUT
+    YOU AND FOR WHOM YOU ARE
 
-    PERSONAL
-    INFORMATION.'
+    OPENING
+    FOR OFF-LIMITS AREA.'
 --- !u!222 &1808430317
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14057,7 +14127,7 @@ Transform:
   - {fileID: 1295594100}
   - {fileID: 1131866376}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: -67.00001, y: -100, z: 0}
 --- !u!1 &1983534524
 GameObject:
@@ -14152,7 +14222,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0d1d984f1e400404daf45ba4b0e8c710, type: 3}
-    m_FontSize: 30
+    m_FontSize: 29
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
@@ -14163,7 +14233,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: HOW TO PREVENT SPOOFING
+  m_Text: DON'T FOLLOW SUSPICIOUS MESSAGES
 --- !u!222 &1987518963
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14558,7 +14628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blurProf: {fileID: 11400000, guid: 8b60b883fe641d249b8337e845aa8c53, type: 2}
   normalProf: {fileID: 11400000, guid: 30aeea30e53134f40ab5aa64e281b239, type: 2}
-  postProcessVolume: {fileID: 0}
+  postProcessVolume: {fileID: 313715604}
 --- !u!114 &2015944526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14723,12 +14793,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: UnlockInput
-        m_Mode: 1
+      - m_Target: {fileID: 1299210126}
+        m_MethodName: PlayOneShot
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 03da95412f52fbc40aeba6acab018e30,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -15014,6 +15085,21 @@ PrefabInstance:
       propertyPath: coinSource
       value: 
       objectReference: {fileID: 1235216836}
+    - target: {fileID: 893211533875628610, guid: f4907322d3ab40646a0651d5991761a2,
+        type: 3}
+      propertyPath: cyberSecurityTips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 893211533875628610, guid: f4907322d3ab40646a0651d5991761a2,
+        type: 3}
+      propertyPath: cyberSecurityTips.Array.data[0]
+      value: 
+      objectReference: {fileID: 360486819}
+    - target: {fileID: 893211533875628610, guid: f4907322d3ab40646a0651d5991761a2,
+        type: 3}
+      propertyPath: cyberSecurityTips.Array.data[1]
+      value: 
+      objectReference: {fileID: 2015944523}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4907322d3ab40646a0651d5991761a2, type: 3}
 --- !u!4 &2062925101 stripped
