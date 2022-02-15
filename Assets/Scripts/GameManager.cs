@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     PlayerManager player;
     PlayerInput p_input;
     ComputerDetector c;
+    TerminalDetector t;
 
     bool hasLevelStarted = false;
     bool isGamePlaying = false;
@@ -331,13 +332,36 @@ public class GameManager : MonoBehaviour
 
     public void GoalCompleteLvl3()
     {
-        if (m_board.StopPlayerOnTerminal())
+        t = Object.FindObjectOfType<TerminalDetector>().GetComponent<TerminalDetector>();
+        
+        if (t.IsSpoofed)
         {
             goalComplete[2].SetActive(true);
         }
         else
         {
             goalComplete[0].SetActive(true);
+        }
+
+        if (AreEnemiesAllDead())
+        {
+            goalComplete[1].SetActive(true);
+        }
+        else
+        {
+            goalComplete[3].SetActive(true);
+        }
+    }
+
+    public void GoalCompleteLvl4()
+    {
+        if (player.countTurn <= 19)
+        {
+            goalComplete[0].SetActive(true);
+        }
+        else
+        {
+            goalComplete[2].SetActive(true);
         }
 
         if (AreEnemiesAllDead())

@@ -6,6 +6,7 @@ public class DetectCollision : MonoBehaviour
 {
     public GameObject pswClue1;
     public GameObject[] padlocks;
+    public GameObject pauseBtn;
     PlayerInput player;
 
     public AudioSource clueSound;
@@ -21,6 +22,7 @@ public class DetectCollision : MonoBehaviour
     {
             if (other.gameObject.name == "Hitman")
             {
+                pauseBtn.SetActive(false);
                 clueSound.PlayOneShot(clueEffect);
                 player.InputEnabled = false;
                 Destroy(gameObject);

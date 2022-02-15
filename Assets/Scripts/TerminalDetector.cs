@@ -26,6 +26,9 @@ public class TerminalDetector : MonoBehaviour
     private string nameFromField;
     private string surnameFromField;
     private string emailFromField;
+    private bool isSpoofed = false;
+
+    public bool IsSpoofed { get => isSpoofed; set => isSpoofed = value; }
 
     private void OnEnable()
     {
@@ -66,6 +69,7 @@ public class TerminalDetector : MonoBehaviour
 
             if (nameFromField.Length > 0 && surnameFromField.Length > 0 && emailFromField.Contains("@"))
             {
+                isSpoofed = true;
                 terminalCanvas.gameObject.SetActive(false);
                 enemiesPatrol[0].GetComponent<Renderer>().enabled = false;
                 enemiesPatrol[1].GetComponent<Renderer>().enabled = false;
