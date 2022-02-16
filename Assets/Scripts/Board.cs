@@ -49,6 +49,7 @@ public class Board : MonoBehaviour
     public GameObject retroCamera;
     public GameObject lateralCam;
     public GameObject cameraFirstRoom;
+    public GameObject pauseBtn;
     public Light[] pointLight;
 
     bool keySpawned = false;
@@ -340,6 +341,7 @@ public class Board : MonoBehaviour
 
             if ((FindNodeAt(m_player.transform.position + spacingZ).isDoorNode || FindNodeAt(m_player.transform.position + spacingX).isDoorNode) && m_player.isMoving == false)
             {
+                pauseBtn.SetActive(false);
                 // Debug.Log(n.ToString());
                 insertPsw.gameObject.SetActive(true);
                 //Debug.Log("HAI DAVANTI UNA PORTA!");
@@ -348,6 +350,7 @@ public class Board : MonoBehaviour
                 {
                     if (pswFromField == password[n])
                     {
+                        pauseBtn.SetActive(true);
                         doorOpen = true;
                         insertPsw.gameObject.SetActive(false);
                         return true;
@@ -364,6 +367,7 @@ public class Board : MonoBehaviour
             }
             else
             {
+                pauseBtn.SetActive(true);
                 insertPsw.gameObject.SetActive(false);
                 //Debug.Log("VIA LIBERA");
                 return false;
@@ -385,12 +389,14 @@ public class Board : MonoBehaviour
             // Check if the player is in front of the ComputerNode
             if (FindNodeAt(m_player.transform.position + oneSpaceX).isComputerNode && m_player.isMoving == false)
             {
+                pauseBtn.SetActive(false);
                 // If it happens, InsertCredentials Canvas spawn
                 insertPsw.gameObject.SetActive(true);
                 return true;
             }
             else
             {
+                pauseBtn.SetActive(true);
                 insertPsw.gameObject.SetActive(false);
                 return false;
             }
@@ -411,11 +417,13 @@ public class Board : MonoBehaviour
             // Check if the player is in front of the TerminalNode
             if (FindNodeAt(m_player.transform.position - distanceFromNode).isTerminalNode && m_player.isMoving == false)
             {
+                pauseBtn.SetActive(false);
                 terminalCanvas.gameObject.SetActive(true);
                 return true;
             }
             else
             {
+                pauseBtn.SetActive(true);
                 terminalCanvas.gameObject.SetActive(false);
                 return false;
             }

@@ -16669,6 +16669,7 @@ MonoBehaviour:
   retroCamera: {fileID: 524903575}
   lateralCam: {fileID: 0}
   cameraFirstRoom: {fileID: 0}
+  pauseBtn: {fileID: 1248209609}
   pointLight: []
   drawGoalEaseType: 16
   capturePosition:

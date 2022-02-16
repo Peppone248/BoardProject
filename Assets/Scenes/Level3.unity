@@ -10083,6 +10083,11 @@ PrefabInstance:
       objectReference: {fileID: 1749734561}
     - target: {fileID: -7487489885854415321, guid: 67d4d8d5992a5404fbdc95df5616c0ce,
         type: 3}
+      propertyPath: pauseBtn
+      value: 
+      objectReference: {fileID: 834789116}
+    - target: {fileID: -7487489885854415321, guid: 67d4d8d5992a5404fbdc95df5616c0ce,
+        type: 3}
       propertyPath: nameTyped
       value: 
       objectReference: {fileID: 1185517747}
@@ -13390,6 +13395,7 @@ MonoBehaviour:
   retroCamera: {fileID: 42239200}
   lateralCam: {fileID: 0}
   cameraFirstRoom: {fileID: 0}
+  pauseBtn: {fileID: 834789116}
   pointLight: []
   drawGoalEaseType: 16
   capturePosition:

@@ -19,6 +19,7 @@ public class TerminalDetector : MonoBehaviour
     public GameObject[] hitmanEnemyPatrol;
     public GameObject[] listOfUIelementsToDeactivate;
     public GameObject[] listOfUIelementsToActivate;
+    public GameObject pauseBtn;
 
     public AudioSource alarmSource;
     public AudioClip alarmEffect;
@@ -69,6 +70,7 @@ public class TerminalDetector : MonoBehaviour
 
             if (nameFromField.Length > 0 && surnameFromField.Length > 0 && emailFromField.Contains("@"))
             {
+                pauseBtn.SetActive(true);
                 isSpoofed = true;
                 terminalCanvas.gameObject.SetActive(false);
                 enemiesPatrol[0].GetComponent<Renderer>().enabled = false;
