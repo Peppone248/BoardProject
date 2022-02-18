@@ -14047,8 +14047,8 @@ MonoBehaviour:
   iTweenDelay: 0
   easeType: 11
   moveTime: 0.5
-  deathEffect: {fileID: 0}
-  deathSource: {fileID: 0}
+  deathEffect: {fileID: 8300000, guid: 03c07ead0ece8cb43a7579937e761443, type: 3}
+  deathSource: {fileID: 1430481070}
 --- !u!114 &1687890020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14121,8 +14121,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  movementEffect: {fileID: 0}
-  pawnEffect: {fileID: 0}
+  movementEffect: {fileID: 460582142}
+  pawnEffect: {fileID: 8300000, guid: cd513eb09f67fcf4589c8989d52ef9fb, type: 3}
   directionToMove: {x: 0, y: 0, z: 2}
   movementType: 2
   standTime: 1
@@ -14245,12 +14245,12 @@ PrefabInstance:
         type: 3}
       propertyPath: pawnEffect
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: cd513eb09f67fcf4589c8989d52ef9fb, type: 3}
     - target: {fileID: 8270567459387002707, guid: 406476e8bebd85c4e80576415359c293,
         type: 3}
       propertyPath: movementEffect
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 460582142}
     - target: {fileID: 8452214395163912404, guid: 406476e8bebd85c4e80576415359c293,
         type: 3}
       propertyPath: m_RootOrder

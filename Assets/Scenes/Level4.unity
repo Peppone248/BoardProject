@@ -6884,6 +6884,16 @@ PrefabInstance:
       objectReference: {fileID: 251362744}
     - target: {fileID: 9178028885020551780, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
+      propertyPath: pawnEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: cd513eb09f67fcf4589c8989d52ef9fb, type: 3}
+    - target: {fileID: 9178028885020551780, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: movementEffect
+      value: 
+      objectReference: {fileID: 1315621754}
+    - target: {fileID: 9178028885020551780, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
       propertyPath: finishMovementEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -9609,6 +9619,16 @@ PrefabInstance:
       propertyPath: enemyP
       value: 
       objectReference: {fileID: 49887670}
+    - target: {fileID: 9178028885020551780, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: pawnEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: cd513eb09f67fcf4589c8989d52ef9fb, type: 3}
+    - target: {fileID: 9178028885020551780, guid: a463083b5e1e61941987eecba10f4c54,
+        type: 3}
+      propertyPath: movementEffect
+      value: 
+      objectReference: {fileID: 1315621754}
     - target: {fileID: 9178028885020551780, guid: a463083b5e1e61941987eecba10f4c54,
         type: 3}
       propertyPath: finishMovementEvent.m_PersistentCalls.m_Calls.Array.size
@@ -15552,6 +15572,16 @@ PrefabInstance:
       propertyPath: deathSource
       value: 
       objectReference: {fileID: 576258321}
+    - target: {fileID: 8270567459387002707, guid: 406476e8bebd85c4e80576415359c293,
+        type: 3}
+      propertyPath: pawnEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: cd513eb09f67fcf4589c8989d52ef9fb, type: 3}
+    - target: {fileID: 8270567459387002707, guid: 406476e8bebd85c4e80576415359c293,
+        type: 3}
+      propertyPath: movementEffect
+      value: 
+      objectReference: {fileID: 1315621754}
     - target: {fileID: 8452214395163912404, guid: 406476e8bebd85c4e80576415359c293,
         type: 3}
       propertyPath: m_RootOrder
