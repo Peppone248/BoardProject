@@ -44,7 +44,7 @@ public class SpinBitcoin : MonoBehaviour
 
             if (score == 2)
             {
-                Debug.Log("Entro nel ramo");
+                Debug.Log(n.ToString());
                 cyberSecurityTips[n].SetActive(true);
                 player.InputEnabled = false;
             }

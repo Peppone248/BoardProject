@@ -382,7 +382,7 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         // Da cambiare con "Application.Quit()" quando il gioco verrà completato
-        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
     }
 
     public void PauseButton()
