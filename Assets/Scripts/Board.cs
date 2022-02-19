@@ -235,7 +235,7 @@ public class Board : MonoBehaviour
     {
         Vector3 centerDoor = new Vector3(-0.5f, 0f, 0f);
         Vector3 computerPosition = new Vector3(0f, 0.7f, 0f);
-        Vector3 terminalPos = new Vector3(0.15f, 1.3f, 0f);
+        Vector3 terminalPos = new Vector3(0.15f, 1.2f, 0f);
         Vector3 metalDoorPos = new Vector3(0.003f, 0f, 0.38f);
         Vector3 doubleDoorPos = new Vector3(0f, 1.45f, 0f);
         
@@ -410,7 +410,7 @@ public class Board : MonoBehaviour
 
     public bool StopPlayerOnTerminal()
     {
-        Vector3 distanceFromNode = new Vector3(2f, 0f, 0f);
+        Vector3 distanceFromNode = new Vector3(1f, 0f, 0f);
 
         try
         {
@@ -427,6 +427,7 @@ public class Board : MonoBehaviour
                 terminalCanvas.gameObject.SetActive(false);
                 return false;
             }
+            
         }
         catch
         {
