@@ -189,7 +189,10 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (nameCurrentScene.Equals("Level4"))
+            SceneManager.LoadScene("Level0");
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public bool IsWinner()
