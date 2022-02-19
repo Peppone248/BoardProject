@@ -36,7 +36,7 @@ public class UITextTypeWriter : MonoBehaviour
         foreach (char c in story)
         {
             txt.text += c;
-            yield return new WaitForSeconds(0.03f);
+            yield return new WaitForSeconds(0.035f);
         }
     }
 
