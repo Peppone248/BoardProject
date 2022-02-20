@@ -94,7 +94,9 @@ public class TerminalDetector : MonoBehaviour
                     listOfUIelementsToActivate[j].SetActive(true);
                 }
 
+                alarmSource.volume = 0.09f;
                 alarmSource.PlayOneShot(alarmEffect);
+                
                 Debug.Log("name:" + nameFromField);
                 Debug.Log("surname:" + surnameFromField);
                 Debug.Log("email:" + emailFromField);

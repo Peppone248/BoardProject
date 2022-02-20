@@ -51,6 +51,7 @@ public class Board : MonoBehaviour
     public GameObject cameraFirstRoom;
     public GameObject pauseBtn;
     public Light[] pointLight;
+    TerminalDetector t;
 
     bool keySpawned = false;
     bool jacketSpawned = false;
@@ -417,7 +418,11 @@ public class Board : MonoBehaviour
             // Check if the player is in front of the TerminalNode
             if (FindNodeAt(m_player.transform.position - distanceFromNode).isTerminalNode && m_player.isMoving == false)
             {
-                pauseBtn.SetActive(false);
+                t = Object.FindObjectOfType<TerminalDetector>().GetComponent<TerminalDetector>();
+                if (!t.IsSpoofed)
+                {
+                    pauseBtn.SetActive(false);
+                }
                 terminalCanvas.gameObject.SetActive(true);
                 return true;
             }

@@ -35,7 +35,7 @@ public class SpinBitcoin : MonoBehaviour
     {
         if (other.gameObject.name == "Hitman")
         {
-            n = Random.Range(0,1);
+            n = Random.Range(0, 2);
             PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + 1);
             PlayerPrefs.Save();
             score = PlayerPrefs.GetInt("Score");

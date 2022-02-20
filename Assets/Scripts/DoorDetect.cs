@@ -6,7 +6,6 @@ public class DoorDetect : MonoBehaviour
 {
     Board m_board;
     public int speed=50;
-    public AudioClip openDoorEffect;
 
     private void Awake()
     {
@@ -24,7 +23,6 @@ public class DoorDetect : MonoBehaviour
     {
         if (m_board.StopPlayerOnDoor())
         {
-            AudioSource.PlayClipAtPoint(openDoorEffect, transform.position);
             iTween.RotateTo(gameObject, iTween.Hash(
             "y", -90,
             "time", 0.7f,
