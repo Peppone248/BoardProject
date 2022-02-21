@@ -317,8 +317,8 @@ public class GameManager : MonoBehaviour
     public void GoalCompletedLvl2()
     {
         c = Object.FindObjectOfType<ComputerDetector>().GetComponent<ComputerDetector>();
-        
-        if (c.AttemptsCred==0)
+
+        if (GameObject.Find("Computer Monitor OLD").GetComponent<ComputerDetector>().AttemptsCred==0)
         {
             goalComplete[0].SetActive(true);
         }
