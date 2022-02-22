@@ -15273,7 +15273,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Every THREE coins gained you\nwill receive a useful \ncybersecurity tip"
+  m_Text: "Every TWO coins gained you\nwill receive a useful \ncybersecurity tip"
 --- !u!222 &1653989026
 CanvasRenderer:
   m_ObjectHideFlags: 0
