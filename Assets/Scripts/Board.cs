@@ -50,6 +50,8 @@ public class Board : MonoBehaviour
     public GameObject lateralCam;
     public GameObject cameraFirstRoom;
     public GameObject pauseBtn;
+    public GameObject cluePadlock;
+
     public Light[] pointLight;
     TerminalDetector t;
 
@@ -93,7 +95,10 @@ public class Board : MonoBehaviour
     public string pswFromField;
     public string usernameFromField;
     public string emailFromField;
-    private string[] password = {"1243", "1423", "2143", "2413", "4123", "4213"};
+    private string[] password3 = {"1243", "1423", "2143", "2413", "4123", "4213"};
+    private string[] password1 = { "4231", "4321", "3421", "3241", "2341", "2431" };
+    private string[] password2 = { "1342", "1432", "3142", "3412", "4312", "4132" };
+    private string[] password4 = { "1234", "3124", "1324", "2134", "2314", "3214" };
     int n;
 
     private void Start()
@@ -349,19 +354,76 @@ public class Board : MonoBehaviour
                 pswFromField = passwordText.text;
                 if (pswFromField.Length == 4)
                 {
-                    if (pswFromField == password[n])
+                    if (Object.FindObjectOfType<DetectCollision>().GetComponent<DetectCollision>().RandomClueIndex == 0)
                     {
-                        pauseBtn.SetActive(true);
-                        doorOpen = true;
-                        insertPsw.gameObject.SetActive(false);
-                        return true;
-                        //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
+                        if (pswFromField == password1[n])
+                        {
+                            pauseBtn.SetActive(true);
+                            doorOpen = true;
+                            insertPsw.gameObject.SetActive(false);
+                            return true;
+                            //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
+                        }
+                        else
+                        {
+                            errorSource.PlayOneShot(errorEffect);
+                            passwordText.text = "";
+                            return false;
+                        }
                     }
-                    else
+
+                    if (Object.FindObjectOfType<DetectCollision>().GetComponent<DetectCollision>().RandomClueIndex == 1)
                     {
-                        errorSource.PlayOneShot(errorEffect);
-                        passwordText.text = "";
-                        return false;
+                        if (pswFromField == password2[n])
+                        {
+                            pauseBtn.SetActive(true);
+                            doorOpen = true;
+                            insertPsw.gameObject.SetActive(false);
+                            return true;
+                            //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
+                        }
+                        else
+                        {
+                            errorSource.PlayOneShot(errorEffect);
+                            passwordText.text = "";
+                            return false;
+                        }
+                    }
+                    
+                    if (Object.FindObjectOfType<DetectCollision>().GetComponent<DetectCollision>().RandomClueIndex == 2)
+                    {
+                        if (pswFromField == password3[n])
+                        {
+                            pauseBtn.SetActive(true);
+                            doorOpen = true;
+                            insertPsw.gameObject.SetActive(false);
+                            return true;
+                            //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
+                        }
+                        else
+                        {
+                            errorSource.PlayOneShot(errorEffect);
+                            passwordText.text = "";
+                            return false;
+                        }
+                    }
+
+                    if (Object.FindObjectOfType<DetectCollision>().GetComponent<DetectCollision>().RandomClueIndex == 3)
+                    {
+                        if (pswFromField == password4[n])
+                        {
+                            pauseBtn.SetActive(true);
+                            doorOpen = true;
+                            insertPsw.gameObject.SetActive(false);
+                            return true;
+                            //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
+                        }
+                        else
+                        {
+                            errorSource.PlayOneShot(errorEffect);
+                            passwordText.text = "";
+                            return false;
+                        }
                     }
                 }
                 return false;
