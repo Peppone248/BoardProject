@@ -199,7 +199,6 @@ public class GameManager : MonoBehaviour
     {
         if (m_board.PlayerNode != null && m_board.PlayerNode == m_board.GoalNode)
         {
-            Debug.Log("Hai vinto!");
             return true;
         }
         else

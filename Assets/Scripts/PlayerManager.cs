@@ -11,10 +11,14 @@ public class PlayerManager : TurnManager
     public PlayerMover playerMover;
     public PlayerInput playerInput;
     public float countTurn;
+    private bool isDead;
 
     Board m_board;
 
     public UnityEvent deathEvent;
+
+    public bool IsDead { get => isDead; set => isDead = value; }
+
     protected override void Awake()
     {
         base.Awake();
@@ -58,15 +62,15 @@ public class PlayerManager : TurnManager
 
     }
 
-    public bool Die()
+    public void Die()
     {
         if (deathEvent != null)
         {
             deathEvent.Invoke();
-            return true;
+            isDead = true;
         }
         else
-            return false;
+            isDead = false;
     }
 
     private void CaptureEnemies()

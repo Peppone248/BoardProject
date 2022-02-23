@@ -23,9 +23,9 @@ public class SpinBitcoin : MonoBehaviour
 
     private void Update()
     {
-        if (manager.Die())
+        if (manager.IsDead)
         {
-            PlayerPrefs.SetInt("Score", 0);
+            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - 1);
         }
     }
 
@@ -45,9 +45,9 @@ public class SpinBitcoin : MonoBehaviour
         if (other.gameObject.name == "Hitman")
         {
             n = Random.Range(0, 2);
-            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + 1);
+            PlayerPrefs.SetInt("Score", score + 1);
             PlayerPrefs.Save();
-            score = PlayerPrefs.GetInt("Score");
+            //score = PlayerPrefs.GetInt("Score");
             Debug.Log(PlayerPrefs.GetInt("Score").ToString());
             Debug.Log(score);
 
