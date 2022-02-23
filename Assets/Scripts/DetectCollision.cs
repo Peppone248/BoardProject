@@ -41,6 +41,7 @@ public class DetectCollision : MonoBehaviour
                 GameObject.Find("Padlock1").GetComponent<Renderer>().enabled = false;
                 GameObject.Find("SecondGear").GetComponent<Renderer>().enabled = false;
                 GameObject.Find("ThirdGear").GetComponent<Renderer>().enabled = false;
+                padlocks[1].transform.position = new Vector3(6, 0.3f, -1);
             }
                 pswClue1[RandomClueIndex].SetActive(true);
             }
