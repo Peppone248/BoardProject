@@ -299,7 +299,7 @@ public class GameManager : MonoBehaviour
 
     public void GoalCompletedLvl1()
     {
-        if (pswCluesLvl2[0] == null && pswCluesLvl2[1] == null)
+        if (pswCluesLvl2[0] == null && !GameObject.Find("FirstGear").GetComponent<Renderer>().enabled)
         {
             goalComplete[2].SetActive(true);
         }

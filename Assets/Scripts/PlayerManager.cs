@@ -58,12 +58,15 @@ public class PlayerManager : TurnManager
 
     }
 
-    public void Die()
+    public bool Die()
     {
         if (deathEvent != null)
         {
             deathEvent.Invoke();
+            return true;
         }
+        else
+            return false;
     }
 
     private void CaptureEnemies()

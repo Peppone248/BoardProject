@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpinBitcoin : MonoBehaviour
 {
     PlayerInput player;
+    PlayerManager manager;
 
     int score = 0;
     int n;
@@ -17,7 +18,15 @@ public class SpinBitcoin : MonoBehaviour
     public void Awake()
     {
         player = Object.FindObjectOfType<PlayerInput>().GetComponent<PlayerInput>();
+        manager = Object.FindObjectOfType<PlayerManager>().GetComponent<PlayerManager>();
+    }
 
+    private void Update()
+    {
+        if (manager.Die())
+        {
+            PlayerPrefs.SetInt("Score", 0);
+        }
     }
 
     // Start is called before the first frame update
