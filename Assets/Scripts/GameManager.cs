@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] goalComplete;
     public GameObject[] passwordCanvas;
     public GameObject[] pswCluesLvl2;
+    public GameObject[] bitcoin;
     public GameObject pauseMenu;
     public GameObject pauseButton;
 
@@ -149,6 +150,7 @@ public class GameManager : MonoBehaviour
 
         if (loseLevelEvent != null)
         {
+            ManageBitcoinCounter();
             loseLevelEvent.Invoke();
         }
 
@@ -402,5 +404,17 @@ public class GameManager : MonoBehaviour
         pauseButton.SetActive(true);
         p_input.InputEnabled = true;
 
+    }
+
+    public void ManageBitcoinCounter()
+    {
+        if (bitcoin[0] == null && bitcoin[1] == null)
+        {
+            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - 2);
+        }
+        else if (bitcoin[0] == null || bitcoin[1] == null)
+        {
+            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - 1);
+        }
     }
 }

@@ -196,7 +196,6 @@ public class Board : MonoBehaviour
     {
         if(m_player != null && !m_player.isMoving)
         {
-            Debug.Log("Player Node Found");
             return FindNodeAt(m_player.transform.position);
         }
         return null;
@@ -327,7 +326,6 @@ public class Board : MonoBehaviour
     {
         if(m_playerNode != null)
         {
-            Debug.Log("playerNode non esiste");
             m_playerNode.InitNode();
         }
     }
@@ -348,9 +346,7 @@ public class Board : MonoBehaviour
             if ((FindNodeAt(m_player.transform.position + spacingZ).isDoorNode || FindNodeAt(m_player.transform.position + spacingX).isDoorNode) && m_player.isMoving == false)
             {
                 pauseBtn.SetActive(false);
-                // Debug.Log(n.ToString());
                 insertPsw.gameObject.SetActive(true);
-                //Debug.Log("HAI DAVANTI UNA PORTA!");
                 pswFromField = passwordText.text;
                 if (pswFromField.Length == 4)
                 {
@@ -362,7 +358,6 @@ public class Board : MonoBehaviour
                             doorOpen = true;
                             insertPsw.gameObject.SetActive(false);
                             return true;
-                            //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
                         }
                         else
                         {
@@ -380,7 +375,6 @@ public class Board : MonoBehaviour
                             doorOpen = true;
                             insertPsw.gameObject.SetActive(false);
                             return true;
-                            //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
                         }
                         else
                         {
@@ -398,7 +392,6 @@ public class Board : MonoBehaviour
                             doorOpen = true;
                             insertPsw.gameObject.SetActive(false);
                             return true;
-                            //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
                         }
                         else
                         {
@@ -416,7 +409,6 @@ public class Board : MonoBehaviour
                             doorOpen = true;
                             insertPsw.gameObject.SetActive(false);
                             return true;
-                            //doorPrefab.gameObject.transform.rotation = new Quaternion(0f, -90f, 0f, 0f);
                         }
                         else
                         {
@@ -432,13 +424,11 @@ public class Board : MonoBehaviour
             {
                 pauseBtn.SetActive(true);
                 insertPsw.gameObject.SetActive(false);
-                //Debug.Log("VIA LIBERA");
                 return false;
             }
         }
         catch
         {
-            //Debug.Log("No porte in questo livello.");
             return false;
         }
     }

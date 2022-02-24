@@ -84,22 +84,17 @@ public class TerminalDetector : MonoBehaviour
 
                 for (int i = 0; i < listOfUIelementsToDeactivate.Length; i++)
                 {
-                    Debug.Log(i.ToString());
                     listOfUIelementsToDeactivate[i].SetActive(false);
                 }
 
                 for (int j = 0; j < listOfUIelementsToActivate.Length; j++)
                 {
-                    Debug.Log(j.ToString());
                     listOfUIelementsToActivate[j].SetActive(true);
                 }
 
                 alarmSource.volume = 0.09f;
                 alarmSource.PlayOneShot(alarmEffect);
                 
-                Debug.Log("name:" + nameFromField);
-                Debug.Log("surname:" + surnameFromField);
-                Debug.Log("email:" + emailFromField);
                 return true;
             }
             else

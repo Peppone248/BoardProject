@@ -193,7 +193,6 @@ public class Node : MonoBehaviour
         if (Physics.Raycast(transform.position, checkDirection, out raycastHit, Board.spacing + 0.1f,
                             obstacleLayer))
         {
-            //Debug.Log("NODE FindObstacle: Hit an obstacle from " + this.name + " to " + targetNode.name);
             return raycastHit.collider.GetComponent<Obstacle>();
         }
         return null;

@@ -137,7 +137,7 @@ public class KeyPressed : MonoBehaviour
         {
             arrowSpawned = false;
             Destroy(GameObject.Find("Pointer(Clone)"));
-            Instantiate(arrow2, new Vector3(-4f, 2.5f, -2f), Quaternion.identity);
+            Instantiate(arrow2, new Vector3(-4f, 2.5f, 2f), Quaternion.identity);
             iTween.RotateBy(GameObject.Find("Pointer 1(Clone)"), iTween.Hash(
                "y", 360f,
                "looptype", iTween.LoopType.loop,

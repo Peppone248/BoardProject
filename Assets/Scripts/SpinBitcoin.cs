@@ -21,14 +21,6 @@ public class SpinBitcoin : MonoBehaviour
         manager = Object.FindObjectOfType<PlayerManager>().GetComponent<PlayerManager>();
     }
 
-    private void Update()
-    {
-        if (manager.IsDead)
-        {
-            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - 1);
-        }
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +29,6 @@ public class SpinBitcoin : MonoBehaviour
             "looptype", iTween.LoopType.loop,
             "speed", 60f,
             "easetype", iTween.EaseType.linear));
-        Debug.Log(GetScore.ToString());
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,11 +36,9 @@ public class SpinBitcoin : MonoBehaviour
         if (other.gameObject.name == "Hitman")
         {
             n = Random.Range(0, 2);
-            PlayerPrefs.SetInt("Score", score + 1);
+            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + 1);
             PlayerPrefs.Save();
-            //score = PlayerPrefs.GetInt("Score");
-            Debug.Log(PlayerPrefs.GetInt("Score").ToString());
-            Debug.Log(score);
+            score = PlayerPrefs.GetInt("Score");
 
             if (score == 2)
             {

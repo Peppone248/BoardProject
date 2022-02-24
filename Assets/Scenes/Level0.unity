@@ -5023,6 +5023,7 @@ MonoBehaviour:
   lateralCam: {fileID: 0}
   cameraFirstRoom: {fileID: 0}
   pauseBtn: {fileID: 0}
+  cluePadlock: {fileID: 0}
   pointLight: []
   drawGoalEaseType: 16
   capturePosition:
@@ -5451,6 +5452,7 @@ MonoBehaviour:
   - {fileID: 416807935}
   passwordCanvas: []
   pswCluesLvl2: []
+  bitcoin: []
   pauseMenu: {fileID: 1814431792}
   pauseButton: {fileID: 177106579}
   setupEvent:
@@ -20094,7 +20096,7 @@ PrefabInstance:
     - target: {fileID: 860163704704990021, guid: f4907322d3ab40646a0651d5991761a2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 860163704704990021, guid: f4907322d3ab40646a0651d5991761a2,
         type: 3}

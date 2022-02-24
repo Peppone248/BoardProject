@@ -27,7 +27,6 @@ public class DetectCollision : MonoBehaviour
     {
             if (other.gameObject.name == "Hitman")
             {
-                Debug.Log(RandomClueIndex.ToString());
                 pauseBtn.SetActive(false);
                 clueSound.PlayOneShot(clueEffect);
                 player.InputEnabled = false;
