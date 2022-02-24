@@ -67,7 +67,6 @@ public class SpinBitcoin : MonoBehaviour
 
             coinSource.PlayOneShot(coinEffect);
             Destroy(gameObject);
-
         }
     }
 }

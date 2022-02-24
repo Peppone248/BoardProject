@@ -29,7 +29,7 @@ public class DoorDetect : MonoBehaviour
             "speed", speed,
             "easetype", iTween.EaseType.linear
         ));
-        } 
+        }
     }
 
     public void OpenDoorWithKey()

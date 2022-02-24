@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     bool isGamePlaying = false;
     bool isGameOver = false;
     bool hasLevelFinish = false;
+    bool count = false;
     public float delay = 1f;
 
     public GameObject[] goalComplete;
@@ -407,13 +408,15 @@ public class GameManager : MonoBehaviour
     }
 
     public void ManageBitcoinCounter()
-    {
-        if (bitcoin[0] == null && bitcoin[1] == null)
+    {   
+        if (bitcoin[0] == null && bitcoin[1] == null && !count)
         {
+            count = true;
             PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - 2);
         }
-        else if (bitcoin[0] == null || bitcoin[1] == null)
+        else if ((bitcoin[0] == null || bitcoin[1] == null) && !count)
         {
+            count = true;
             PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - 1);
         }
     }
