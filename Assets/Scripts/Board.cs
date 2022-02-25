@@ -343,7 +343,7 @@ public class Board : MonoBehaviour
                 game.LoseLevel();
             }
 
-            if ((FindNodeAt(m_player.transform.position + spacingZ).isDoorNode || FindNodeAt(m_player.transform.position + spacingX).isDoorNode) && m_player.isMoving == false 
+            if ((FindNodeAt(m_player.transform.position + spacingZ).isDoorNode || FindNodeAt(m_player.transform.position + spacingX).isDoorNode) && m_player.isMoving == false
                 && nameCurrentScene.Equals("Level1"))
             {
                 pauseBtn.SetActive(false);
@@ -384,7 +384,7 @@ public class Board : MonoBehaviour
                             return false;
                         }
                     }
-                    
+
                     if (Object.FindObjectOfType<DetectCollision>().GetComponent<DetectCollision>().RandomClueIndex == 2)
                     {
                         if (pswFromField == password3[n])
@@ -421,12 +421,14 @@ public class Board : MonoBehaviour
                 }
                 return false;
             }
-            else
+            else if (nameCurrentScene.Equals("Level1"))
             {
                 pauseBtn.SetActive(true);
                 insertPsw.gameObject.SetActive(false);
                 return false;
             }
+            else
+                return false;
         }
         catch
         {
@@ -476,16 +478,18 @@ public class Board : MonoBehaviour
                 {
                     pauseBtn.SetActive(false);
                 }
-                
+
                 terminalCanvas.gameObject.SetActive(true);
                 return true;
             }
-            else
+            else if (nameCurrentScene.Equals("Level3"))
             {
                 pauseBtn.SetActive(true);
                 terminalCanvas.gameObject.SetActive(false);
                 return false;
             }
+            else
+                return false;
             
         }
         catch
