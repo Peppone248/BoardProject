@@ -31,7 +31,7 @@ public class KeyCardCollision : MonoBehaviour
         }
         catch
         {
-            Debug.Log("Porta aperta.");
+            
         }
         
     }

@@ -409,15 +409,19 @@ public class GameManager : MonoBehaviour
 
     public void ManageBitcoinCounter()
     {   
-        if (bitcoin[0] == null && bitcoin[1] == null && !count)
+        if(nameCurrentScene != "Level0")
         {
-            count = true;
-            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - 2);
+            if (bitcoin[0] == null && bitcoin[1] == null && !count)
+            {
+                count = true;
+                PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - 2);
+            }
+            else if ((bitcoin[0] == null || bitcoin[1] == null) && !count)
+            {
+                count = true;
+                PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - 1);
+            }
         }
-        else if ((bitcoin[0] == null || bitcoin[1] == null) && !count)
-        {
-            count = true;
-            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - 1);
-        }
+ 
     }
 }
