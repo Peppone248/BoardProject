@@ -5458,17 +5458,6 @@ MonoBehaviour:
   setupEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Move
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 809285222}
         m_MethodName: SetActive
         m_Mode: 6
@@ -17563,6 +17552,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 391409670040896548, guid: c64eccfa99a52f940a5b0c99ccabc5c5,
         type: 3}
+      propertyPath: pawnEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: cd513eb09f67fcf4589c8989d52ef9fb, type: 3}
+    - target: {fileID: 391409670040896548, guid: c64eccfa99a52f940a5b0c99ccabc5c5,
+        type: 3}
+      propertyPath: movementEffect
+      value: 
+      objectReference: {fileID: 1077996352}
+    - target: {fileID: 391409670040896548, guid: c64eccfa99a52f940a5b0c99ccabc5c5,
+        type: 3}
       propertyPath: finishMovementEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -17803,6 +17802,16 @@ PrefabInstance:
       propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8270567459387002707, guid: 406476e8bebd85c4e80576415359c293,
+        type: 3}
+      propertyPath: pawnEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: ef3300fbf5bb77a42afd0d48bcbb0356, type: 3}
+    - target: {fileID: 8270567459387002707, guid: 406476e8bebd85c4e80576415359c293,
+        type: 3}
+      propertyPath: movementEffect
+      value: 
+      objectReference: {fileID: 1691608590}
     - target: {fileID: 8270567459387002707, guid: 406476e8bebd85c4e80576415359c293,
         type: 3}
       propertyPath: finishMovementEvent.m_PersistentCalls.m_Calls.Array.size
