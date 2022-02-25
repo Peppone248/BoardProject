@@ -12426,6 +12426,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 391409670040896548, guid: c64eccfa99a52f940a5b0c99ccabc5c5,
+        type: 3}
+      propertyPath: pawnEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: cd513eb09f67fcf4589c8989d52ef9fb, type: 3}
+    - target: {fileID: 391409670040896548, guid: c64eccfa99a52f940a5b0c99ccabc5c5,
+        type: 3}
+      propertyPath: movementEffect
+      value: 
+      objectReference: {fileID: 1946837372}
     - target: {fileID: 391409670040896551, guid: c64eccfa99a52f940a5b0c99ccabc5c5,
         type: 3}
       propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.size
@@ -14107,6 +14117,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 391409670040896548, guid: c64eccfa99a52f940a5b0c99ccabc5c5,
+        type: 3}
+      propertyPath: pawnEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: cd513eb09f67fcf4589c8989d52ef9fb, type: 3}
+    - target: {fileID: 391409670040896548, guid: c64eccfa99a52f940a5b0c99ccabc5c5,
+        type: 3}
+      propertyPath: movementEffect
+      value: 
+      objectReference: {fileID: 1946837372}
     - target: {fileID: 391409670040896551, guid: c64eccfa99a52f940a5b0c99ccabc5c5,
         type: 3}
       propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.size
