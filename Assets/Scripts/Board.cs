@@ -343,7 +343,8 @@ public class Board : MonoBehaviour
                 game.LoseLevel();
             }
 
-            if ((FindNodeAt(m_player.transform.position + spacingZ).isDoorNode || FindNodeAt(m_player.transform.position + spacingX).isDoorNode) && m_player.isMoving == false)
+            if ((FindNodeAt(m_player.transform.position + spacingZ).isDoorNode || FindNodeAt(m_player.transform.position + spacingX).isDoorNode) && m_player.isMoving == false 
+                && nameCurrentScene.Equals("Level1"))
             {
                 pauseBtn.SetActive(false);
                 insertPsw.gameObject.SetActive(true);
@@ -475,6 +476,7 @@ public class Board : MonoBehaviour
                 {
                     pauseBtn.SetActive(false);
                 }
+                
                 terminalCanvas.gameObject.SetActive(true);
                 return true;
             }
